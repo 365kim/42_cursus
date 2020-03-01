@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:58:24 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 22:02:19 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/01 13:57:25 by mihykim           #+#    #+#             */
+/*   Updated: 2020/03/01 23:55:51 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the integer 'n' to the given file descriptor.
+** - Allocates (with malloc) and returns a new element
+** - The variable 'content' is initialized with the value of 'content'
+** - The variable 'next' is initialized to Null
 */
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstnew(void	*content)
 {
-	if (n == -2147483648)
-	{
-		ft_putnbr_fd(-214748364, fd);
-		ft_putchar_fd('8', fd);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else
-	{
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-}
+	t_list *new;
 
-/*
-** line ?? : to solve Seg-falut
-*/
+	new = (t_list *)malloc(sizeof(t_list *));
+	if (new == 0)
+		return (0);
+	new->content = content;
+	new->next = 0;
+	return (new);
+}

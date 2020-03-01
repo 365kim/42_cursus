@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 08:43:40 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 10:29:12 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/01 01:11:40 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,61 +19,64 @@
 ** - Returns the array of new strings, or NULL if the allocation fails.
 */
 
-size_t	ft_strnum(char const *s, char c)
+size_t	ft_strnum(char *s, char c)
 {
 	size_t	i;
-	size_t	cnt;
+	size_t	num;
 
-	cnt = 0;
+	num = 0;
 	i = 0;
 	while (s[i])
 	{
-		if ((s[i + 1] == c || s[i + 1] == '\0') && s[i] != c)
-			cnt++;
-		i++;
+		if (s[i] != c)
+		{
+			while (s[i] != c && s[i])
+				i++;
+			num++;
+		}
+		else
+			i++;
 	}
-	return (cnt);
+	return (num);
 }
 
-void	ft_strcpy(char **res, char const *s, char c, size_t _s)
+void	str_malloc_copy(char *s, char c, size_t num, char **res)
 {
-	size_t	len;
+	size_t	x;
 	size_t	i;
-	char	*init;
-	char	*end;
+	size_t	len;
 
 	i = 0;
-	init = (char *)s;
-	while(s[i])
+	x = 0;
+	while (s[i] && x < num)
 	{
-		end = (char *)ft_memchr(s, c, _s - i);
-		if (end == 0)
-			end = (char *)ft_memchr(s, '\0', _s - i);
-		len = end - init;
-		if (len && s[len - 1] != c)
+		len = 0;
+		if (s[i] != c)
 		{
-			res[i] = (char *)malloc(sizeof(char) * (len + 1));
-			if (res[i] == 0)
+			while (s[i + len] != c && s[i + len])
+				len++;
+			res[x] = ft_calloc(sizeof(char), len + 1);
+			if (res[x] == 0)
 				return ;
-			ft_memcpy(res[i], end, len);
-			res[i][len] = 0;
+			ft_strlcpy(res[x], s + i, len + 1);
+			x++;
 		}
-		i += len + 1;
+		i += 1 + len;
 	}
-	res[i] = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
+	size_t	num;
 	char	**res;
-	size_t	_s;
 
 	if (s == 0)
 		return (0);
-	res = (char **)malloc(sizeof(char *) * (ft_strnum(s, c) + 1));
+	num = ft_strnum((char *)s, c);
+	res = ft_calloc(sizeof(char *), num + 1);
 	if (res == 0)
 		return (0);
-	_s = ft_strlen(s);
-	ft_strcpy(res, s, c, _s);
+	res[num] = 0;
+	str_malloc_copy((char *)s, c, num, res);
 	return (res);
 }

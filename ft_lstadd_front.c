@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:58:24 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 22:02:19 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/01 14:18:40 by mihykim           #+#    #+#             */
+/*   Updated: 2020/03/02 01:10:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Outputs the integer 'n' to the given file descriptor.
+** - Adds the element 'new' at the beginning of the list 
 */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (n == -2147483648)
-	{
-		ft_putnbr_fd(-214748364, fd);
-		ft_putchar_fd('8', fd);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else
-	{
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
+	if (lst == 0 || new == 0)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
-
-/*
-** line ?? : to solve Seg-falut
-*/
