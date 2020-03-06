@@ -6,11 +6,12 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/05 16:20:13 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/07 00:24:30 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "stdio.h"
 
 /*
 ** - Reads the text available on a file descriptor, one line without newline.
@@ -39,17 +40,22 @@ void	handle_line(char **line, char **note)
 	char	*tmp_join;
 
 	i = newline_is_here(*note);
-	if (i > 0)
+	if (i >= 0)
 	{
-		*line = ft_substr(*note, 0, i); //ㄱㅐ행까지 라인에다가 복사
-		tmp_join = ft_strdup(&((*note)[i + 1])); //개행 다음부터 통째로 복사
+		*line = ft_substr(*note, 0, i);
+		tmp_join = ft_strdup(&((*note)[i + 1]));
+//		free(*note);
+		printf("%s\n", *note);
 		*note = tmp_join;
-		free(tmp_join);
+//		free(tmp_join);
 	}
 	else
 	{
+		printf("handle line 1\n");
 		*line = ft_strdup(*note);
-		free(*note);
+		printf("handle line 2\n");
+//		free(*note);
+		printf("handle line 3\n");
 	}
 }
 
@@ -58,11 +64,7 @@ int		get_return_value(int fd, char **line, int read_byte, char **note)
 	if (read_byte < 0)
 		return (ERROR);
 	else if (read_byte == 0)
-	{
-		*line = ft_strdup(*note);
-		free(*note);
 		return (EoF);
-	}
 	else
 	{
 		handle_line(line, &note[fd]);
@@ -82,12 +84,12 @@ int		get_next_line(int fd, char **line)
 	while ((read_byte = read(fd, buff, BUFFER)) > 0)
 	{
 		buff[read_byte] = 0;
-		if (note[fd] == 0) // fd = 3에서 처음 쓰는 거라면
+		if (note[fd] == 0)
 			note[fd] = ft_strdup(buff);
-		else /// 이미 fd = 3에서 읽어서 note[fd]에 저장한 내용이 있으면
+		else
 		{
 			tmp_join = ft_strjoin(note[fd], buff);
-			free(note[fd]);
+//			free(note[fd]);
 			note[fd] = tmp_join;
 		}
 		if (newline_is_here(note[fd]) >= 0)

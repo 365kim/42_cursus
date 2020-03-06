@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <stddef.h>
 
-# define BUFFER_SIZE 10
 # define BUFFER BUFFER_SIZE
 
 # define FD_MAX 4096
