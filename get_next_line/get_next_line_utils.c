@@ -6,11 +6,12 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:06:58 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/05 15:57:22 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/07 00:33:22 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 
 size_t	ft_strlen(char *s)
 {

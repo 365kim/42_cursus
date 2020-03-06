@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/07 00:24:30 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/07 00:33:53 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stdio.h"
 
 /*
-** - Reads the text available on a file descriptor, one line without newline.
+** - Reads the text available on a file descriptor, one line without NEWLINE.
 ** - Do not read whole file and then process each line.
 ** - File reading must be done only once.
 ** - Should try to read as little as possible each time get_next_line is called.
