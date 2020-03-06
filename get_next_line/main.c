@@ -7,14 +7,19 @@ int		main(void)
 	char	*line = 0;
 	int		ret;
 	int		fd;
+	int		i;
+
+	i = 1;
 	fd = open("test", O_RDONLY);
+//	fd = 0;
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
-		printf("%s\n", line);
+		printf("get_next_line[%d] : %s\n", i++, line);
+		printf("return value : %d\n", ret);
 		free(line);
 	}
-	printf("%s\n", line);
+	printf("get_next_line[%d] : %s\n", i, line);
+	printf("return value : %d\n", ret);
 	free(line);
-	printf("return value : %d", ret);
 	return (0);
 }
