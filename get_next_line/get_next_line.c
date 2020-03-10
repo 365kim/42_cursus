@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/07 03:11:32 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 06:05:08 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,66 +20,50 @@
 ** - Should try to read as little as possible each time get_next_line is called.
 */
 
-static int		newline_is_here(char *s)
+static int		handle_line(char **line, char **note, char *nl_here)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == '\n')
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-static int		handle_line(char **line, char **note)
-{
-	int		i;
 	char	*tmp;
 
-	i = newline_is_here(*note);
-	if (i >= 0)
+	if (nl_here != NULL)
 	{
-		*line = ft_substr(*note, 0, i);
-		tmp = ft_strdup(&((*note)[i + 1]));
+		*line = ft_strndup(*note, nl_here - *note);
+		tmp = ft_strndup(nl_here + 1, ft_strlen(nl_here + 1));
 		free(*note);
 		*note = tmp;
 		return (NL);
 	}
-	else
+	if (*note != 0)
 	{
-		*line = ft_strdup(*note);
-		free(*note);
-		return (_EOF);
+		*line = *note;
+		*note = 0;
 	}
-}
-
-static int		get_return_value(int fd, char **line, int read_byte, char **note)
-{
-	if (read_byte < 0)
-		return (ERROR);
-	return (handle_line(line, &note[fd]));
+	else
+		*line = ft_strndup("", 1);
+	return (_EOF);
 }
 
 int		get_next_line(int fd, char **line)
 {
-	static char	*note[FD_MAX];
+	static char	*note[OPEN_MAX];
 	static char	buff[BUFFER + 1];
-	int			read_byte;
-	char		*tmp_join;
+	int			byte;
+	char		*tmp;
+	char		*nl_here;;
 
 	if (fd < 0 || line == NULL || BUFFER <= 0)
 		return (ERROR);
-	while ((read_byte = read(fd, buff, BUFFER)) > 0)
+	nl_here = NULL;
+	while ((byte = read(fd, buff, BUFFER)) > 0)
 	{
-		buff[read_byte] = 0;
-		tmp_join = ft_strjoin(note[fd] == NULL ? "" : note[fd], buff);
-		free(note[fd]);
-		note[fd] = tmp_join;
-		if (newline_is_here(note[fd]) >= 0)
+		buff[byte] = 0;
+		tmp = note[fd] == 0 ? ft_strndup(buff, byte) : ft_strjoin(note[fd], buff);
+		if(note[fd] != 0)
+			free(note[fd]);
+		note[fd] = tmp;
+		if ((nl_here = ft_strchr(note[fd], '\n')) != 0)
 			break;
 	}
-	return (get_return_value(fd, line, read_byte, note));
+	if (byte < 0)
+		return (ERROR);
+	return (handle_line(line, &note[fd], nl_here));
 }

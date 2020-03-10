@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stddef.h>
+#include <limits.h>
 
 # define BUFFER BUFFER_SIZE
 
-# define FD_MAX 4096
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+#endif
 
 # define NL 1
 # define _EOF 0
@@ -15,10 +18,10 @@
 
 int		get_next_line(int fd, char **line);
 
+char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *c);
-void	*ft_memcpy(void	*dst, void *stc, size_t n);
-char	*ft_strdup(char *s1);
+char	*ft_strcpy(char	*dst, char *stc, size_t n);
+char	*ft_strndup(char *s1, size_t size);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char *s, unsigned int start, size_t len);
 
 #endif
