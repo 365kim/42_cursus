@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 18:52:33 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 20:30:33 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "stdio.h"
 
 /*
 ** - Reads the text available on a file descriptor, one line without newline.
@@ -38,9 +37,7 @@ static int		handle_line(char **line, char **note, char *nl_here)
 		*note = NULL;
 	}
 	else
-	{
 		*line = ft_strndup("", 1);
-	}
 	return (_EOF);
 }
 
