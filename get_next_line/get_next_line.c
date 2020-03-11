@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 16:03:17 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 18:52:33 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ static int		handle_line(char **line, char **note, char *nl_here)
 		*note = tmp;
 		return (NL);
 	}
-	if (*note != 0)
+	if (*note != NULL)
 	{
 		*line = *note;
-		*note = 0;
+		*note = NULL;
 	}
 	else
+	{
 		*line = ft_strndup("", 1);
+	}
 	return (_EOF);
 }
 
@@ -48,20 +50,18 @@ int		get_next_line(int fd, char **line)
 	static char	buff[BUFFER_SIZE + 1];
 	int			byte;
 	char		*tmp;
-	char		*nl_here;;
+	char		*nl_here;
 
 	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0)
 		return (ERROR);
-	nl_here = NULL;
-	while ((byte = read(fd, buff, BUFFER_SIZE)) > 0)
+	while ((nl_here = ft_strchr(note[fd], '\n')) == 0
+			&& (byte = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[byte] = 0;
-		tmp = note[fd] == 0 ? ft_strndup(buff, byte) : ft_strjoin(note[fd], buff);
+		tmp = note[fd] == NULL ? ft_strndup(buff, byte) : ft_strjoin(note[fd], buff);
 		if(note[fd] != 0)
 			free(note[fd]);
 		note[fd] = tmp;
-		if ((nl_here = ft_strchr(note[fd], '\n')) != 0)
-			break;
 	}
 	if (byte < 0)
 		return (ERROR);

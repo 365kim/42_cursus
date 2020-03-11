@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:06:58 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 05:42:56 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 18:56:34 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ char	*ft_strchr(char *s, int c)
 {
 	size_t i;
 
+	if (s == 0)
+		return (0);
 	i = 0;
 	if (c == 0)
 		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
-		if (s[i] == (char)c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)s + i);
 		i++;
 	}
