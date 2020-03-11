@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 13:18:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 18:32:17 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 19:20:19 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	size_t i;
 
+	if (s == 0)
+		return (0);
 	i = 0;
 	if (c == 0)
 		return ((char *)s + ft_strlen(s));
