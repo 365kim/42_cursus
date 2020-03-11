@@ -6,8 +6,6 @@
 #include <stddef.h>
 #include <limits.h>
 
-# define BUFFER BUFFER_SIZE
-
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 10
 #endif

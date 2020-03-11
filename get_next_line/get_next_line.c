@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 06:05:08 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/11 16:03:17 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ static int		handle_line(char **line, char **note, char *nl_here)
 int		get_next_line(int fd, char **line)
 {
 	static char	*note[OPEN_MAX];
-	static char	buff[BUFFER + 1];
+	static char	buff[BUFFER_SIZE + 1];
 	int			byte;
 	char		*tmp;
 	char		*nl_here;;
 
-	if (fd < 0 || line == NULL || BUFFER <= 0)
+	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0)
 		return (ERROR);
 	nl_here = NULL;
-	while ((byte = read(fd, buff, BUFFER)) > 0)
+	while ((byte = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[byte] = 0;
 		tmp = note[fd] == 0 ? ft_strndup(buff, byte) : ft_strjoin(note[fd], buff);
