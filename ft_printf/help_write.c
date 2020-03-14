@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer.c                                          :+:      :+:    :+:   */
+/*   help_write.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/12 23:04:02 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/13 00:24:48 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/15 02:06:16 by mihykim           #+#    #+#             */
+/*   Updated: 2020/03/15 02:08:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ long	ft_error_handling(char *base)
 ** line 74-77 : added condition when "nbr" is NULL
 */
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(long nbr, char *base)
 {
 	long	size;
 	long	my_nbr;

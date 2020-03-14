@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/13 22:01:50 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/15 03:22:03 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,43 @@ typedef struct	s_pocket
 	int			left;
 	int			plus;
 	int			space;
-	int			zerofill;
+	int			zero;
 	int			hexa;
 	int			width;
-	int			width_value;
+	int			width_user;
 	int			precision;
-	int			precision_value;
+	int			precision_user;
 	int			len_modifier;
 	char		len_mod[3];
 	char		conversion;
+	char		filler;
+	int			negative;
+	int			width_arg;
+	int			width_fill;
 }				t_pocket;
 
 
-/* **************************          MAIN          ************************ */
+/* ************************************************************************** */
+/*                                 MAIN FUNCTION                              */
+/* ************************************************************************** */
 
 int		ft_printf(const char *format, ...);
 
-void	initialize(t_printf *input, t_pocket *C3);
-void	execute_parsing(char *chunk, t_printf *input, t_pocket *C3);
-void	execute_writing(t_printf *input, t_pocket C3);
+void	parse_symbols(char *chunk, t_printf *input, t_pocket *C3);
+void	apply_and_write(t_printf *input, t_pocket C3);
 
 
+/* ************************************************************************** */
+/*                                 MANAGE POCKET                              */
+/* ************************************************************************** */
 
-/* **************************          PARSE          ************************ */
+void	set_new_pocket(t_pocket *C3);
+void	organize_pocket(t_printf *input, t_pocket *C3);
+
+
+/* ************************************************************************** */
+/*                                 PARSE SYMBOLS                              */
+/* ************************************************************************** */
 
 void	parse_flag(char **chunk, t_pocket *C3);
 void	parse_width(char **chunk, t_pocket *C3);
@@ -85,24 +99,41 @@ void	parse_conversion(char **chunk, t_pocket *C3);
 
 
 
-/* **************************          PRINT         ************************ */
+/* ************************************************************************** */
+/*                                APPLY & WRITE                               */
+/* ************************************************************************** */
+
+void	write_char(t_printf *input, t_pocket C3);
+void	write_hexa(t_printf *input, t_pocket C3);
+void	write_pointer(t_printf *input, t_pocket C3);
+void	write_number(t_printf *input, t_pocket C3);
+void	write_filler(t_printf *input, t_pocket C3);
+
+
+/* ************************************************************************** */
+/*                                 HELP WRITING                               */
+/* ************************************************************************** */
 
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
-void	ft_putnbr_base(int n, char *base);
+void	ft_putnbr_base(long n, char *base);
 
 
 
-/* **************************       HANDLE ASCII      ************************ */
+/* ************************************************************************** */
+/*                                 HANDLE ASCII                               */
+/* ************************************************************************** */
 
 int		ft_atoi(char **);
-//itoa
+int		get_itoa_width(int n);
+char	*ft_itoa(int n);
 
 
+/* ************************************************************************** */
+/*                                 HANDLE STR                                 */
+/* ************************************************************************** */
 
-/* **************************       HANDLE STR        ************************ */
-
-int		is_oneofthem(char c, char *set);
+int		is_set(char c, char *set);
 int		ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strstrhr(const char *s, char *set);

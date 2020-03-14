@@ -5,26 +5,73 @@ int		main(void)
 {
 	char *s1 = "grape";
 	char *s2 = "fruit";
-	int	n = -258;
+	int n1 = 2147483647;
+	int	n2 = -2147483647;
+	int	n3 = 2147482647;
 
-	printf("%d\n", printf("r : aa%5daa\n", -1234));
-	printf("%d\n", ft_printf("f : aa%5daa\n", -1234));
-	printf("\n");
+	printf("p로 주소출력\n");
+	printf("(%d)", printf("  r : %p\n", s1) - 7);
+	printf("(%d)", ft_printf("  f : %p\n", s1) - 7);
+	printf("\n\n");
 
-	printf("r : %5s\n", s1);
-	ft_printf("f : %5s\n", s1);
-	printf("r : %-.2s\n", s1);
-	printf("\n");
+	printf("\"\"로 글자출력\n");
+	printf("(%d)", printf("  r : grape\n") - 7);
+	printf("(%d)", ft_printf("  f : grape\n") - 7);
+	printf("\n\n");
 
-	printf("%d\n", printf("r : %s\n%s%c\n", s1, s2, '!'));
-	printf("%d\n", ft_printf("f : %s\n%s%c\n", s1, s2, '!'));
-	printf("\n");
+ 	printf("c,s로 글자출력\n");
+	printf("(%d)", printf("  r : %s %s %c\n", s1, s2, '!') - 7);
+	printf("(%d)", ft_printf("  f : %s %s %c\n", s1, s2, '!') - 7);
+	printf("\n\n");
 
-	printf("r : %x, %#x\n", n, n);
-	ft_printf("f : %x, %#x\n", n, n);
-	printf("\n");
+	printf("d로 양수출력, 옵션%%-6\n");
+	printf("(%d)", printf("  r : ||%-6d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%-6d||\n", n1) - 7);
+	printf("\n\n");
 
-	printf("%d\n", printf("r : %X, %#X\n", n, n));
-	printf("%d\n", ft_printf("f : %X, %#X\n", n, n));
+	printf("d로 양수출력, 옵션%%----6\n");
+	printf("(%d)", printf("  r : ||%----6d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%----6d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 음수출력, 옵션%%-6\n");
+	printf("(%d)", printf("  r : ||%-6d||\n", n2) - 7);
+	printf("(%d)", ft_printf("  f : ||%-6d||\n", n2) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%%06\n");
+	printf("(%d)", printf("  r : ||%06d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%06d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%%00006\n");
+	printf("(%d)", printf("  r : ||%00006d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%00006d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 음수출력, 옵션%%06\n");
+	printf("(%d)", printf("  r : ||%06d||\n", n2) - 7);
+	printf("(%d)", ft_printf("  f : ||%06d||\n", n2) - 7);
+	printf("\n\n");
+
+	printf("d로 음수출력, 옵션%%00006\n");
+	printf("(%d)", printf("  r : ||%00006d||\n", n2) - 7);
+	printf("(%d)", ft_printf("  f : ||%00006d||\n", n2) - 7);
+	printf("\n\n");
+
+	printf("x로 unsigned 16진수출력\n");
+	printf("(%d)", printf("  r : %x, %#x\n", n3, n3) - 7);
+	printf("(%d)", ft_printf("  f : %x, %#x\n", n3, n3) - 7);
+	printf("\n\n");
+
+	printf("X로 unsigned 16진수출력\n");
+	printf("(%d)", printf("  r : %X, %#X\n", n3, n3) - 7);
+	printf("(%d)", ft_printf("  f : %X, %#X\n", n3, n3) - 7);
+	printf("\n\n");
+
+	printf("%%로 %%출력\n");
+	printf("(%d)", printf("  r : %%\n") - 7);
+	printf("(%d)", ft_printf("  f : %%\n") - 7);
+
 	return (0);
 }
