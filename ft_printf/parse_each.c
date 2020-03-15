@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 01:20:30 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/15 13:53:47 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	parse_width(char **chunk, t_pocket *C3)
 	if (is_set(**chunk, DIGIT))
 	{
 		C3->width = TRUE;
-		C3->width_user = ft_atoi(chunk);
+		C3->width_parsed = ft_atoi(chunk);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 02:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 02:08:59 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/15 15:09:08 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ int		ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
+}
+
+int	ft_putchar_n(char c, int n)
+{
+	int		i;
+
+	i = 0;
+	while (i < n)
+		i += ft_putchar(c);
+	return (n);
 }
 
 int		ft_putstr(char *s)
@@ -50,43 +60,12 @@ void	print_nbase(long my_nbr, long size, char *base)
 	}
 }
 
-long	ft_error_handling(char *base)
-{
-	long	i;
-	long	j;
-	long	size;
-
-	size = 0;
-	while (base[size] != '\0')
-	{
-		if (base[size] == '+' || base[size] == '-')
-			return (0);
-		size++;
-	}
-	if (base[0] == '\0' || size == 1)
-		return (0);
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-			if (base[i] == base[j++])
-				return (0);
-		i++;
-	}
-	return (size);
-}
-
-/*
-** line 74-77 : added condition when "nbr" is NULL
-*/
-
 void	ft_putnbr_base(long nbr, char *base)
 {
 	long	size;
 	long	my_nbr;
 
-	size = ft_error_handling(base);
+	size = ft_strlen(base);
 	if (!size)
 		return ;
 	my_nbr = (long)nbr;
@@ -102,8 +81,3 @@ void	ft_putnbr_base(long nbr, char *base)
 	else
 		print_nbase(my_nbr, size, base);
 }
-
-/*
-** line 80 : Return ffffffff(UINT_MAX), when nbr is -1
-** line 80 : cast to (long) to avoid printing shortened result(0x0f)
-*/

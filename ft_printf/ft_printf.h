@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 03:22:03 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/15 15:11:28 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 
 //#include "libft.h"
 
-# define ALL "cspdiuxX%#-+.*0123456789"
 
-# define LEN_MODIFIER "hl"
 
 # define CONVERSION "cspdiuxX%"
 # define CHAR "cs%"
@@ -36,6 +34,8 @@
 # define DECIMAL "0123456789"
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
+
+# define LEN_MODIFIER "hl"
 
 # define TRUE 1
 # define FALSE 0
@@ -57,9 +57,9 @@ typedef struct	s_pocket
 	int			zero;
 	int			hexa;
 	int			width;
-	int			width_user;
+	int			width_parsed;
 	int			precision;
-	int			precision_user;
+	int			precision_parsed;
 	int			len_modifier;
 	char		len_mod[3];
 	char		conversion;
@@ -78,14 +78,8 @@ int		ft_printf(const char *format, ...);
 
 void	parse_symbols(char *chunk, t_printf *input, t_pocket *C3);
 void	apply_and_write(t_printf *input, t_pocket C3);
-
-
-/* ************************************************************************** */
-/*                                 MANAGE POCKET                              */
-/* ************************************************************************** */
-
 void	set_new_pocket(t_pocket *C3);
-void	organize_pocket(t_printf *input, t_pocket *C3);
+
 
 
 /* ************************************************************************** */
@@ -107,7 +101,8 @@ void	write_char(t_printf *input, t_pocket C3);
 void	write_hexa(t_printf *input, t_pocket C3);
 void	write_pointer(t_printf *input, t_pocket C3);
 void	write_number(t_printf *input, t_pocket C3);
-void	write_filler(t_printf *input, t_pocket C3);
+void	write_filler(t_printf *input, t_pocket *C3);
+
 
 
 /* ************************************************************************** */
@@ -115,6 +110,7 @@ void	write_filler(t_printf *input, t_pocket C3);
 /* ************************************************************************** */
 
 int		ft_putchar(char c);
+int		ft_putchar_n(char c, int n);
 int		ft_putstr(char *s);
 void	ft_putnbr_base(long n, char *base);
 
@@ -127,6 +123,7 @@ void	ft_putnbr_base(long n, char *base);
 int		ft_atoi(char **);
 int		get_itoa_width(int n);
 char	*ft_itoa(int n);
+
 
 
 /* ************************************************************************** */
