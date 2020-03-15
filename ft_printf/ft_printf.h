@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 15:11:28 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/16 00:01:46 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-//#include "libft.h"
-
-
-
 # define CONVERSION "cspdiuxX%"
 # define CHAR "cs%"
 # define POINTER "p"
@@ -31,7 +27,6 @@
 # define FLAG "-+ 0#"
 # define DIGIT "0123456789"
 
-# define DECIMAL "0123456789"
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
 
@@ -45,7 +40,7 @@ typedef struct	s_printf
 	va_list		ap;
 	char		*args;
 	char		argc;
-	int			argi;
+	long		argi;
 	int			printed;
 }				t_printf;
 
@@ -56,17 +51,17 @@ typedef struct	s_pocket
 	int			space;
 	int			zero;
 	int			hexa;
-	int			width;
 	int			width_parsed;
+	int			width_arg;
+	int			width_filler;
 	int			precision;
 	int			precision_parsed;
 	int			len_modifier;
+	int			negative;
 	char		len_mod[3];
 	char		conversion;
 	char		filler;
-	int			negative;
-	int			width_arg;
-	int			width_fill;
+	char		sign;
 }				t_pocket;
 
 
@@ -76,20 +71,19 @@ typedef struct	s_pocket
 
 int		ft_printf(const char *format, ...);
 
-void	parse_symbols(char *chunk, t_printf *input, t_pocket *C3);
-void	apply_and_write(t_printf *input, t_pocket C3);
-void	set_new_pocket(t_pocket *C3);
-
+void	parse_symbols(char *chunk, t_printf *data, t_pocket *C3);
+void	apply_and_write(t_printf *data, t_pocket C3);
 
 
 /* ************************************************************************** */
 /*                                 PARSE SYMBOLS                              */
 /* ************************************************************************** */
 
+void	set_new_pocket(t_pocket *C3);
 void	parse_flag(char **chunk, t_pocket *C3);
 void	parse_width(char **chunk, t_pocket *C3);
-void	parse_precision(char **chunk, t_pocket *C3, t_printf *input);
-void	parse_conversion(char **chunk, t_pocket *C3);
+void	parse_precision(char **chunk, t_pocket *C3, t_printf *data);
+void	parse_len_modifier(char **chunk, t_pocket *C3);
 
 
 
@@ -97,11 +91,11 @@ void	parse_conversion(char **chunk, t_pocket *C3);
 /*                                APPLY & WRITE                               */
 /* ************************************************************************** */
 
-void	write_char(t_printf *input, t_pocket C3);
-void	write_hexa(t_printf *input, t_pocket C3);
-void	write_pointer(t_printf *input, t_pocket C3);
-void	write_number(t_printf *input, t_pocket C3);
-void	write_filler(t_printf *input, t_pocket *C3);
+void	write_char(t_printf *data, t_pocket C3);
+void	write_hexa(t_printf *data, t_pocket C3);
+void	write_pointer(t_printf *data, t_pocket C3);
+void	write_number(t_printf *data, t_pocket C3);
+void	write_filler(int order, t_printf *data, t_pocket C3);
 
 
 
@@ -122,7 +116,6 @@ void	ft_putnbr_base(long n, char *base);
 
 int		ft_atoi(char **);
 int		get_itoa_width(int n);
-char	*ft_itoa(int n);
 
 
 

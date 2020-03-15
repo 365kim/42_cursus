@@ -44,9 +44,29 @@ int		main(void)
 	printf("(%d)", ft_printf("  f : ||%----16d||\n", n1) - 7);
 	printf("\n\n");
 
-	printf("d로 음수출력, 옵션%%-16d\n");
-	printf("(%d)", printf("  r : ||%-16d||\n", n2) - 7);
-	printf("(%d)", ft_printf("  f : ||%-16d||\n", n2) - 7);
+	printf("d로 양수출력, 옵션%%- 16d\n");
+	printf("(%d)", printf("  r : ||%- 16d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%- 16d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%% 016d\n");
+	printf("(%d)", printf("  r : ||%0 16d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%0 16d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%%-+16d\n");
+	printf("(%d)", printf("  r : ||%-+16d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%-+16d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%%+16d\n");
+	printf("(%d)", printf("  r : ||%+16d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%+16d||\n", n1) - 7);
+	printf("\n\n");
+
+	printf("d로 양수출력, 옵션%%+016d\n");
+	printf("(%d)", printf("  r : ||%+016d||\n", n1) - 7);
+	printf("(%d)", ft_printf("  f : ||%+016d||\n", n1) - 7);
 	printf("\n\n");
 
 	printf("d로 양수출력, 옵션%%016d\n");
@@ -59,9 +79,29 @@ int		main(void)
 	printf("(%d)", ft_printf("  f : ||%000016d||\n", n1) - 7);
 	printf("\n\n");
 
-	printf("d로 음수출력, 옵션%%016d\n");
-	printf("(%d)", printf("  r : ||%016d||\n", n2) - 7);
-	printf("(%d)", ft_printf("  f : ||%016d||\n", n2) - 7);
+	printf("d로 0 출력, 옵션%%+d\n");
+	printf("(%d)", printf("  r : ||%+d||\n", -0) - 7);
+	printf("(%d)", ft_printf("  f : ||%+d||\n", -0) - 7);
+	printf("\n\n");
+
+	printf("d로 0 출력, 옵션%%+06d\n");
+	printf("(%d)", printf("  r : ||%+06d||\n", 0) - 7);
+	printf("(%d)", ft_printf("  f : ||%+06d||\n", 0) - 7);
+	printf("\n\n");
+
+	printf("d로 +0 출력, 옵션%%+06d\n");
+	printf("(%d)", printf("  r : ||%+06d||\n", +0) - 7);
+	printf("(%d)", ft_printf("  f : ||%+06d||\n", +0) - 7);
+	printf("\n\n");
+
+	printf("d로 음수출력, 옵션%%-16d\n");
+	printf("(%d)", printf("  r : ||%-16d||\n", n2) - 7);
+	printf("(%d)", ft_printf("  f : ||%-16d||\n", n2) - 7);
+	printf("\n\n");
+
+	printf("d로 음수출력, 옵션%%+16d\n");
+	printf("(%d)", printf("  r : ||%+16d||\n", n2) - 7);
+	printf("(%d)", ft_printf("  f : ||%+16d||\n", n2) - 7);
 	printf("\n\n");
 
 	printf("d로 음수출력, 옵션%%000016d\n");
@@ -69,14 +109,14 @@ int		main(void)
 	printf("(%d)", ft_printf("  f : ||%000016d||\n", n2) - 7);
 	printf("\n\n");
 
-	printf("x로 unsigned 16진수출력, 옵션%%20x\n");
+	printf("x로 unsigned 16진수출력, 옵션%%x   %%#20x\n");
 	printf("(%d)", printf("  r : %x, ||%#20x||\n", n3, n3) - 7);
 	printf("(%d)", ft_printf("  f : %x, ||%#20x||\n", n3, n3) - 7);
 	printf("\n\n");
 
-	printf("X로 unsigned 16진수출력, 옵션 %%-20X\n");
-	printf("(%d)", printf("  r : %X, ||%#-20X||\n", n3, n3) - 7);
-	printf("(%d)", ft_printf("  f : %X, ||%#-20X||\n", n3, n3) - 7);
+	printf("X로 unsigned 16진수출력, 옵션%%0X   %%#-20X\n");
+	printf("(%d)", printf("  r : %0X, ||%#-20X||\n", n3, n3) - 7);
+	printf("(%d)", ft_printf("  f : %0X, ||%#-20X||\n", n3, n3) - 7);
 	printf("\n\n");
 
 	printf("%%로 %%출력\n");
@@ -88,5 +128,6 @@ int		main(void)
 	printf("(%d)", printf("  r : ||%10%||\n") - 7);
 	printf("(%d)", ft_printf("  f : ||%10%||\n") - 7);
 
+	system("leaks a.out > leaks_result; cat leaks_result | grep leaked");
 	return (0);
 }

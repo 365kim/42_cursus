@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 13:53:47 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/15 23:37:18 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	parse_flag(char **chunk, t_pocket *C3)
 {
-//	printf("test flag\n");
 	while (is_set(**chunk, FLAG))
 	{
 		**chunk == '-' ? C3->left = TRUE : 0;
@@ -29,17 +28,12 @@ void	parse_flag(char **chunk, t_pocket *C3)
 
 void	parse_width(char **chunk, t_pocket *C3)
 {
-//	printf("test width\n");
 	if (is_set(**chunk, DIGIT))
-	{
-		C3->width = TRUE;
 		C3->width_parsed = ft_atoi(chunk);
-	}
 }
 
-void	parse_precision(char **chunk, t_pocket *C3, t_printf *input)
+void	parse_precision(char **chunk, t_pocket *C3, t_printf *data)
 {
-//	printf("test prec\n");
 	if (**chunk == '.')
 	{
 		C3->precision = TRUE;
@@ -48,8 +42,8 @@ void	parse_precision(char **chunk, t_pocket *C3, t_printf *input)
 		{
 			if (is_set(*(*chunk + 1), DIGIT))
 			{
-				input->args = va_arg(input->ap, char *);
-				C3->precision = ft_atoi(&input->args);
+				data->args = va_arg(data->ap, char *);
+				C3->precision = ft_atoi(&data->args);
 			}
 			else if (**chunk == '-')
 			{
@@ -64,12 +58,11 @@ void	parse_precision(char **chunk, t_pocket *C3, t_printf *input)
 	}
 }
 
-void	parse_conversion(char **chunk, t_pocket *C3)
+void	parse_len_modifier(char **chunk, t_pocket *C3)
 {
 	int i;
 
 	i = 0;
-//	printf("test conv\n");
 	while (is_set(**chunk, LEN_MODIFIER) && i < 2)
 	{
 		C3->len_modifier = TRUE;
@@ -79,4 +72,24 @@ void	parse_conversion(char **chunk, t_pocket *C3)
 		(*chunk)++;
 	}
 	C3->conversion = **chunk;
+}
+
+void	set_new_pocket(t_pocket *C3)
+{
+	C3->left = FALSE;
+	C3->plus = FALSE;
+	C3->space = FALSE;
+	C3->zero = FALSE;
+	C3->hexa = FALSE;
+	C3->width_parsed = 0;
+	C3->width_arg = 0;
+	C3->width_filler = 0;
+	C3->filler = '\0';
+	C3->precision = FALSE;
+	C3->precision_parsed = 0;
+	C3->len_modifier = FALSE;
+	C3->len_mod[0] = '\0';
+	C3->conversion = '\0';
+	C3->negative = 0;
+	C3->sign = '\0';
 }
