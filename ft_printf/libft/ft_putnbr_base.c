@@ -1,45 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   help_write.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/15 02:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 15:09:08 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/17 00:42:56 by mihykim           #+#    #+#             */
+/*   Updated: 2020/03/17 00:43:07 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int		ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-int	ft_putchar_n(char c, int n)
-{
-	int		i;
-
-	i = 0;
-	while (i < n)
-		i += ft_putchar(c);
-	return (n);
-}
-
-int		ft_putstr(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 void	print_nbase(long my_nbr, long size, char *base)
 {

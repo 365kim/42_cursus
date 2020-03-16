@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/15 22:41:34 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/16 15:33:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,42 @@
 #include "stdio.h"
 
 /*
-** - Parse symbols in the parsed argument 'format' into the pocket 'C3'.
+** - Parse symbols in the parsed argument 'format' into the pocket 'P'.
 ** - Return the number of characters printed (excluding '\0' used to end output)
 */
 
-void	parse_symbols(char *chunk, t_printf *data, t_pocket *C3)
+void	parse_symbols(char *chunk, t_printf *data, t_pocket *P)
 {
-	parse_flag(&chunk, C3);
-	parse_width(&chunk, C3);
-	parse_precision(&chunk, C3, data);
-	parse_len_modifier(&chunk, C3);
+	while (is_set(*chunk, FLAG))
+		parse_flag(&chunk, P);
+	if (is_set(*chunk, DIGIT))
+		P->width_parsed = ft_atoi(&chunk);
+	if (*chunk == '.')
+		parse_precision(&chunk, P, data);
+	if (is_set(*chunk, LEN_MODIFIER))
+		parse_len_modifier(&chunk, P);
+	if (is_set(*chunk, CONVERSION))
+		P->conversion = *chunk;
 }
 
-void	apply_and_write(t_printf *data, t_pocket C3)
+void	apply_and_write(t_printf *data, t_pocket P)
 {
-	if (is_set(C3.conversion, CHAR))
-		write_char(data, C3);
-	else if (is_set(C3.conversion, HEXA))
-		write_hexa(data, C3);
-	else if (is_set(C3.conversion, POINTER))
-		write_pointer(data,C3);
-	else if (is_set(C3.conversion, NUMBER))
-		write_number(data,C3);
-	else
-		return ;
+	if (is_set(P.conversion, STRING))
+		write_string(data, P);
+	else if (is_set(P.conversion, CHAR))
+		write_char(data, P);
+	else if (is_set(P.conversion, HEXA))
+		write_hexa(data, P);
+	else if (is_set(P.conversion, POINTER))
+		write_pointer(data,P);
+	else if (is_set(P.conversion, NUMBER))
+		write_number(data,P);
 }
 
 int		ft_printf(const char *format, ...)
 {
 	t_printf	data;
-	t_pocket	C3;
+	t_pocket	P;
 	char		*chunk;
 	int			len;
 
@@ -54,12 +60,12 @@ int		ft_printf(const char *format, ...)
 			data.printed += write(1, &(*(format++)), 1);
 		if (*format == '%')
 		{
-			set_new_pocket(&C3);
+			set_new_pocket(&P);
 			if ((len = ft_strstrhr(format + 1, CONVERSION) - format) == 0)
 				return (-1);
 			chunk = ft_strndup(++format, len);
-			parse_symbols(chunk, &data, &C3);
-			apply_and_write(&data, C3); 
+			parse_symbols(chunk, &data, &P);
+			apply_and_write(&data, P); 
 			format += len;
 			free(chunk);
 		}

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/16 00:01:46 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/17 01:01:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,32 @@
 # define FT_PRINTF_H
 
 #include <stdarg.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <limits.h>
+#include "libft/libft.h"
+
+# define FLAG "-+ 0#"
+# define DIGIT "0123456789"
+
+# define LEN_MODIFIER "hl"
 
 # define CONVERSION "cspdiuxX%"
+# define STRING "s"
 # define CHAR "cs%"
 # define POINTER "p"
 # define NUMBER "diu"
 # define HEXA "xX"
 
-# define FLAG "-+ 0#"
-# define DIGIT "0123456789"
-
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
 
-# define LEN_MODIFIER "hl"
-
 # define TRUE 1
 # define FALSE 0
+
+# define SKIP 0
+# define MAX(a, b)	(((a) > (b)) ? (a) : (b))
+# define MIN(a, b)	(((a) < (b)) ? (a) : (b))
 
 typedef struct	s_printf
 {
@@ -52,10 +58,11 @@ typedef struct	s_pocket
 	int			zero;
 	int			hexa;
 	int			width_parsed;
-	int			width_arg;
 	int			width_filler;
-	int			precision;
-	int			precision_parsed;
+	int			width_arg;
+	int			prcs;
+	int			prcs_parsed;
+	int			prcs_filler;
 	int			len_modifier;
 	int			negative;
 	char		len_mod[3];
@@ -71,63 +78,34 @@ typedef struct	s_pocket
 
 int		ft_printf(const char *format, ...);
 
-void	parse_symbols(char *chunk, t_printf *data, t_pocket *C3);
-void	apply_and_write(t_printf *data, t_pocket C3);
+void	parse_symbols(char *chunk, t_printf *data, t_pocket *P);
+void	apply_and_write(t_printf *data, t_pocket P);
+
 
 
 /* ************************************************************************** */
 /*                                 PARSE SYMBOLS                              */
 /* ************************************************************************** */
 
-void	set_new_pocket(t_pocket *C3);
-void	parse_flag(char **chunk, t_pocket *C3);
-void	parse_width(char **chunk, t_pocket *C3);
-void	parse_precision(char **chunk, t_pocket *C3, t_printf *data);
-void	parse_len_modifier(char **chunk, t_pocket *C3);
+void	parse_flag(char **chunk, t_pocket *P);
+void	parse_precision(char **chunk, t_pocket *P, t_printf *data);
+void	parse_len_modifier(char **chunk, t_pocket *P);
+
+void	set_new_pocket(t_pocket *P);
 
 
 
 /* ************************************************************************** */
-/*                                APPLY & WRITE                               */
+/*                                 WRITE EACH                                 */
 /* ************************************************************************** */
 
-void	write_char(t_printf *data, t_pocket C3);
-void	write_hexa(t_printf *data, t_pocket C3);
-void	write_pointer(t_printf *data, t_pocket C3);
-void	write_number(t_printf *data, t_pocket C3);
-void	write_filler(int order, t_printf *data, t_pocket C3);
+void	write_string(t_printf *data, t_pocket P);
+void	write_char(t_printf *data, t_pocket P);
+void	write_hexa(t_printf *data, t_pocket P);
+void	write_pointer(t_printf *data, t_pocket P);
+void	write_number(t_printf *data, t_pocket P);
 
-
-
-/* ************************************************************************** */
-/*                                 HELP WRITING                               */
-/* ************************************************************************** */
-
-int		ft_putchar(char c);
-int		ft_putchar_n(char c, int n);
-int		ft_putstr(char *s);
-void	ft_putnbr_base(long n, char *base);
-
-
-
-/* ************************************************************************** */
-/*                                 HANDLE ASCII                               */
-/* ************************************************************************** */
-
-int		ft_atoi(char **);
-int		get_itoa_width(int n);
-
-
-
-/* ************************************************************************** */
-/*                                 HANDLE STR                                 */
-/* ************************************************************************** */
-
-int		is_set(char c, char *set);
-int		ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strstrhr(const char *s, char *set);
-char	*ft_strndup(const char *s1, int size);
+void	write_filler(int order, t_printf *data, t_pocket P);
 
 
 
