@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/16 15:33:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/17 13:15:32 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stdio.h"
 
 /*
-** - Parse symbols in the parsed argument 'format' into the pocket 'P'.
+** - Parse symbols in the argument 'chunk' into the pocket 'P'.
 ** - Return the number of characters printed (excluding '\0' used to end output)
 */
 

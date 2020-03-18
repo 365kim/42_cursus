@@ -28,7 +28,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 fclean : clean
-	$(RM) $(NAME) $(bonus)
+	$(RM) $(NAME)
 	make fclean -C $(LIBFT)
 
 clean :
@@ -37,7 +37,5 @@ clean :
 
 re : fclean all
 
-INCS		= .
 
-
-.PHONY: all clean fclean re .c.o bonus
+.PHONY: all clean fclean re .c.o
