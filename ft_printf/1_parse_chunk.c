@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_each.c                                       :+:      :+:    :+:   */
+/*   parse_chunk.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 16:40:46 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/19 21:57:26 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ void	parse_precision(char **chunk, t_tag *tag, t_printf *data)
 
 void	parse_len_modifier(char **chunk, t_tag *tag)
 {
-	int i;
-
-	i = 0;
-	while (is_set(**chunk, LEN_MODIFIER) && i < 2)
+	if (is_set(**chunk, LEN_MODIFIER))
 	{
-		tag->len_modifier = TRUE;
-		tag->len_mod[i] = **chunk;
-		tag->len_mod[i + 1] = '\0';
-		i++;
+		tag->len_mod += **chunk == 'h' ? 4 : 2;
+		(*chunk)++;
+	}
+	if (is_set(**chunk, LEN_MODIFIER))
+	{
+		tag->len_mod += **chunk == 'h' ? 40 : 20;
 		(*chunk)++;
 	}
 }
@@ -69,8 +68,7 @@ void	set_new_tag(t_tag *tag)
 	tag->prcs = FALSE;
 	tag->prcs_parsed = 0;
 	tag->prcs_fill = 0;
-	tag->len_modifier = FALSE;
-	tag->len_mod[0] = '\0';
+	tag->len_mod = FALSE;
 	tag->conversion = '\0';
 	tag->negative = 0;
 	tag->sign = '\0';

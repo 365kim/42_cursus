@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 20:04:01 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/19 22:04:58 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,22 @@
 # define FLAG "-+ 0#"
 # define DIGIT "0123456789"
 
-# define LEN_MODIFIER "hl"
-
 # define CONVERSION "cspdiuxX%"
 # define STRING "s"
 # define CHAR "cs%"
 # define POINTER "p"
 # define NUM_GROUP "diuxX"
-# define NUMBER "diu"
+# define DECIMAL "diu"
 # define HEXA "xX"
 
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
+
+# define LEN_MODIFIER "hl"
+# define HH 44
+# define LL 22
+# define H 4
+# define L 2
 
 # define TRUE 1
 # define FALSE 0
@@ -64,9 +68,8 @@ typedef struct	s_tag
 	int			prcs;
 	int			prcs_parsed;
 	int			prcs_fill;
-	int			len_modifier;
+	int			len_mod;
 	int			negative;
-	char		len_mod[3];
 	char		conversion;
 	char		filler;
 	char		sign;
@@ -80,8 +83,8 @@ typedef struct	s_tag
 int		ft_printf(const char *format, ...);
 
 void	parse_symbols(char *chunk, t_printf *data, t_tag *tag);
-void	apply_and_write(t_printf *data, t_tag tag);
-
+void	write_on_condition(t_printf *data, t_tag tag);
+void	get_arg_for_number(t_printf *data, t_tag tag);
 
 
 /* ************************************************************************** */
@@ -97,14 +100,14 @@ void	set_new_tag(t_tag *tag);
 
 
 /* ************************************************************************** */
-/*                                 WRITE EACH                                 */
+/*                               WRITE ON CONDITION                           */
 /* ************************************************************************** */
 
-void	write_string(t_printf *data, t_tag tag);
 void	write_char(t_printf *data, t_tag tag);
-void	write_hexa(t_printf *data, t_tag tag);
+void	write_string(t_printf *data, t_tag tag);
 void	write_pointer(t_printf *data, t_tag tag);
-void	write_number(t_printf *data, t_tag tag);
+void	write_decimal(t_printf *data, t_tag tag);
+void	write_hexa(t_printf *data, t_tag tag);
 
 void	pre_fill_width(t_printf *data, t_tag tag);
 void	post_fill_width(t_printf *data, t_tag tag);
