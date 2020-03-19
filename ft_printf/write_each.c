@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 20:01:55 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/19 20:45:28 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdio.h>
 
 /*
-** ("%s", NULL)						:	"(null)"
-** ("%7.5s", NULL)					:	"  (null"
-** (%3.7s%7.7s, "hello", "world")	:	"hello  world"
+** ("%s", NULL)                     :	"(null)"
+** ("%7.5s", NULL)                  :	"  (null"
+** (%3.7s%7.7s, "hello", "world")   :	"hello  world"
 */
 
 void	write_string(t_printf *data, t_tag tag)
@@ -47,9 +47,9 @@ void	write_string(t_printf *data, t_tag tag)
 }
 
 /*
-** ("%-5%")		:	"%    "
-** ("% 05%")	:	"0000%"
-** ("%-05%")	:	"    %"
+** ("%-5%")     :	"%    "
+** ("% 05%")    :	"0000%"
+** ("%-05%")    :	"    %"
 */
 
 void	write_char(t_printf *data, t_tag tag)
@@ -66,7 +66,7 @@ void	write_char(t_printf *data, t_tag tag)
 }
 
 /*
-** ("%5p", 0)	:	"  0x0"
+** ("%5p", 0)    :	"  0x0"
 */
 
 void	write_pointer(t_printf *data, t_tag tag)
@@ -81,11 +81,11 @@ void	write_pointer(t_printf *data, t_tag tag)
 }
 
 /*
-** ("%x", 0)		:	"0"
-** ("%.x", 0)		:	""
-** ("%#.05", 0)		:	"00000"
-** ("%#5.0x", 0)	:	"     "
-** ("%#05x", 0)		:	"00000"
+** ("%x", 0)        :	"0"
+** ("%.x", 0)       :	""
+** ("%#.05", 0)     :	"00000"
+** ("%#5.0x", 0)    :	"     "
+** ("%#05x", 0)     :	"00000"
 */
 
 void	write_hexa(t_printf *data, t_tag tag)
@@ -99,7 +99,6 @@ void	write_hexa(t_printf *data, t_tag tag)
 		tag.width_arg = 0;
 		tag.prcs_fill = tag.prcs_parsed;
 		pre_fill_width(data, tag);
-//		data->printed += ft_putchar_n('0', tag.prcs_fill);
 		post_fill_width(data, tag);
 	}
 	else
@@ -108,7 +107,6 @@ void	write_hexa(t_printf *data, t_tag tag)
 		tag.hexa && (tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
 		pre_fill_width(data, tag);
 		tag.hexa && !(tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
-//		data->printed += ft_putchar_n('0', tag.prcs_fill);
 		tag.width_arg && tag.conversion == 'x' ?
 			ft_putnbr_base(data->argi, HEX_LOW) :
 			ft_putnbr_base(data->argi, HEX_UP);
@@ -118,12 +116,12 @@ void	write_hexa(t_printf *data, t_tag tag)
 }
 
 /*
-** ("%04.2d", 0)	:	"  01""
-** ("%.0d", 0)		:	""
-** ("%+.d", 0)		:	"+"
-** ("%+5.d", 0)		:	"    +"
-** ("% +5d", 0)		:	"   +0"
-** ("%+05d", -7)	:	"-0007"
+** ("%04.2d", 0)    :	"  01""
+** ("%.0d", 0)      :	""
+** ("%+.d", 0)      :	"+"
+** ("%+5.d", 0)     :	"    +"
+** ("% +5d", 0)     :	"   +0"
+** ("%+05d", -7)    :	"-0007"
 */
 
 void	write_number(t_printf *data, t_tag tag)
@@ -144,7 +142,6 @@ void	write_number(t_printf *data, t_tag tag)
 	if (tag.prcs)
 		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
 	pre_fill_width(data, tag);
-//	data->printed += ft_putchar_n('0', tag.prcs_fill);
 	if (!(data->argi == 0 && tag.prcs))
 		ft_putnbr_base(data->argi, DIGIT);
 	data->printed += tag.width_arg;
