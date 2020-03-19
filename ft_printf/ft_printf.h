@@ -6,12 +6,12 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/17 01:01:59 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/19 20:04:01 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_tagRINTF_H
+# define FT_tagRINTF_H
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -28,6 +28,7 @@
 # define STRING "s"
 # define CHAR "cs%"
 # define POINTER "p"
+# define NUM_GROUP "diuxX"
 # define NUMBER "diu"
 # define HEXA "xX"
 
@@ -50,7 +51,7 @@ typedef struct	s_printf
 	int			printed;
 }				t_printf;
 
-typedef struct	s_pocket
+typedef struct	s_tag
 {
 	int			left;
 	int			plus;
@@ -58,18 +59,18 @@ typedef struct	s_pocket
 	int			zero;
 	int			hexa;
 	int			width_parsed;
-	int			width_filler;
+	int			width_fill;
 	int			width_arg;
 	int			prcs;
 	int			prcs_parsed;
-	int			prcs_filler;
+	int			prcs_fill;
 	int			len_modifier;
 	int			negative;
 	char		len_mod[3];
 	char		conversion;
 	char		filler;
 	char		sign;
-}				t_pocket;
+}				t_tag;
 
 
 /* ************************************************************************** */
@@ -78,8 +79,8 @@ typedef struct	s_pocket
 
 int		ft_printf(const char *format, ...);
 
-void	parse_symbols(char *chunk, t_printf *data, t_pocket *P);
-void	apply_and_write(t_printf *data, t_pocket P);
+void	parse_symbols(char *chunk, t_printf *data, t_tag *tag);
+void	apply_and_write(t_printf *data, t_tag tag);
 
 
 
@@ -87,11 +88,11 @@ void	apply_and_write(t_printf *data, t_pocket P);
 /*                                 PARSE SYMBOLS                              */
 /* ************************************************************************** */
 
-void	parse_flag(char **chunk, t_pocket *P);
-void	parse_precision(char **chunk, t_pocket *P, t_printf *data);
-void	parse_len_modifier(char **chunk, t_pocket *P);
+void	parse_flag(char **chunk, t_tag *tag);
+void	parse_precision(char **chunk, t_tag *tag, t_printf *data);
+void	parse_len_modifier(char **chunk, t_tag *tag);
 
-void	set_new_pocket(t_pocket *P);
+void	set_new_tag(t_tag *tag);
 
 
 
@@ -99,13 +100,14 @@ void	set_new_pocket(t_pocket *P);
 /*                                 WRITE EACH                                 */
 /* ************************************************************************** */
 
-void	write_string(t_printf *data, t_pocket P);
-void	write_char(t_printf *data, t_pocket P);
-void	write_hexa(t_printf *data, t_pocket P);
-void	write_pointer(t_printf *data, t_pocket P);
-void	write_number(t_printf *data, t_pocket P);
+void	write_string(t_printf *data, t_tag tag);
+void	write_char(t_printf *data, t_tag tag);
+void	write_hexa(t_printf *data, t_tag tag);
+void	write_pointer(t_printf *data, t_tag tag);
+void	write_number(t_printf *data, t_tag tag);
 
-void	write_filler(int order, t_printf *data, t_pocket P);
+void	pre_fill_width(t_printf *data, t_tag tag);
+void	post_fill_width(t_printf *data, t_tag tag);
 
 
 

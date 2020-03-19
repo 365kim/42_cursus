@@ -6,14 +6,20 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/18 00:12:14 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/19 20:01:55 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	write_string(t_printf *data, t_pocket P)
+/*
+** ("%s", NULL)						:	"(null)"
+** ("%7.5s", NULL)					:	"  (null"
+** (%3.7s%7.7s, "hello", "world")	:	"hello  world"
+*/
+
+void	write_string(t_printf *data, t_tag tag)
 {
 	char *str;
 	char *tmp;
@@ -25,90 +31,122 @@ void	write_string(t_printf *data, t_pocket P)
 		str = tmp;
 		free(tmp);
 	}
-	P.width_arg = ft_strlen(str);
-	if (P.prcs && P.prcs_parsed < P.width_arg)
+	tag.width_arg = ft_strlen(str);
+	if (tag.prcs && tag.prcs_parsed < tag.width_arg)
 	{
-		tmp = ft_strndup(str, P.prcs_parsed);
+		tmp = ft_strndup(str, tag.prcs_parsed);
 		data->args = tmp;
 		free(tmp);
-		P.width_arg = P.prcs_parsed;
+		tag.width_arg = tag.prcs_parsed;
 	}
 	else
 		data->args = str;
-	write_filler(1, data, P);
+	pre_fill_width(data, tag);
 	data->printed += ft_putstr(data->args);
-	write_filler(2, data, P);
+	post_fill_width(data, tag);
 }
 
-void	write_char(t_printf *data, t_pocket P)
+/*
+** ("%-5%")		:	"%    "
+** ("% 05%")	:	"0000%"
+** ("%-05%")	:	"    %"
+*/
+
+void	write_char(t_printf *data, t_tag tag)
 {
-	P.width_arg = 1;
-	P.left ? P.zero = FALSE : SKIP;
-	P.space = FALSE;
-	write_filler(1, data, P);
-	if (P.conversion == 'c')
+	tag.width_arg = 1;
+	tag.left ? tag.zero = FALSE : SKIP;
+	tag.space = FALSE;
+	pre_fill_width(data, tag);
+	if (tag.conversion == 'c')
 		data->printed += ft_putchar((char)va_arg(data->ap, int));
 	else
-	{
 		data->printed += ft_putchar('%');
-	}
-	write_filler(2, data, P);
+	post_fill_width(data, tag);
 }
 
-void	write_pointer(t_printf *data, t_pocket P)
+/*
+** ("%5p", 0)	:	"  0x0"
+*/
+
+void	write_pointer(t_printf *data, t_tag tag)
 {
 	data->argi = va_arg(data->ap, unsigned long);
-	P.width_arg = data->argi == 0 ? 3 : 11;
-	write_filler(1, data, P);
+	tag.width_arg = data->argi == 0 ? 3 : 11;
+	pre_fill_width(data, tag);
 	data->printed += ft_putstr("0x");
 	ft_putnbr_base(data->argi, HEX_LOW);
-	write_filler(2, data, P);
-	data->printed += P.width_arg - 2;
+	post_fill_width(data, tag);
+	data->printed += tag.width_arg - 2;
 }
 
-void	write_hexa(t_printf *data, t_pocket P)
+/*
+** ("%x", 0)		:	"0"
+** ("%.x", 0)		:	""
+** ("%#.05", 0)		:	"00000"
+** ("%#5.0x", 0)	:	"     "
+** ("%#05x", 0)		:	"00000"
+*/
+
+void	write_hexa(t_printf *data, t_tag tag)
 {
 	data->argi = va_arg(data->ap, int);
-	P.width_arg = get_itoa_base_width(data->argi, 16);
-	if (P.prcs)
-		P.prcs_filler = MAX(0, P.prcs_parsed - P.width_arg);
-//	if (data->argi == 0)
-//	{
-//		P.width_arg = 0;
-//		P.prcs_filler = P.prcs_parsed;
-//	}
-//	else
-//	{
-	P.width_arg += P.hexa;
-	P.hexa && (P.zero && !P.prcs) ? ft_putstr("0x") : SKIP;
-	write_filler(1, data, P);
-	P.hexa && !(P.zero && !P.prcs) ? ft_putstr("0x") : SKIP;
-	data->printed += ft_putchar_n('0', P.prcs_filler);
-	P.conversion == 'x' ? ft_putnbr_base(data->argi, HEX_LOW)
-			: ft_putnbr_base(data->argi, HEX_UP);
-	write_filler(2, data, P);
-	data->printed += P.width_arg;
-//	}
+	tag.width_arg = get_itoa_base_width(data->argi, 16);
+	if (tag.prcs)
+		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
+	if (data->argi == 0 && tag.prcs)
+	{
+		tag.width_arg = 0;
+		tag.prcs_fill = tag.prcs_parsed;
+		pre_fill_width(data, tag);
+//		data->printed += ft_putchar_n('0', tag.prcs_fill);
+		post_fill_width(data, tag);
+	}
+	else
+	{
+		tag.width_arg += tag.hexa;
+		tag.hexa && (tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
+		pre_fill_width(data, tag);
+		tag.hexa && !(tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
+//		data->printed += ft_putchar_n('0', tag.prcs_fill);
+		tag.width_arg && tag.conversion == 'x' ?
+			ft_putnbr_base(data->argi, HEX_LOW) :
+			ft_putnbr_base(data->argi, HEX_UP);
+		post_fill_width(data, tag);
+		data->printed += tag.width_arg;
+	}
 }
 
-void	write_number(t_printf *data, t_pocket P)
+/*
+** ("%04.2d", 0)	:	"  01""
+** ("%.0d", 0)		:	""
+** ("%+.d", 0)		:	"+"
+** ("%+5.d", 0)		:	"    +"
+** ("% +5d", 0)		:	"   +0"
+** ("%+05d", -7)	:	"-0007"
+*/
+
+void	write_number(t_printf *data, t_tag tag)
 {
 	data->argi = va_arg(data->ap, int);
-	P.width_arg = get_itoa_width(data->argi);
+	tag.width_arg = get_itoa_width(data->argi);
 	if (data->argi < 0)
 	{
-		P.width_arg--;
-		P.sign = '-';
-		P.plus = FALSE;
+		tag.width_arg--;
+		tag.sign = '-';
+		tag.plus = FALSE;
 		data->argi = -data->argi;
 	}
 	else
-		P.sign = '+';
-	if (P.prcs)
-		P.prcs_filler = MAX(0, P.prcs_parsed - P.width_arg);
-	write_filler(1, data, P);
-	data->printed += ft_putchar_n('0', P.prcs_filler);
-	ft_putnbr_base(data->argi, DIGIT);
-	data->printed += P.width_arg;
-	write_filler(2, data, P);
+		tag.sign = '+';
+	if (data->argi == 0 && tag.prcs)
+		tag.width_arg = 0;
+	if (tag.prcs)
+		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
+	pre_fill_width(data, tag);
+//	data->printed += ft_putchar_n('0', tag.prcs_fill);
+	if (!(data->argi == 0 && tag.prcs))
+		ft_putnbr_base(data->argi, DIGIT);
+	data->printed += tag.width_arg;
+	post_fill_width(data, tag);
 }
