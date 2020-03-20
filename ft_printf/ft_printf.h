@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 22:04:58 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/20 22:39:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
 # define FLAG "-+ 0#"
 # define DIGIT "0123456789"
 
-# define CONVERSION "cspdiuxX%"
+# define CONVERSION "cspdiuxXn%"
 # define STRING "s"
 # define CHAR "cs%"
 # define POINTER "p"
 # define NUM_GROUP "diuxX"
 # define DECIMAL "diu"
 # define HEXA "xX"
+# define N "n"
 
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
@@ -82,35 +83,41 @@ typedef struct	s_tag
 
 int		ft_printf(const char *format, ...);
 
-void	parse_symbols(char *chunk, t_printf *data, t_tag *tag);
-void	write_on_condition(t_printf *data, t_tag tag);
-void	get_arg_for_number(t_printf *data, t_tag tag);
+void	parse_symbols(char *chunk, t_printf *hub, t_tag *tag);
+void	write_on_condition(t_printf *hub, t_tag tag);
 
 
 /* ************************************************************************** */
-/*                                 PARSE SYMBOLS                              */
+/*                              1. PARSE SYMBOLS                              */
 /* ************************************************************************** */
 
 void	parse_flag(char **chunk, t_tag *tag);
-void	parse_precision(char **chunk, t_tag *tag, t_printf *data);
+void	parse_precision(char **chunk, t_tag *tag, t_printf *hub);
 void	parse_len_modifier(char **chunk, t_tag *tag);
+
+
+/* ************************************************************************** */
+/*                              2. WRITE ON CONDITION                         */
+/* ************************************************************************** */
+
+void	write_char(t_printf *hub, t_tag tag);
+void	write_string(t_printf *hub, t_tag tag);
+void	write_pointer(t_printf *hub, t_tag tag);
+void	write_decimal(t_printf *hub, t_tag tag);
+void	write_hexa(t_printf *hub, t_tag tag);
+
+
+/* ************************************************************************** */
+/*                              3. ASSIST                                     */
+/* ************************************************************************** */
 
 void	set_new_tag(t_tag *tag);
 
+void	apply_len_modifier(t_printf *hub, t_tag tag);
+void	store_num_printed(t_printf *hub);
 
-
-/* ************************************************************************** */
-/*                               WRITE ON CONDITION                           */
-/* ************************************************************************** */
-
-void	write_char(t_printf *data, t_tag tag);
-void	write_string(t_printf *data, t_tag tag);
-void	write_pointer(t_printf *data, t_tag tag);
-void	write_decimal(t_printf *data, t_tag tag);
-void	write_hexa(t_printf *data, t_tag tag);
-
-void	pre_fill_width(t_printf *data, t_tag tag);
-void	post_fill_width(t_printf *data, t_tag tag);
+void	pre_fill_width(t_printf *hub, t_tag tag);
+void	post_fill_width(t_printf *hub, t_tag tag);
 
 
 

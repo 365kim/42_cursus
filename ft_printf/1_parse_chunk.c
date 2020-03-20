@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_chunk.c                                      :+:      :+:    :+:   */
+/*   1_parse_chunk.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 21:57:26 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/20 17:06:53 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void	parse_flag(char **chunk, t_tag *tag)
 	(*chunk)++;
 }
 
-void	parse_precision(char **chunk, t_tag *tag, t_printf *data)
+void	parse_precision(char **chunk, t_tag *tag, t_printf *hub)
 {
 	tag->prcs = TRUE;
 	(*chunk)++;
 	if (**chunk == '*')
 	{
-		data->argi = va_arg(data->ap, int);
-		if (data->argi < 0)
+		hub->argi = va_arg(hub->ap, int);
+		if (hub->argi < 0)
 			tag->prcs = FALSE;
 		else
-			tag->prcs_parsed = data->argi;
+			tag->prcs_parsed = hub->argi;
 		(*chunk)++;
 	}
 	else

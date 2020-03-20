@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_each.c                                       :+:      :+:    :+:   */
+/*   2_write.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/19 21:44:18 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/20 17:06:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 ** ("%-05%")    :	"    %"
 */
 
-void	write_char(t_printf *data, t_tag tag)
+void	write_char(t_printf *hub, t_tag tag)
 {
 	tag.width_arg = 1;
 	tag.left ? tag.zero = FALSE : SKIP;
 	tag.space = FALSE;
-	pre_fill_width(data, tag);
+	pre_fill_width(hub, tag);
 	if (tag.conversion == 'c')
-		data->printed += ft_putchar((char)va_arg(data->ap, int));
+		hub->printed += ft_putchar((char)va_arg(hub->ap, int));
 	else
-		data->printed += ft_putchar('%');
-	post_fill_width(data, tag);
+		hub->printed += ft_putchar('%');
+	post_fill_width(hub, tag);
 }
 
 /*
@@ -38,12 +38,12 @@ void	write_char(t_printf *data, t_tag tag)
 ** (%3.7s%7.7s, "hello", "world")   :	"hello  world"
 */
 
-void	write_string(t_printf *data, t_tag tag)
+void	write_string(t_printf *hub, t_tag tag)
 {
 	char *str;
 	char *tmp;
 
-	str = va_arg(data->ap, char *);
+	str = va_arg(hub->ap, char *);
 	if (str == NULL)
 	{
 		tmp = ft_strndup("(null)", 6);
@@ -54,15 +54,15 @@ void	write_string(t_printf *data, t_tag tag)
 	if (tag.prcs && tag.prcs_parsed < tag.width_arg)
 	{
 		tmp = ft_strndup(str, tag.prcs_parsed);
-		data->args = tmp;
+		hub->args = tmp;
 		free(tmp);
 		tag.width_arg = tag.prcs_parsed;
 	}
 	else
-		data->args = str;
-	pre_fill_width(data, tag);
-	data->printed += ft_putstr(data->args);
-	post_fill_width(data, tag);
+		hub->args = str;
+	pre_fill_width(hub, tag);
+	hub->printed += ft_putstr(hub->args);
+	post_fill_width(hub, tag);
 }
 
 
@@ -70,15 +70,15 @@ void	write_string(t_printf *data, t_tag tag)
 ** ("%5p", 0)    :	"  0x0"
 */
 
-void	write_pointer(t_printf *data, t_tag tag)
+void	write_pointer(t_printf *hub, t_tag tag)
 {
-	data->argi = va_arg(data->ap, unsigned long);
-	tag.width_arg = data->argi == 0 ? 3 : 11;
-	pre_fill_width(data, tag);
-	data->printed += ft_putstr("0x");
-	ft_putnbr_base(data->argi, HEX_LOW);
-	post_fill_width(data, tag);
-	data->printed += tag.width_arg - 2;
+	hub->argi = va_arg(hub->ap, unsigned long);
+	tag.width_arg = hub->argi == 0 ? 3 : 11;
+	pre_fill_width(hub, tag);
+	hub->printed += ft_putstr("0x");
+	ft_putnbr_base(hub->argi, HEX_LOW);
+	post_fill_width(hub, tag);
+	hub->printed += tag.width_arg - 2;
 }
 
 /*
@@ -90,29 +90,29 @@ void	write_pointer(t_printf *data, t_tag tag)
 ** ("%+05d", -7)    :	"-0007"
 */
 
-void	write_decimal(t_printf *data, t_tag tag)
+void	write_decimal(t_printf *hub, t_tag tag)
 {
 	if (tag.conversion == 'u')
-		data->argi = (unsigned int)data->argi;
-	tag.width_arg = get_itoa_width(data->argi);
-	if (data->argi < 0)
+		hub->argi = (unsigned int)hub->argi;
+	tag.width_arg = get_itoa_width(hub->argi);
+	if (hub->argi < 0)
 	{
 		tag.width_arg--;
 		tag.sign = '-';
 		tag.plus = FALSE;
-		data->argi = -data->argi;
+		hub->argi = -hub->argi;
 	}
 	else
 		tag.sign = '+';
-	if (data->argi == 0 && tag.prcs)
+	if (hub->argi == 0 && tag.prcs)
 		tag.width_arg = 0;
 	if (tag.prcs)
 		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
-	pre_fill_width(data, tag);
-	if (!(data->argi == 0 && tag.prcs))
-		ft_putnbr_base(data->argi, DIGIT);
-	data->printed += tag.width_arg;
-	post_fill_width(data, tag);
+	pre_fill_width(hub, tag);
+	if (!(hub->argi == 0 && tag.prcs))
+		ft_putnbr_base(hub->argi, DIGIT);
+	hub->printed += tag.width_arg;
+	post_fill_width(hub, tag);
 }
 
 /*
@@ -123,26 +123,26 @@ void	write_decimal(t_printf *data, t_tag tag)
 ** ("%#05x", 0)     :	"00000"
 */
 
-void	write_hexa(t_printf *data, t_tag tag)
+void	write_hexa(t_printf *hub, t_tag tag)
 {
-	tag.width_arg = get_itoa_base_width(data->argi, 16);
+	tag.width_arg = get_itoa_base_width(hub->argi, 16);
 	if (tag.prcs)
 		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
-	if (data->argi == 0 && tag.prcs)
+	if (hub->argi == 0 && tag.prcs)
 	{
 		tag.width_arg = 0;
 		tag.prcs_fill = tag.prcs_parsed;
-		pre_fill_width(data, tag);
-		post_fill_width(data, tag);
+		pre_fill_width(hub, tag);
+		post_fill_width(hub, tag);
 		return ;
 	}
 	tag.width_arg += tag.hexa;
 	tag.hexa && (tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
-	pre_fill_width(data, tag);
+	pre_fill_width(hub, tag);
 	tag.hexa && !(tag.zero && !tag.prcs) ? ft_putstr("0x") : SKIP;
 	tag.width_arg && tag.conversion == 'x' ?
-		ft_putnbr_base(data->argi, HEX_LOW) :
-		ft_putnbr_base(data->argi, HEX_UP);
-	post_fill_width(data, tag);
-	data->printed += tag.width_arg;
+		ft_putnbr_base(hub->argi, HEX_LOW) :
+		ft_putnbr_base(hub->argi, HEX_UP);
+	post_fill_width(hub, tag);
+	hub->printed += tag.width_arg;
 }
