@@ -3,10 +3,10 @@
 ### :bulb: Evaluation Log
 1. 20/00/00 : KO
     - `Compile Error`
-    - :pick: changed xx.h
+    - :wrench: changed xx.h
 2. 20/00/00 : KO
     - `test05 : SegFault`
-    - :pick: added xx.c
+    - :wrench: added xx.c
 3. 20/00/00 : OK
     - **125 score** (mandatory 100 + bonus 25)
 ***
