@@ -3,8 +3,8 @@
 ## Common Circle
 | Circle | Project | Period | Language | Topics |
 |:---:|:---|:---|:---:|:---|
-| 1 | [***Libft***](./libft) | 20. 02. 24 ~ 03. 01 | C | `library`, `Makefile`, `linked list` |
-| 2 | [***get_next_line***](./get_next_line) | 20. 03. 02 ~ 03. 08 | C | `static variable`, `file descriptor` |
+| 1 | [***Libft***](./libft) | 2020. 02. 24 ~ 03. 01 | C | `library`, `Makefile`, `linked list` |
+| 2 | [***get_next_line***](./get_next_line) | 2020. 03. 02 ~ 03. 08 | C | `static variable`, `file descriptor` |
 |   | [***ft_printf***](./ft_printf) | 20. 03. 09 ~ | C | `variadic arguments` |
 |   | netwhat | closed |  |  |
 | 3 | ft_server | closed |  |  |
