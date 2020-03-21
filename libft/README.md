@@ -1,13 +1,13 @@
 # Libft
 
 ### :bulb: Evaluation Log
-1. 20/00/00
+1. 20/00/00 : KO
     - `Compile Error`
-    - modified xx.h
-2. 20/00/00
+    - :pick: changed xx.h
+2. 20/00/00 : KO
     - `test05 : SegFault`
-    - modified xx.c
-3. 20/00/00
+    - :pick: added xx.c
+3. 20/00/00 : OK
     - **125 score** (mandatory 100 + bonus 25)
 ***
 
@@ -26,7 +26,7 @@
     [`isalpha`](./ft_isalpha.c) [`isdigit`](./ft_isdigit.c) [`isalnum`](./ft_isalnum.c) [`isascii`](./ft_isascii.c) [`isprint`](./ft_isprint.c) [`toupper`](./ft_toupper.c) [`tolower`](./ft_tolower.c)
     - ***string(non-lib)*** : 
     [`ft_substr`](./ft_substr.c) [`ft_strjoin`](./ft_strjoin.c) [`ft_strtrim`](./ft_strtrim.c) [`ft_split`](./ft_split.c) [`ft_itoa`](./ft_itoa.c) [`ft_strmapi`](./ft_strmapi.c)
-    - ***put_fd***
+    - ***put_fd*** : 
     [`ft_putchar_fd`](./ft_putchar_fd.c) [`ft_putstr_fd`](./ft_putstr_fd.c) [`ft_putendl_fd`](./ft_putendl_fd.c) [`ft_putnbr_fd`](./ft_putnbr_fd.c)
 
 2. Bonus Part
