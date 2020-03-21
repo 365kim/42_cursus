@@ -1,10 +1,11 @@
-## 42_cursus @ 42Seoul
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/42_Logo.svg" alt="42 Logo.svg" width="142"></p> 
 
+## Common Circle
 | Circle | Project | Period | Language | Topics |
 |:---:|:---|:---|:---:|:---|
-| 1 | [Libft](./libft) | 20. 2. 24 ~ 3. 1 | C | `library`, `Makefile`, `linked list` |
-| 2 | [get_next_line](./get_next_line) | 20. 3. 2 ~ 3. 8 | C | `static variable`, `file descriptor` |
-|   | [ft_printf](./ft_printf) | 20. 3. 9 ~ | C | `variadic arguments` |
+| 1 | [***Libft***](./libft) | 20. 02. 24 ~ 03. 01 | C | `library`, `Makefile`, `linked list` |
+| 2 | [***get_next_line***](./get_next_line) | 20. 03. 02 ~ 03. 08 | C | `static variable`, `file descriptor` |
+|   | [***ft_printf***](./ft_printf) | 20. 03. 09 ~ | C | `variadic arguments` |
 |   | netwhat | closed |  |  |
 | 3 | ft_server | closed |  |  |
 |   | cub3d | closed |  |  |
