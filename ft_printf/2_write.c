@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 16:59:18 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 18:02:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,25 @@
 void	write_char(t_printf *hub, t_tag tag)
 {
 	if (tag.len_mod == L)
+	{
 		hub->argw = (wchar_t)va_arg(hub->ap, wint_t);
-	tag.width_arg = tag.len_mod == L ? get_atou_width(hub->argw) : 1;
+		hub->argw == 0 ? tag.len_mod = 0 : SKIP;
+		hub->argw == 0 ? hub->argc = 0 : SKIP;
+	}
+	else if (tag.conversion == 'c')
+		hub->argc = (char)va_arg(hub->ap, int);
+	tag.width_arg = tag.len_mod == L ? get_atouni_width(hub->argw) : 1;
 	tag.left ? tag.zero = FALSE : SKIP;
 	tag.space = FALSE;
 	pre_fill_width(hub, tag);
 	if (tag.len_mod == L)
 	{
-		hub->args = ft_atou(hub->argw);
+		hub->args = ft_atouni(hub->argw);
 		hub->printed += ft_putstr(hub->args);
 		free(hub->args);
 	}
 	else if (tag.conversion == 'c')
-		hub->printed += ft_putchar((char)va_arg(hub->ap, int));
+		hub->printed += ft_putchar(hub->argc);
 	else
 		hub->printed += ft_putchar('%');
 	post_fill_width(hub, tag);
