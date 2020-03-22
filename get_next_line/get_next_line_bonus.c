@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 20:30:33 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 22:19:14 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		handle_line(char **line, char **note, char *nl_here)
 int		get_next_line(int fd, char **line)
 {
 	static char	*note[OPEN_MAX];
-	static char	buff[BUFFER_SIZE + 1];
+	char		buff[BUFFER_SIZE + 1];
 	int			byte;
 	char		*tmp;
 	char		*nl_here;
