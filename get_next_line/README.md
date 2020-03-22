@@ -17,6 +17,6 @@
     - since libft is not allowed, up to 5 functions can be added in gnl_utils.c (don't know why :sob:)
 
 2. Bonus Part: [***gnl_bonus.c***](./get_next_line_bonus.c), [***gnl_utils_bonus.c***](./get_next_line_utils_bonus.c), [***gnl_bonus.h***](./get_next_line_bonus.h)
-    - ***condition 1***: to succeed get_next_line with a single static variable.
-    - ***condition 2***: to be able to manage multiple file descriptors with get_next_line without losing the reading thread on each of the descriptors.
+    - ***requirement 1***: to succeed get_next_line with a single static variable.
+    - ***requirement 2***: to be able to manage multiple file descriptors with get_next_line without losing the reading thread on each of the descriptors.
     
