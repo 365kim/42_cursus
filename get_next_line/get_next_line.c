@@ -6,17 +6,17 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 20:30:20 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 22:23:30 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 /*
-** - Reads the text available on a file descriptor, one line without newline.
+** - Read the text available on a file descriptor, one line without newline.
+** - Read file only once.
 ** - Do not read whole file and then process each line.
-** - File reading must be done only once.
-** - Should try to read as little as possible each time get_next_line is called.
+** - Try to read as little as possible each time get_next_line is called.
 */
 
 static int		handle_line(char **line, char **note, char *nl_here)
