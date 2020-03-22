@@ -6,12 +6,11 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:58:34 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/20 22:40:12 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 16:43:16 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	store_num_printed(t_printf *hub)
 {

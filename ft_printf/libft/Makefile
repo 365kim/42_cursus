@@ -5,6 +5,8 @@ SRCS	= ./ft_putchar.c \
 		  ./ft_putstr.c \
 		  ./ft_putnbr_base.c \
 		  ./ft_atoi.c \
+		  ./ft_atou.c \
+		  ./get_atou_width.c \
 		  ./get_itoa_width.c \
 		  ./get_itoa_base_width.c \
 		  ./is_set.c \

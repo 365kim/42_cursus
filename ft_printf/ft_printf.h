@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/20 22:39:59 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 16:59:09 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <wchar.h>
 #include "libft/libft.h"
 
 # define FLAG "-+ 0#"
@@ -53,6 +54,7 @@ typedef struct	s_printf
 	char		*args;
 	char		argc;
 	long		argi;
+	wint_t		argw;
 	int			printed;
 }				t_printf;
 
@@ -83,8 +85,6 @@ typedef struct	s_tag
 
 int		ft_printf(const char *format, ...);
 
-void	parse_symbols(char *chunk, t_printf *hub, t_tag *tag);
-void	write_on_condition(t_printf *hub, t_tag tag);
 
 
 /* ************************************************************************** */
@@ -94,6 +94,9 @@ void	write_on_condition(t_printf *hub, t_tag tag);
 void	parse_flag(char **chunk, t_tag *tag);
 void	parse_precision(char **chunk, t_tag *tag, t_printf *hub);
 void	parse_len_modifier(char **chunk, t_tag *tag);
+
+void	set_new_tag(t_tag *tag);
+
 
 
 /* ************************************************************************** */
@@ -107,11 +110,10 @@ void	write_decimal(t_printf *hub, t_tag tag);
 void	write_hexa(t_printf *hub, t_tag tag);
 
 
+
 /* ************************************************************************** */
 /*                              3. ASSIST                                     */
 /* ************************************************************************** */
-
-void	set_new_tag(t_tag *tag);
 
 void	apply_len_modifier(t_printf *hub, t_tag tag);
 void	store_num_printed(t_printf *hub);

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:21:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/20 22:12:09 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/03/22 17:00:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <wchar.h>
 
 # define DIGIT "0123456789"
 
@@ -27,12 +28,14 @@
 
 
 /* ************************************************************************** */
-/*                                 HANDLE ASCII                               */
+/*                                 HANDLE ASCII/UNI                           */
 /* ************************************************************************** */
 
 int		ft_atoi(char **);
 int		get_itoa_width(long n);
 int		get_itoa_base_width(int n, long size);
+int		get_atou_width(wint_t i);
+char	*ft_atou(wint_t w);
 
 
 
