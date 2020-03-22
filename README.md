@@ -5,9 +5,9 @@
 |:---:|:---|:---|:---:|:---|
 | 1 | [**Libft**](./libft) | 2020. 02. 24. ~ 2020. 03. 01. | C | `library`, `Makefile`, `linked list` |
 | 2 | [**get_next_line**](./get_next_line) | 2020. 03. 02. ~ 2020. 03. 08. | C | `static variable`, `file descriptor` |
-|   | [**ft_printf**](./ft_printf) | 2020. 03. 09. ~ 2020. 03. 22. | C | `variadic arguments`, `UTF-8` |
+|   | [**ft_printf**](./ft_printf) | 2020. 03. 09. ~ 2020. 03. 22. | C | `variadic arguments`, `UTF-8`, `bitwise_operation` |
 |   | netwhat | closed |  |  |
-| 3 | ft_server | 2020. 03. 23. ~ |  |  |
+| 3 | ft_server | 2020. 03. 23. ~ |  | `docker` |
 |   | cub3d | closed |  |  |
 |   | miniRT | closed |  |  |
 | 4 | libasm | closed |  |  |
