@@ -10,7 +10,7 @@
 - to learn about `system administration`.
 ---
 
-### :bulb: Files turned in
+### :bulb: Files Turned In
 1. Mandatory Part
     - **src/ngix-template** : configurations for the server
     - **src/wordpress-config.php** : configurations for WordPress
