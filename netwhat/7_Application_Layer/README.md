@@ -8,37 +8,41 @@
 - 참고 : [DNS의 원리](https://opentutorials.org/course/3276/20299), [DHCP의 원리](https://opentutorials.org/course/3265/20039)
 <br>
 
-### :speech_balloon: 연습문제
-#### P24. ____ translates Internet domain names and host names into IP addresses
+### :speech_balloon: 연습문제 : DNS/DHCP 특징
+#### Q. ____ translates Internet domain names and host names into IP addresses
     - Network time protocol
     - Default routing protocol
     - Domain name system
     - OSI model system
 
+
     Answer : Domain name system
 
 
-#### P6. You want to implement a mechanism that automates IP configuration, including IP address, subnet mask, default gateway and DNS information. What protocol will you use to achieve this?
+#### Q. You want to implement a mechanism that automates IP configuration, including IP address, subnet mask, default gateway and DNS information. What protocol will you use to achieve this?
     - SNMP
     - DHCP
     - SMTP
     - ARP
 
+
     Answer : DHCP
 
-#### P16. What DHCP protocol does it use at the transport layer level?
+#### Q. What DHCP protocol does it use at the transport layer level?
     - ICMP
     - TCP
     - FTP
     - UDP
 
+
     Answer : UDP
 
-#### P35. What type of address is supported by DHCP?
+#### Q. What type of address is supported by DHCP?
     - IPV4
     - IPV6
     - IPV4 and IPV6
     - None of them
+
 
     Answer : IPV4 and IPV6
 
