@@ -1,9 +1,9 @@
 ## IP Address
 - 컴퓨터 네트워크에서 장치들이 서로 인식하고 통신하기 위해 사용하는 주소
-    - IPv4 (32bit) : 일반적으로 사용하는 IP주소 (0.0.0.0 ~ 255.255.255.255 형태)
-    - IPv6 (128bit) : IPv4의 고갈로 크기를 128비트로 늘린 IP주소
+    - **IPv4 (32bit)** : 일반적으로 사용하는 IP주소 (0.0.0.0 ~ 255.255.255.255 형태)
+    - **IPv6 (128bit)** : IPv4의 고갈로 크기를 128비트로 늘린 IP주소
     
-- 참고자료 : [IP주소(위키)](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C), [IP주소(생활코딩)](https://opentutorials.org/course/3276/20296)
+- 참고 : [IP주소](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C), [IP주소와 호스트](https://opentutorials.org/course/3276/20296)
 <br>
 
 ### :speech_balloon: 연습문제 : 아이피주소 크기
