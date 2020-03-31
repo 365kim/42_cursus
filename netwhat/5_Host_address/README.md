@@ -1,5 +1,5 @@
 ## Host address
-- 호스트 주소 : 맨 앞의 네트워크 주소(1개)와 맨 뒤의 브로드캐스트 주소(1개)을 제외한 나머지
+- 하나의 네트워크에서 맨 앞의 네트워크 주소(1개)와 맨 뒤의 브로드캐스트 주소(1개)을 제외한 나머지
 - 참고 : [솔루션](https://www.quora.com/Whats-the-maximum-number-of-IP-addresses-that-can-be-assigned-with-a-local-subnet-mask-of-255-255-255-224)
 <br>
 
