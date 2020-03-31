@@ -1,14 +1,12 @@
-## :bulb:IP Address
+## IP Address
 - 컴퓨터 네트워크에서 장치들이 서로 인식하고 통신하기 위해 사용하는 주소
-- IP는 Internet Protocol의 약자
     - IPv4 (32bit) : 일반적으로 사용하는 IP주소 (0.0.0.0 ~ 255.255.255.255 형태)
     - IPv6 (128bit) : IPv4의 고갈로 크기를 128비트로 늘린 IP주소
     
 - 참고자료 : [IP주소(위키)](https://ko.wikipedia.org/wiki/IP_%EC%A3%BC%EC%86%8C), [IP주소(생활코딩)](https://opentutorials.org/course/3276/20296)
 <br>
 
-## :bulb:연습문제
-### :speech_balloon: 아이피주소 크기
+### :speech_balloon: 연습문제 : 아이피주소 크기
 #### Q. What is the size of an IPv4 address?
     - 128 bits
     - 32 bits 
@@ -32,8 +30,9 @@
     
     
     Answer : 128 bit
+<br>
 
-### :speech_balloon:IP주소 클래스 고르기
+### :speech_balloon: 연습문제 :IP주소 클래스 고르기
 
 #### Q. What is the default IP address class available?
     - A AND B
