@@ -1,4 +1,4 @@
-# Network/Boradcast address
+## Network/Boradcast address
 - **네트워크 주소** : 하나의 네트워크를 통칭하기 위함
     - 해당 네트워크의 첫번째 IP주소
     - 계산방법 : IP주소와 서브넷마스크의 AND연산
