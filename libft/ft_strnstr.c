@@ -6,14 +6,15 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 16:38:13 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 17:11:33 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:07:29 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Locates 1st occurrence of 'needle' in 'haystack', searching not more than len.
+** - Locates 1st occurrence of 'needle' in 'haystack'
+**   searching not more than len.
 ** - Characters that appear after a `\0' character are not searched.
 ** - Returns
 **   1) haystack, if needle is an empty string.

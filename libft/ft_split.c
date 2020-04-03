@@ -6,15 +6,15 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 08:43:40 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/01 01:11:40 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:11:16 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Allocates (with malloc) an array of strings obtained by splitting 's' 
-**   using the character 'c' as a delimiter. 
+** - Allocates (with malloc) an array of strings obtained by splitting 's'
+**   using the character 'c' as a delimiter.
 ** - The array must be ended by a NULL pointer.
 ** - Returns the array of new strings, or NULL if the allocation fails.
 */

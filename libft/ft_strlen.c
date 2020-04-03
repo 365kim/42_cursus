@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:08:55 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:26:20 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:05:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** - Computes the length of string 's'.
-** - Returns the number of characters that precede the terminating NUL character.
+** - Returns # of characters that precede the terminating NUL character.
 **   Returns either the same result as strlen() or maxlen, whichever is smaller.
 */
 

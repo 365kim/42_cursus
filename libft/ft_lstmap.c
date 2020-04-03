@@ -6,14 +6,15 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:46:15 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/02 01:13:32 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 21:57:36 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Iterates the list 'lst' and applies function 'f' to the content of each element.
+** - Iterates the list 'lst' and applies function 'f' to the content of
+**   each element.
 ** - 'del' function is used to delete the content of an element if needed.
 ** - Returns the new list, or NULL if the allocation fails
 */

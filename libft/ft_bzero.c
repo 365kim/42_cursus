@@ -6,14 +6,14 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 05:55:00 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:31:14 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 21:49:35 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Writes 'n' zeroed bytes to the string 's'.  
+** - Writes 'n' zeroed bytes to the string 's'.
 ** - Does nothing if 'n' is zero.
 */
 

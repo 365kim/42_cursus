@@ -6,18 +6,19 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 14:59:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 17:26:07 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:14:28 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Compares the null-terminated strings 's1' and 's2' in lexicographical order,
-**   but not more than n characters.
+** - Compares 's1' and 's2' in lexicographical order,
+**   but not more than 'n' characters.
 ** - Characters that appear after a `\0' character are not compared.
 **   (since strncmp() is designed for comparing strings rather than binary data)
-** - Comparison is done using 'unsigned characters', so `\200' is greater than `\0'
+** - Comparison is done in format of 'unsigned characters',
+**   so `\200' is greater than `\0'
 */
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

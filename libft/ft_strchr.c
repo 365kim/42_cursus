@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 13:18:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 19:20:19 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:04:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ char	*ft_strchr(const char *s, int c)
 }
 
 /*
-** line 28-29 : add condition if 'c' is 0, to return a pointer to the terminating-Null of 's'
+** line 28-29 : add condition if 'c' is 0, to return a pointer
+**              to the terminating-Null of 's'
 ** line 33 : change return value from 's' to 's + i'
-** 
+**
 ** Simpler Code : return (ft_memchr(s, c, ft_strlen(s) + 1);
 */

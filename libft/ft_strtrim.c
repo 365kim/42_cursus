@@ -6,15 +6,15 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 07:55:09 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/02 00:59:10 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:12:16 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Allocates (with malloc) a copy of 's1'
-**   with the characters specified in 'set' removed from beginning and end of string.
+** - Allocates (with malloc) a copy of 's1' with the characters
+**   specified in 'set' removed from beginning and end of string.
 ** - Returns 's1', the trimmed string, or NULL if the allocation fails.
 */
 

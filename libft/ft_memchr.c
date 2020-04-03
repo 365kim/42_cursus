@@ -6,15 +6,16 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 07:46:09 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 17:11:52 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 21:55:50 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Locates first occurrence of 'c'(converted to an unsigned char) in string 's'
-** - Returns a pointer to the byte located, or NULL if no such byte exists within 'n'
+** - Locates first occurrence of 'c'(converted to unsigned char) in 's'.
+** - Returns a pointer to the byte located, or NULL if no such byte exists
+**   within 'n'.
 */
 
 void	*ft_memchr(const void *s, int c, size_t n)

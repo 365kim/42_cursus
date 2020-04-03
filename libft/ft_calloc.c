@@ -6,14 +6,14 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:00:05 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 10:18:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 21:50:32 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Contiguously allocates enough space for 'count' objects 
+** - Contiguously allocates enough space for 'count' objects
 **   that are 'size' bytes of memory each.
 ** - The allocated memory is filled with bytes of value zero.
 ** - Returns a pointer to the allocated memory.

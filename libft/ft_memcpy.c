@@ -6,13 +6,13 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 05:58:04 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:30:08 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:02:49 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
+/*
 ** - Copies 'n' bytes from memory area 'src' to memory area 'dst'.
 ** - Returns the original value of 'dst'.
 */

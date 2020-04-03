@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 06:10:28 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 17:23:06 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 21:59:52 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t			i;
 	int				occured;
-	unsigned char	*_src;
+	unsigned char	*usrc;
 
-	_src = (unsigned char *)src;
+	usrc = (unsigned char *)src;
 	i = 0;
 	occured = 0;
-	while (i < n && _src[i] && !occured)
+	while (i < n && usrc[i] && !occured)
 	{
-		occured = ((_src)[i] == (unsigned char)c) ? 1 : 0;
+		occured = ((usrc)[i] == (unsigned char)c) ? 1 : 0;
 		i++;
 	}
 	if (occured)
 	{
-		ft_memcpy(dst, _src, i);
+		ft_memcpy(dst, usrc, i);
 		return (dst + i);
 	}
-	else 
+	else
 	{
-		ft_memcpy(dst, _src, n);
+		ft_memcpy(dst, usrc, n);
 		return (0);
 	}
 }

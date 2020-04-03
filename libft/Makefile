@@ -62,10 +62,10 @@ all : $(NAME)
 bonus : $(NAME) $(OBJS_B)
 	$(LIBC) $(NAME) $(OBJS_B)
 
-fclean : clean
-	$(RM) $(NAME) $(bonus)
-
 clean :
 	$(RM) $(OBJS) $(OBJS_B)
+
+fclean : clean
+	$(RM) $(NAME) $(bonus)
 
 re : fclean all

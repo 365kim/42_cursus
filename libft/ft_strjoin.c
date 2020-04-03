@@ -6,14 +6,14 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 07:41:36 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/27 07:54:57 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/03 22:04:29 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** - Allocates (with malloc) and returns a new string, 
+** - Allocates (with malloc) and returns a new string,
 **   which is the result of the concatenation of 's1' and 's2'.
 ** - Returns the new string, or NULL if the allocation fails.
 */
