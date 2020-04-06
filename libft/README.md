@@ -1,20 +1,20 @@
 # Libft
 
 ### :bulb: Evaluation Log
-1. 20/00/00 : KO
+1. 20/04/00 : KO
     - `Compile Error`
     - :wrench: changed xx.h
-2. 20/00/00 : KO
+2. 20/04/00 : KO
     - `test05 : SegFault`
     - :wrench: added xx.c
-3. 20/00/00 : OK
-    - **125 score** (mandatory 100 + bonus 25)
-***
+3. 20/04/00 : OK
+    - **100 score** (mandatory 100 + bonus 00)
+---
 
 ### :bulb: Objective
-- to code a C library regrouping usual functions.
+- to code a C library regrouping functions.
 - the functions will be allowed to use in all other projects.
-***
+---
 
 ### :bulb: List of Functions
 1. Mandatory Part
@@ -30,6 +30,10 @@
     [`ft_putchar_fd`](./ft_putchar_fd.c) [`ft_putstr_fd`](./ft_putstr_fd.c) [`ft_putendl_fd`](./ft_putendl_fd.c) [`ft_putnbr_fd`](./ft_putnbr_fd.c)
 
 2. Bonus Part
-
     - ***linked_list*** :
     [`ft_lstnew`](./ft_lstnew.c) [`ft_lstadd_front`](./ft_lstadd_front.c) [`ft_lstsize`](./ft_lstsize.c) [`ft_lstlast`](./ft_lstlast.c) [`ft_lstadd_back`](./ft_lstadd_back.c) [`ft_lstdelone`](./ft_lstdelone.c) [`ft_lstclear`](./ft_lstclear.c) [`ft_lstiter`](./ft_lstiter.c) [`ft_lstmap`](./ft_lstmap.c)
+---
+
+### :bulb: Useful Links
+- Libft tester by [_jtoty_](https://github.com/jtoty/Libftest)
+- Libft tester by [_alelievr_](https://github.com/alelievr/libft-unit-test)
