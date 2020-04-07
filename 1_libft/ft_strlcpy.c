@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 12:37:28 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 22:30:18 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 13:19:26 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t srcsize;
 	size_t i;
 
+	if (dst == NULL && src == NULL)
+		return (0);
 	srcsize = ft_strlen(src);
 	i = 0;
 	while (i < srcsize && i + 1 < dstsize)
@@ -38,3 +40,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = 0;
 	return (srcsize);
 }
+
+/*
+** line 30-31 : Added protection
+*/
