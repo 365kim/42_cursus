@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 14:42:54 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/02 01:12:19 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 13:36:20 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst == NULL)
+		return (NULL);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
 }
+
+/*
+** line 21-22 : Added protection
+*/
