@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:46:15 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:57:36 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 14:18:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,27 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *new_head;
-	t_list *current;
+	t_list *tmp;
+	t_list *curr;
 
-	if (lst == 0 || f == 0 || del == 0)
-		return (0);
-	new_head = ft_lstnew(f(lst->content));
-	if (new_head == 0)
-		return (0);
-	current = new_head;
-	lst = lst->next;
-	while (lst)
+	if (lst == NULL || f == NULL || del  == NULL || 
+			(new_head = ft_lstnew(f(lst->content))) ==  NULL)
+		return (NULL);
+	curr = new_head;
+	tmp = lst->next;
+	while (tmp)
 	{
-		if ((current->next = ft_lstnew(f(lst->content))) == 0)
+		if ((curr->next = ft_lstnew(f(tmp->content))) == NULL)
 		{
 			ft_lstclear(&new_head, del);
-			break ;
+			return (NULL);
 		}
-		current = current->next;
-		lst = lst->next;
+		curr = curr->next;
+		tmp = tmp->next;
 	}
 	return (new_head);
 }
+
+/*
+** line 38 : changed statement from 'break' to 'return NULL'
+*/
