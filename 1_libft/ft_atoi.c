@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 15:24:36 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/29 16:38:04 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 14:34:45 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_atoi(const char *str)
 {
-	int		sign;
-	int		atoi;
-	size_t	i;
+	int					sign;
+	unsigned long int	atoi;
+	size_t				i;
 
 	i = 0;
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
@@ -34,10 +34,10 @@ int		ft_atoi(const char *str)
 		atoi = atoi * 10 + (str[i] - '0');
 		i++;
 	}
-	atoi = (sign == 1) ? atoi : -atoi;
-	return (atoi);
+	return (atoi * sign);
 }
 
 /*
-** line 26 : change from while() to if()
+** line 18 : changed type of atoi from 'int' to 'unsigned long int'
+** line 26 : changed from 'while' to 'if'
 */
