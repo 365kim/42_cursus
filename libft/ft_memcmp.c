@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 07:53:46 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/03 21:59:32 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 12:47:51 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,14 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	us1 = (unsigned char *)s1;
 	us2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n - 1 && us1[i] && us2[i])
-	{
-		if (us1[i] != us2[i])
-			return (us1[i] - us2[i]);
+	while (i < n - 1 && us1[i] == us2[i])
 		i++;
-	}
 	return (us1[i] - us2[i]);
 }
 
 /*
-** line 34 : change if condition from 'i < n'  to 'i < n - 1'
+** line 34 : Changed while condition from 'i < n'  to 'i < n - 1'
 **           (n may include terminated-null.)
+** line 37 : Changed while condition from && us1[i] && us2[t]
+**           to 'us1[i] == us2[i]'.
 */

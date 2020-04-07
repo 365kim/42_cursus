@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:33:54 by mihykim           #+#    #+#             */
-/*   Updated: 2020/02/28 10:32:09 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/07 12:57:06 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	size;
 	char	*res;
 
-	if (s == 0)
-		return (0);
+	if (s == NULL)
+		return (NULL);
 	size = ft_strlen(s);
 	res = ft_calloc(size + 1, sizeof(char));
+	if (res == NULL)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
@@ -38,3 +40,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	res[i] = 0;
 	return (res);
 }
+
+/*
+** line 32-33 : Added protection
+*/
