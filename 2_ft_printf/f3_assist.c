@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:58:34 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 16:43:16 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/10 01:36:27 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ void	pre_fill_width(t_printf *hub, t_tag tag)
 		hub->printed += ft_putchar(' ');
 	if (!tag.left)
 	{
-		tag.zero ? (tag.filler ='0') : (tag.filler = ' ');
-		tag.prcs ? (tag.filler = ' ') : SKIP;
+		tag.filler = tag.zero ? '0' : ' ';
+		tag.filler = tag.prcs ? ' ' : tag.filler;
 		if (tag.prcs && !tag.prcs_fill && tag.conversion != 's')
-			tag.width_arg = MAX(tag.width_arg, tag.prcs_parsed);
+			tag.width_arg = max(tag.width_arg, tag.prcs_parsed);
 		tag.width_fill =
-			MAX(0, tag.width_parsed - tag.width_arg - tag.prcs_fill);
+			max(0, tag.width_parsed - tag.width_arg - tag.prcs_fill);
 		hub->printed += ft_putchar_n(tag.filler, tag.width_fill);
 	}
 	if ((tag.sign == '-' || tag.plus) && !((tag.left || tag.zero) && !tag.prcs))
 		hub->printed += ft_putchar(tag.sign);
 	if (is_set(tag.conversion, NUM_GROUP))
-			hub->printed += ft_putchar_n('0', tag.prcs_fill);
+		hub->printed += ft_putchar_n('0', tag.prcs_fill);
 }
 
 void	post_fill_width(t_printf *hub, t_tag tag)
@@ -64,12 +64,12 @@ void	post_fill_width(t_printf *hub, t_tag tag)
 		tag.width_parsed--;
 	if (tag.left)
 	{
-		tag.zero ? (tag.filler ='0') : (tag.filler = ' ');
-		tag.prcs ? (tag.filler = ' ') : SKIP;
+		tag.filler = tag.zero ? '0' : ' ';
+		tag.filler = tag.prcs ? ' ' : tag.filler;
 		if (tag.prcs && !tag.prcs_fill && tag.conversion != 's')
-			tag.width_arg = MAX(tag.width_arg, tag.prcs_parsed);
+			tag.width_arg = max(tag.width_arg, tag.prcs_parsed);
 		tag.width_fill =
-			MAX(0, tag.width_parsed - tag.width_arg - tag.prcs_fill);
+			max(0, tag.width_parsed - tag.width_arg - tag.prcs_fill);
 		hub->printed += ft_putchar_n(tag.filler, tag.width_fill);
 	}
 }

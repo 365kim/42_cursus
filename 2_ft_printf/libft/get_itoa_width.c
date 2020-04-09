@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atouni.c                                        :+:      :+:    :+:   */
+/*   get_itoa_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/22 14:01:56 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 17:35:56 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/17 00:37:55 by mihykim           #+#    #+#             */
+/*   Updated: 2020/04/10 01:28:36 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_atouni(wchar_t w)
+int		get_itoa_width(long n)
 {
-	int		n;
+	long	long_n;
 	int		i;
-	char	*utf;
-	int		utf_frame;
 
-	utf = malloc((n = get_atouni_width(w)) + 1);
-	utf[n] = '\0';
-	n == 1 ? utf[0] = w : 0;
-	if (n == 1)
-		return (utf);
-	i = 0;
-	utf_frame = 0b10000000;
-	while (i + 1 <= n)
+	i = n < 1 ? 1 : 0;
+	long_n = n < 0 ? -(long)n : (long)n;
+	while (long_n != 0)
 	{
-		utf[n - 1 - i] = ((w >> (6 * i)) & 0b00111111) | utf_frame;
+		long_n = long_n / 10;
 		i++;
 	}
-	while (n-- > 1)
-	{
-		utf_frame = utf_frame >> 1 | 0b10000000;
-		utf[0] = utf[0] | utf_frame;
-	}
-	return (utf);
+	return (i);
 }
+
+/*
+** line 15 : change from 'int' to 'long' to pass test 640 with long numbers
+*/

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 18:02:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/10 01:36:03 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	write_string(t_printf *hub, t_tag tag)
 	post_fill_width(hub, tag);
 }
 
-
 /*
 ** ("%5p", 0)    :	"  0x0"
 */
@@ -120,7 +119,7 @@ void	write_decimal(t_printf *hub, t_tag tag)
 	if (hub->argi == 0 && tag.prcs)
 		tag.width_arg = 0;
 	if (tag.prcs)
-		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
+		tag.prcs_fill = max(0, tag.prcs_parsed - tag.width_arg);
 	pre_fill_width(hub, tag);
 	if (!(hub->argi == 0 && tag.prcs))
 		ft_putnbr_base(hub->argi, DIGIT);
@@ -140,7 +139,7 @@ void	write_hexa(t_printf *hub, t_tag tag)
 {
 	tag.width_arg = get_itoa_base_width(hub->argi, 16);
 	if (tag.prcs)
-		tag.prcs_fill = MAX(0, tag.prcs_parsed - tag.width_arg);
+		tag.prcs_fill = max(0, tag.prcs_parsed - tag.width_arg);
 	if (hub->argi == 0 && tag.prcs)
 	{
 		tag.width_arg = 0;

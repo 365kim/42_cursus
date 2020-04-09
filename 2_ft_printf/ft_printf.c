@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 00:20:19 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/10 01:08:55 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ static void	write_on_condition(t_printf *hub, t_tag tag)
 	else if (is_set(tag.conversion, CHAR))
 		write_char(hub, tag);
 	else if (is_set(tag.conversion, POINTER))
-		write_pointer(hub,tag);
+		write_pointer(hub, tag);
 	else if (is_set(tag.conversion, DECIMAL))
-		write_decimal(hub,tag);
+		write_decimal(hub, tag);
 	else if (is_set(tag.conversion, HEXA))
 		write_hexa(hub, tag);
 	else if (is_set(tag.conversion, N))
 		store_num_printed(hub);
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_printf	hub;
-	t_tag	tag;
+	t_tag		tag;
 	char		*chunk;
 	int			len;
 
@@ -69,7 +69,7 @@ int		ft_printf(const char *format, ...)
 				return (-1);
 			chunk = ft_strndup(++format, len);
 			parse_symbols(chunk, &hub, &tag);
-			write_on_condition(&hub, tag); 
+			write_on_condition(&hub, tag);
 			format += len;
 			free(chunk);
 		}
@@ -77,5 +77,3 @@ int		ft_printf(const char *format, ...)
 	va_end(hub.ap);
 	return (hub.printed);
 }
-
-

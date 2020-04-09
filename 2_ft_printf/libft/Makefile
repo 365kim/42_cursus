@@ -13,7 +13,9 @@ SRCS	= ./ft_putchar.c \
 		  ./ft_strlen.c \
 		  ./ft_strchr.c \
 		  ./ft_strstrhr.c \
-		  ./ft_strndup.c
+		  ./ft_strndup.c \
+		  ./max.c \
+		  ./min.c
 
 OBJS	= $(SRCS:.c=.o)
 INCS	= .

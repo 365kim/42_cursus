@@ -5,9 +5,9 @@ LIBFT		= libft
 LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c \
-			  ./1_parse.c \
-			  ./2_write.c \
-			  ./3_assist.c
+			  ./f1_parse.c \
+			  ./f2_write.c \
+			  ./f3_assist.c
 
 OBJS		= $(SRCS:.c=.o)
 INCS		= .

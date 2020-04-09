@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_itoa_width.c                                   :+:      :+:    :+:   */
+/*   min.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 00:37:55 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/20 22:14:58 by mihykim          ###   ########.fr       */
+/*   Created: 2020/03/17 00:39:22 by mihykim           #+#    #+#             */
+/*   Updated: 2020/04/10 01:34:27 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_itoa_width(long n)
+int	min(int a, int b)
 {
-	long	long_n;
-	int			i;
-
-	i = n < 1 ? 1 : 0;
-	long_n = n < 0 ? -(long)n : (long)n;
-	while (long_n != 0)
-	{
-		long_n = long_n / 10;
-		i++;
-	}
-	return (i);
+	if (a > b)
+		return (b);
+	else
+		return (a);
 }
-
-/*
-** line 15 : change from 'int' to 'long' to pass test 640 with long numbers
-*/
