@@ -22,11 +22,11 @@
 ---
 
 ### :bulb: Useful Links
-- tester by [_DontBreakAlex_](https://github.com/DontBreakAlex/gnlkiller)
+- gnlkiller by [_DontBreakAlex_](https://github.com/DontBreakAlex/gnlkiller)
     ```
     git clone https://github.com/DontBreakAlex/gnlkiller.git ; cd gnlkiller; cp ../get_next_line.c .; cp ../get_next_line_utils.c .; cp ../get_next_line.h .; ./run.sh;
     ```
-- tester by [_charMstr_](https://github.com/charMstr/GNL_lover)
+- GNL_lover by [_charMstr_](https://github.com/charMstr/GNL_lover)
     ```
     git clone https://github.com/charMstr/GNL_lover.git GNL_lover
     ```
