@@ -19,4 +19,14 @@
 2. Bonus Part: [***gnl_bonus.c***](./get_next_line_bonus.c), [***gnl_utils_bonus.c***](./get_next_line_utils_bonus.c), [***gnl_bonus.h***](./get_next_line_bonus.h)
     - ***requirement 1***: to succeed get_next_line with a single static variable.
     - ***requirement 2***: to be able to manage multiple file descriptors with get_next_line without losing the reading thread on each of the descriptors.
-    
+---
+
+### :bulb: Useful Links
+- tester by [_DontBreakAlex_](https://github.com/DontBreakAlex/gnlkiller)
+    ```
+    git clone https://github.com/DontBreakAlex/gnlkiller.git ; cd gnlkiller; cp ../get_next_line.c .; cp ../get_next_line_utils.c .; cp ../get_next_line.h .; ./run.sh;
+    ```
+- tester by [_charMstr_](https://github.com/charMstr/GNL_lover)
+    ```
+    git clone https://github.com/charMstr/GNL_lover.git GNL_lover
+    ```
