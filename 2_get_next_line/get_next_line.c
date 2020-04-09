@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 15:50:48 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/22 22:19:14 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/09 20:02:25 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 /*
-** - Reads the text available on a file descriptor, one line without newline.
+** - Read the text available on a file descriptor, one line without newline.
+** - Read file only once.
 ** - Do not read whole file and then process each line.
-** - File reading must be done only once.
-** - Should try to read as little as possible each time get_next_line is called.
+** - Try to read as little as possible each time get_next_line is called.
 */
 
-static int		handle_line(char **line, char **note, char *nl_here)
+static int	handle_line(char **line, char **note, char *nl_here)
 {
 	char	*tmp;
 
@@ -41,10 +41,10 @@ static int		handle_line(char **line, char **note, char *nl_here)
 	return (_EOF);
 }
 
-int		get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
 	static char	*note[OPEN_MAX];
-	char		buff[BUFFER_SIZE + 1];
+	static char	buff[BUFFER_SIZE + 1];
 	int			byte;
 	char		*tmp;
 	char		*nl_here;
@@ -55,8 +55,9 @@ int		get_next_line(int fd, char **line)
 			&& (byte = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[byte] = 0;
-		tmp = note[fd] == NULL ? ft_strndup(buff, byte) : ft_strjoin(note[fd], buff);
-		if(note[fd] != 0)
+		tmp = note[fd] == NULL ? ft_strndup(buff, byte) :
+			ft_strjoin(note[fd], buff);
+		if (note[fd] != 0)
 			free(note[fd]);
 		note[fd] = tmp;
 	}
