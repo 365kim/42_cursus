@@ -29,7 +29,15 @@
 ---
 
 ### :bulb: Useful Links
-- Libft tester by [_jtoty_](https://github.com/jtoty/Libftest) / [_ska42_](https://github.com/ska42/libft-war-machine)
-    - `git clone https://github.com/jtoty/Libftest`
-- Libft tester by [_alelievr_](https://github.com/alelievr/libft-unit-test)
-    - `git clone https://github.com/alelievr/libft-unit-test`
+- __libftest__ by [_jtoty_](https://github.com/jtoty/Libftest)
+    ```
+    git clone https://github.com/jtoty/Libftest.git
+    ```
+- __unit test__ by [_alelievr_](https://github.com/alelievr/libft-unit-test)
+    ```
+    git clone https://github.com/alelievr/libft-unit-test.git
+    ```
+- __war machine__ by [_ska42_](https://github.com/ska42/libft-war-machine)
+    ```
+    git clone https://github.com/ska42/libft-war-machine.git
+    ```
