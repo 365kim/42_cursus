@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 07:12:13 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/09 13:06:21 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/09 16:47:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	size_s;
 	char	*sub_s;
 
+	if (s == NULL)
+		return (NULL);
 	sub_s = (char *)malloc(sizeof(char) * (len + 1));
 	if (sub_s == NULL)
 		return (NULL);
@@ -37,8 +39,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_s[i] = '\0';
 	return (sub_s);
 }
-
-/*
-** line 27-28 : Removed 'if (s == NULL) return NULL;'
-**              to return empty string instead of NULL.
-*/
