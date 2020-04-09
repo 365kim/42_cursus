@@ -1,14 +1,8 @@
 # Libft
 
 ### :bulb: Evaluation Log
-1. 20/04/00 : KO
-    - `Compile Error`
-    - :wrench: changed xx.h
-2. 20/04/00 : KO
-    - `test05 : SegFault`
-    - :wrench: added xx.c
-3. 20/04/00 : OK
-    - **100 score** (mandatory 100 + bonus 00)
+1. 20/04/09 : OK
+    - **115 score** (mandatory 100 + bonus 15)
 ---
 
 ### :bulb: Objective
@@ -19,9 +13,9 @@
 ### :bulb: List of Functions
 1. Mandatory Part
     - ***memory*** : 
-    [`memset`](./ft_memset.c) [`bzero`](./ft_bzero.c) [`memcpy`](./ft_memcpy.c) [`memccpy`](./ft_memccpy.c) [`memmove`](./ft_memmove.c) [`memchr`](./ft_memchr.c) [`memcmp`](./ft_memcmp.c)
+    [`memset`](./ft_memset.c) [`bzero`](./ft_bzero.c) [`memcpy`](./ft_memcpy.c) [`memccpy`](./ft_memccpy.c) [`memmove`](./ft_memmove.c) [`memchr`](./ft_memchr.c) [`memcmp`](./ft_memcmp.c) [`calloc`](./ft_calloc.c)
     - ***string(lib)*** :
-    [`strlen`](./ft_strlen.c) [`strlcpy`](./ft_strlcpy.c) [`strlcat`](./ft_strlcat.c) [`strchr`](./ft_strchr.c) [`strrchr`](./ft_strrchr.c) [`strnstr`](./ft_strnstr.c) [`strncmp`](./ft_strncmp.c) [`atoi`](./ft_atoi.c)
+    [`strlen`](./ft_strlen.c) [`strlcpy`](./ft_strlcpy.c) [`strlcat`](./ft_strlcat.c) [`strchr`](./ft_strchr.c) [`strrchr`](./ft_strrchr.c) [`strnstr`](./ft_strnstr.c) [`strncmp`](./ft_strncmp.c) [`atoi`](./ft_atoi.c) [`strdup`](./ft_strdup.c)
     - ***is_sth, to_sth*** : 
     [`isalpha`](./ft_isalpha.c) [`isdigit`](./ft_isdigit.c) [`isalnum`](./ft_isalnum.c) [`isascii`](./ft_isascii.c) [`isprint`](./ft_isprint.c) [`toupper`](./ft_toupper.c) [`tolower`](./ft_tolower.c)
     - ***string(non-lib)*** : 
