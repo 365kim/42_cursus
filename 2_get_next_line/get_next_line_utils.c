@@ -6,11 +6,11 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:06:58 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/11 18:56:34 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/10 10:26:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(char *s, int c)
 {
