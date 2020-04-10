@@ -58,4 +58,14 @@
 
     Answer : TCP is a datagram oriented protocol
 
+#### Q. Which of the following services use UDP? 1. DHCP 2. SMTP 3. FTP 4. HTTP
+    - 3
+    - 1
+    - 2
+    - All of the above
+
+
+    Answer : 1
+
+
 - Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
