@@ -52,5 +52,14 @@
 
 
     Answer : FIRST
-    
+
+#### Q. Which of this is not a class of IP address?
+    - Class D
+    - Class F
+    - Class C
+    - Class E
+
+
+    Answer : Class F
+
 - Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
