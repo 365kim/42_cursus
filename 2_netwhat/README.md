@@ -11,7 +11,7 @@
 
 ### :bulb: Files Turned In
 1. Mandatory Part
-	- **answer.txt** : paste the encrypted key generated at the end of online test
+	- **answer.txt** : paste the encrypted key generated at the end of online 10-minute test
 
 2. Bonus Part: N/A
 
@@ -22,8 +22,8 @@
 4. [Network/Broadcast address](./4_Network_Broadcast_address)
 5. [Host address](./5_Host_address)
 6. [OSI model](./6_OSI_model)
-7. [Application Layer](./7_Application_Layer)
-8. [Transport Layer](./8_Transport_Layer)
-9. [Network Layer](./9_Network_Layer)
+7. [Application Layer](./7_Application_layer)
+8. [Transport Layer](./8_Transport_layer)
+9. [Network Layer](./9_Network_layer)
 
 - Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
