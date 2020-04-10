@@ -46,4 +46,15 @@
 
     Answer : IPV4 and IPV6
 
+
+#### Q. DHCP is used for _____
+    - IPV4
+    - Both IPV6 and IPV4
+    - IPV6
+    - None of the mentioned
+
+
+    Answer : Both IPV6 and IPV4
+
+
 - Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
