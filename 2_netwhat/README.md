@@ -1,8 +1,8 @@
 # netwhat
 
 ### :bulb: Evaluation Log
-1. 20/00/00 : OK
-    - **0 score** (mandatory 0)
+1. 20/04/10 : OK
+    - **100 score** 
 ---
 
 ### :bulb: Objective
@@ -11,7 +11,8 @@
 
 ### :bulb: Files Turned In
 1. Mandatory Part
-	- **answer.txt** : paste the encrypted key generated at the end of online 10-minute test
+	- **answer.txt** : paste the encrypted key generated at the end of online test
+	- You have to solve 20 questions within 10 minutes.
 
 2. Bonus Part: N/A
 
