@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/10 01:08:55 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 02:10:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int			ft_printf(const char *format, ...)
 	char		*chunk;
 	int			len;
 
+	set_new_hub(&hub);
 	va_start(hub.ap, format);
 	while (*format)
 	{

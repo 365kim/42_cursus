@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/10 01:35:31 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 02:05:36 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,19 @@ typedef struct	s_tag
 int				ft_printf(const char *format, ...);
 
 /*
+*****************************   0. INITIALIZE   *******************************
+*/
+
+void			set_new_hub(t_printf *hub);
+void			set_new_tag(t_tag *tag);
+
+/*
 *****************************   1. PARSE SYMBOLS   ****************************
 */
 
 void			parse_flag(char **chunk, t_tag *tag);
 void			parse_precision(char **chunk, t_tag *tag, t_printf *hub);
 void			parse_len_modifier(char **chunk, t_tag *tag);
-
-void			set_new_tag(t_tag *tag);
 
 /*
 *****************************   2. WRITE ON CONDITION   ***********************
@@ -106,8 +111,8 @@ void			write_hexa(t_printf *hub, t_tag tag);
 *****************************   3. ASSIST   ***********************************
 */
 
-void			apply_len_modifier(t_printf *hub, t_tag tag);
 void			store_num_printed(t_printf *hub);
+void			apply_len_modifier(t_printf *hub, t_tag tag);
 void			pre_fill_width(t_printf *hub, t_tag tag);
 void			post_fill_width(t_printf *hub, t_tag tag);
 
