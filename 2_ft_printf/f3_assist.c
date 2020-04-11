@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:58:34 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/10 01:36:27 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 01:55:12 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	apply_len_modifier(t_printf *hub, t_tag tag)
 		hub->argi = (long)va_arg(hub->ap, long);
 	else if (tag.len_mod == L)
 		hub->argi = (long long)va_arg(hub->ap, long long);
-	else if (tag.len_mod == FALSE)
+	else if (is_set(tag.conversion, HEXA))
+		hub->argi = va_arg(hub->ap, long);
+	else
 		hub->argi = va_arg(hub->ap, int);
 }
 
