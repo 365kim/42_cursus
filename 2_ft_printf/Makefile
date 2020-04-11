@@ -5,6 +5,7 @@ LIBFT		= libft
 LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c \
+			  ./f0_init.c \
 			  ./f1_parse.c \
 			  ./f2_write.c \
 			  ./f3_assist.c
@@ -15,7 +16,6 @@ RM			= rm -f
 LIBC		= ar rc
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
-COMPILER	= cc
 
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
@@ -28,7 +28,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(bonus)
 	make fclean -C $(LIBFT)
 
 clean :
@@ -37,5 +37,6 @@ clean :
 
 re : fclean all
 
+bonus : all
 
-.PHONY: all clean fclean re .c.o
+.PHONY: all clean fclean re bonus .c.o
