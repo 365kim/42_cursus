@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_parse_chunk.c                                    :+:      :+:    :+:   */
+/*   1_parse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/03/20 17:06:53 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 02:03:01 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
 
 void	parse_flag(char **chunk, t_tag *tag)
 {
@@ -37,7 +36,11 @@ void	parse_precision(char **chunk, t_tag *tag, t_printf *hub)
 		(*chunk)++;
 	}
 	else
+	{
 		tag->prcs_parsed = ft_atoi(chunk);
+		if (tag->prcs_parsed < 0)
+			tag->prcs = FALSE;
+	}
 }
 
 void	parse_len_modifier(char **chunk, t_tag *tag)
@@ -52,24 +55,4 @@ void	parse_len_modifier(char **chunk, t_tag *tag)
 		tag->len_mod += **chunk == 'h' ? 40 : 20;
 		(*chunk)++;
 	}
-}
-
-void	set_new_tag(t_tag *tag)
-{
-	tag->left = FALSE;
-	tag->plus = FALSE;
-	tag->space = FALSE;
-	tag->zero = FALSE;
-	tag->hexa = FALSE;
-	tag->width_parsed = 0;
-	tag->width_fill = 0;
-	tag->width_arg = 0;
-	tag->filler = '\0';
-	tag->prcs = FALSE;
-	tag->prcs_parsed = 0;
-	tag->prcs_fill = 0;
-	tag->len_mod = FALSE;
-	tag->conversion = '\0';
-	tag->negative = 0;
-	tag->sign = '\0';
 }
