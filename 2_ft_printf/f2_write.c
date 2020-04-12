@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/12 20:54:19 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 21:00:54 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ void	write_string(t_printf *hub, t_tag tag)
 ** ("%5.p", NULL)    :	"   0x"
 ** ("%p, void *)     :  (return value = 14)
 */
-
-#include <stdio.h>
 
 void	write_pointer(t_printf *hub, t_tag tag)
 {
