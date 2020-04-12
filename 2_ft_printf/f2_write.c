@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 22:03:22 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/12 01:25:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/12 20:54:19 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,26 @@ void	write_string(t_printf *hub, t_tag tag)
 }
 
 /*
-** ("%5p", 0)    :	"  0x0"
+** ("%5p", 0)        :	"  0x0"
+** ("%5.p", NULL)    :	"   0x"
+** ("%p, void *)     :  (return value = 14)
 */
+
+#include <stdio.h>
 
 void	write_pointer(t_printf *hub, t_tag tag)
 {
 	hub->argi = va_arg(hub->ap, unsigned long);
-	tag.width_arg = hub->argi == 0 ? 3 : 11;
+	tag.width_arg = get_itoa_base_width(hub->argi, 16) + 2;
+	if (hub->argi == 0 &&
+			tag.prcs == TRUE && tag.prcs_parsed == 0)
+		tag.width_arg = 2;
+	else if (hub->argi == 0)
+		tag.width_arg = 3;
 	pre_fill_width(hub, tag);
 	hub->printed += ft_putstr("0x");
-	ft_putnbr_base(hub->argi, HEX_LOW);
+	if (tag.prcs == FALSE || tag.prcs_parsed != 0)
+		ft_putnbr_base(hub->argi, HEX_LOW);
 	post_fill_width(hub, tag);
 	hub->printed += tag.width_arg - 2;
 }
