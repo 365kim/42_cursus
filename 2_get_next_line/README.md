@@ -28,5 +28,9 @@
     ```
 - GNL_lover by [_charMstr_](https://github.com/charMstr/GNL_lover)
     ```
-    git clone https://github.com/charMstr/GNL_lover.git GNL_lover
+    git clone https://github.com/charMstr/GNL_lover.git
+    ```
+- gnl-war-machine by [_Alexandre94H_](https://github.com/Alexandre94H/gnl-war-machine-v2019)
+    ```
+    git clone https://github.com/Alexandre94H/gnl-war-machine-v2019.git
     ```
