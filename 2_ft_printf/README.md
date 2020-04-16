@@ -2,9 +2,12 @@
 
 ### :bulb: Evaluation Log
 1. 20/04/11 : KO
-    - `1/12 correct functions` :wrench: _...trying to figure out_
-    - `bonus compile error` :wrench: _...added make bonus rule in Makefile_
-2. 20/04/00 : 
+    - `1/12 correct functions` :wrench: _...added f0_init.c file_
+    - bonus : `compile error` :wrench: _...added make bonus rule in Makefile_
+2. 20/04/13 : KO
+    - `10/12 correct functions` :wrench: _...trying to figure out_
+    - bonus : `seg-fault` :wrench: _...trying to figure out_
+3. 20/05/00
     - **00 score** (mandatory 00 + bonus 00)
 ***
 
