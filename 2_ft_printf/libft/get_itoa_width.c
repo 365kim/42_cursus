@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:37:55 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/10 01:28:36 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/17 23:25:49 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int		get_itoa_width(long n)
 {
-	long	long_n;
 	int		i;
 
 	i = n < 1 ? 1 : 0;
-	long_n = n < 0 ? -(long)n : (long)n;
-	while (long_n != 0)
+	n = n < 0 ? -n : n;
+	while (n != 0)
 	{
-		long_n = long_n / 10;
+		n = n / 10;
 		i++;
 	}
 	return (i);
