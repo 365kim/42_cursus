@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/12 02:05:36 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/17 18:41:26 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void			set_new_tag(t_tag *tag);
 */
 
 void			parse_flag(char **chunk, t_tag *tag);
-void			parse_precision(char **chunk, t_tag *tag, t_printf *hub);
+void			parse_width(char **chunk, t_printf *hub, t_tag *tag);
+void			parse_precision(char **chunk, t_printf *hub, t_tag *tag);
 void			parse_len_modifier(char **chunk, t_tag *tag);
 
 /*

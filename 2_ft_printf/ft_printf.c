@@ -6,12 +6,11 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/12 02:10:11 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/17 19:52:12 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
 
 /*
 ** - Parse symbols in the argument 'chunk' into 'tag'.
@@ -22,10 +21,10 @@ static void	parse_symbols(char *chunk, t_printf *hub, t_tag *tag)
 {
 	while (is_set(*chunk, FLAG))
 		parse_flag(&chunk, tag);
-	if (is_set(*chunk, DIGIT))
-		tag->width_parsed = ft_atoi(&chunk);
+	if (is_set(*chunk, DIGIT) || *chunk == '*')
+		parse_width(&chunk, hub, tag);
 	if (*chunk == '.')
-		parse_precision(&chunk, tag, hub);
+		parse_precision(&chunk, hub, tag);
 	if (is_set(*chunk, LEN_MODIFIER))
 		parse_len_modifier(&chunk, tag);
 	if (is_set(*chunk, CONVERSION))

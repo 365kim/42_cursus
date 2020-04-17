@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_parse.c                                          :+:      :+:    :+:   */
+/*   f1_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/04/12 02:03:01 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/04/17 19:30:22 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,34 @@ void	parse_flag(char **chunk, t_tag *tag)
 	(*chunk)++;
 }
 
-void	parse_precision(char **chunk, t_tag *tag, t_printf *hub)
+void	parse_width(char **chunk, t_printf *hub, t_tag *tag)
+{
+	if (**chunk == '*')
+	{
+		(*chunk)++;
+		tag->width_parsed = va_arg(hub->ap, int);
+	}
+	else
+		tag->width_parsed = ft_atoi(chunk);
+	if (tag->width_parsed < 0)
+	{
+		tag->left = TRUE;
+		tag->width_parsed = -tag->width_parsed;
+	}
+}
+
+void	parse_precision(char **chunk, t_printf *hub, t_tag *tag)
 {
 	tag->prcs = TRUE;
 	(*chunk)++;
 	if (**chunk == '*')
 	{
+		(*chunk)++;
 		hub->argi = va_arg(hub->ap, int);
 		if (hub->argi < 0)
 			tag->prcs = FALSE;
 		else
 			tag->prcs_parsed = hub->argi;
-		(*chunk)++;
 	}
 	else
 	{
