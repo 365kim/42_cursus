@@ -6,7 +6,7 @@
     - bonus : `compile error` :wrench: _...added make bonus rule in Makefile_
 2. 20/04/13 : KO
     - `10/12 correct` :wrench: _...processed width from asterisk_
-3. 20/04/17
+3. 20/04/17 : KO
     - `11/12 correct` :wrench: _...trying to figure out_
     - bonus : `seg-fault` :wrench: _...trying to figure out_
 4. 20/05/00
