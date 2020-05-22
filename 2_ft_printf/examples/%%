@@ -1,0 +1,57 @@
+* **************************************************** *
+*                                                      *
+*    printf's behavior with conversion specifier %%    *
+*                                                      *
+* **************************************************** *
+
+printf("%%")
+		result : |%|
+		return : 1
+printf("%5%")
+		result : |    %|
+		return : 5
+printf("%-5%")
+		result : |%    |
+		return : 5
+printf("%-%")
+		result : |%|
+		return : 1
+printf("%*%", 5)
+		result : |    %|
+		return : 5
+printf("%*%", -5)
+		result : |%    |
+		return : 5
+printf("%.5%")
+		result : |%|
+		return : 1
+printf("%.-5%")
+		result : |%|
+		return : 1
+printf("%.%")
+		result : |%|
+		return : 1
+printf("%.0%")
+		result : |%|
+		return : 1
+printf("%05%")
+		result : |0000%|
+		return : 5
+printf("% %")
+		result : |%|
+		return : 1
+printf("% 05%")
+		result : |0000%|
+		return : 5
+printf("%-05%")
+		result : |%    |
+		return : 5
+printf("%#5%")
+		result : |    %|
+		return : 5
+		undefined behavior warning: flag '#' with 'c'
+printf("%+5%")
+		result : |    %|
+		return : 5
+
+
