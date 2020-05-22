@@ -1,0 +1,75 @@
+* **************************************************** *
+*                                                      *
+*    printf's behavior with conversion specifier %s    *
+*                                                      *
+* **************************************************** *
+
+printf("%s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%s", "")
+		result : ||
+		return : 0
+printf("%s", NULL)
+		result : |(null)|
+		return : 6
+printf("%-s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%3s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%-3s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%7s", "abcde")
+		result : |  abcde|
+		return : 7
+printf("%-7s", "abcde")
+		result : |abcde  |
+		return : 7
+printf("%*s", 7, "abcde")
+		result : |  abcde|
+		return : 7
+printf("%*s", -7, "abcde")
+		result : |abcde  |
+		return : 7
+printf("%.0s", "abcde")
+		result : ||
+		return : 0
+printf("%.s", "abcde")
+		result : ||
+		return : 0
+printf("%.3s", "abcde")
+		result : |abc|
+		return : 3
+printf("%.7s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%3.7s", "abcde")
+		result : |abcde|
+		return : 5
+printf("%7.3s", "abcde")
+		result : |    abc|
+		return : 7
+printf("%7.9s", "abcde")
+		result : |  abcde|
+		return : 7
+printf("%7.3s", NULL)
+		result : |    (nu|
+		return : 7
+printf("%.-1s", "abcde")
+		warning : invalid conversion specifier '-'
+printf("%.*s", -1, "abcde")
+		result : |abcde|
+		return : 5
+printf("%0s", "abcde")
+		undefined behavior warning: flag '0' with 's'
+printf("%#s", "abcde")
+		undefined behavior warning: flag '#' with 's'
+printf("% s", "abcde")
+		undefined behavior warning: flag ' ' with 's'
+printf("%+s", "abcde")
+		undefined behavior warning: flag '+' with 's'
+
+
