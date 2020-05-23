@@ -1,0 +1,126 @@
+* ******************************************************** *
+*                                                          *
+*    printf's behavior with conversion specifier %x, %X    *
+*                                                          *
+* ******************************************************** *
+
+printf("%x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%x", -768955)
+		result : |fff44445|
+		return : 8
+printf("%x", 4294967295u)
+		result : |1|
+		return : 1
+printf("%X", 768955)
+		result : |BBBBB|
+		return : 5
+printf("%3x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%7x", 768955)
+		result : |  bbbbb|
+		return : 7
+printf("%-7x", 768955)
+		result : |bbbbb  |
+		return : 7
+printf("%-x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%*x", 7, 768955)
+		result : |  bbbbb|
+		return : 7
+printf("%*x", -7, 768955)
+		result : |bbbbb  |
+		return : 7
+printf("%.x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%.0x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%.3x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%.7x", 768955)
+		result : |00bbbbb|
+		return : 7
+printf("%0x", 768955)
+		result : |bbbbb|
+		return : 5
+printf("%07x", 768955)
+		result : |00bbbbb|
+		return : 7
+printf("%x", 0)
+		result : |0|
+		return : 1
+printf("%3x", 0)
+		result : |  0|
+		return : 3
+printf("%3.x", 0)
+		result : |   |
+		return : 3
+printf("%03x", 0)
+		result : |000|
+		return : 3
+printf("%.x", 0)
+		result : ||
+		return : 0
+printf("%.3x", 0)
+		result : |000|
+		return : 3
+printf("%#.3x", 0)
+		result : |000|
+		return : 3
+printf("%#x", 0)
+		result : |0|
+		return : 1
+printf("%#3x", 0)
+		result : |000|
+		return : 3
+printf("%#.03x", 0)
+		result : |000|
+		return : 3
+printf("%#3.0x", 0)
+		result : |   |
+		return : 3
+printf("%#03x", 0)
+		result : |000|
+		return : 3
+printf("%#x", 768955)
+		result : |0xbbbbb|
+		return : 7
+printf("%#7x", 768955)
+		result : |0xbbbbb|
+		return : 7
+printf("%#9x", 768955)
+		result : |  0xbbbbb|
+		return : 9
+printf("%#.3x", 768955)
+		result : |0xbbbbb|
+		return : 7
+printf("%#15.3x", 768955)
+		result : |        0xbbbbb|
+		return : 15
+printf("%#15.5x", 768955)
+		result : |        0xbbbbb|
+		return : 15
+printf("%#15.7x", 768955)
+		result : |      0x00bbbbb|
+		return : 15
+printf("%#015.7x", 768955)
+		result : |      0x00bbbbb|
+		return : 15
+printf("%#015x", 768955)
+		result : |0x00000000bbbbb|
+		return : 15
+printf("%#3.7x", 768955)
+		result : |0x00bbbbb|
+		return : 9
+printf("% x", 768955)
+		undefined behavior warning: flag ' ' with 'x'
+printf("%+x", 768955)
+		undefined behavior warning: flag '+' with 'x'
+
+
