@@ -46,6 +46,9 @@ printf("%.3x", 768955)
 printf("%.7x", 768955)
 		result : |00bbbbb|
 		return : 7
+printf("%-.7x", 768955)
+		result : |00bbbbb|
+		return : 7
 printf("%0x", 768955)
 		result : |bbbbb|
 		return : 5
