@@ -31,6 +31,9 @@ printf("%-7s", "abcde")
 printf("%*s", 7, "abcde")
 		result : |  abcde|
 		return : 7
+printf("%*s", 0, "abcde")
+		result : |abcde|
+		return : 5
 printf("%*s", -7, "abcde")
 		result : |abcde  |
 		return : 7

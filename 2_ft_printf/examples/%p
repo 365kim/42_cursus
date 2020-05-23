@@ -1,0 +1,56 @@
+* **************************************************** *
+*                                                      *
+*    printf's behavior with conversion specifier %p    *
+*                                                      *
+* **************************************************** *
+
+printf("%p", ptr)
+		result : |0x1103f31d2|
+		return : 11
+printf("%p", void_ptr)
+		result : |0x7ffee025e9c0|
+		return : 14
+printf("%p", NULL)
+		result : |0x0|
+		return : 3
+printf("%5p", ptr)
+		result : |0x1103f31d2|
+		return : 11
+printf("%15p", ptr)
+		result : |    0x1103f31d2|
+		return : 15
+printf("%-15p", ptr)
+		result : |0x1103f31d2    |
+		return : 15
+printf("%-p", ptr)
+		result : |0x1103f31d2|
+		return : 11
+printf("%*p", 15, ptr)
+		result : |    0x1103f31d2|
+		return : 15
+printf("%*p", -15, ptr)
+		result : |0x1103f31d2    |
+		return : 15
+printf("%.p", ptr)
+		result : |0x1103f31d2|
+		return : 11
+printf("%.p", void_ptr)
+		result : |0x7ffee025e9c0|
+		return : 14
+printf("%.p", NULL)
+		result : |0x|
+		return : 2
+printf("%.0p", ptr)
+		undefined behavior warning: precision used with 'p'
+printf("%.5p", ptr)
+		undefined behavior warning: precision used with 'p'
+printf("%0p", ptr)
+		undefined behavior warning: flag '0' with 'p'
+printf("% p", ptr)
+		undefined behavior warning: flag ' ' with 'p'
+printf("%#p", ptr)
+		undefined behavior warning: flag '#' with 'p'
+printf("%+p", ptr)
+		undefined behavior warning: flag '+' with 'p'
+
+

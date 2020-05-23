@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:46:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/22 14:19:59 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/23 19:06:05 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int		main(void)
 	printf("return : %d\n", printf("\t\tresult : |%.5%|\n\t\t") - 16);
 
 	printf("printf(\"%%.-5%%\")\n");
-	printf("return : %d\n", printf("\t\tresult : |%.5%|\n\t\t") - 16);
+	printf("\t\twarning : invalid conversion specifier '-'\n");
+
+	printf("printf(\"%%.*%%\", -5)\n");
+	printf("return : %d\n", printf("\t\tresult : |%.*%|\n\t\t", -5) - 16);
 
 	printf("printf(\"%%.%%\")\n");
 	printf("return : %d\n", printf("\t\tresult : |%.%|\n\t\t") - 16);
@@ -64,7 +67,6 @@ int		main(void)
 
 	printf("printf(\"%%#5%%\")\n");
 	printf("return : %d\n", printf("\t\tresult : |%#5%|\n\t\t") - 16);
-	printf("\t\tundefined behavior warning: flag '#' with 'c'\n");
 
 	printf("printf(\"%%+5%%\")\n");
 	printf("return : %d\n", printf("\t\tresult : |%+5%|\n\t\t") - 16);

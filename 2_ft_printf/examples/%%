@@ -26,6 +26,8 @@ printf("%.5%")
 		result : |%|
 		return : 1
 printf("%.-5%")
+		warning : invalid conversion specifier '-'
+printf("%.*%", -5)
 		result : |%|
 		return : 1
 printf("%.%")
@@ -49,7 +51,6 @@ printf("%-05%")
 printf("%#5%")
 		result : |    %|
 		return : 5
-		undefined behavior warning: flag '#' with 'c'
 printf("%+5%")
 		result : |    %|
 		return : 5

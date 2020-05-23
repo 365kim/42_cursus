@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:55:07 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/22 13:57:54 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/23 18:15:14 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int		main(void)
 
 	printf("printf(\"%%*s\", 7, \"abcde\")\n");
 	printf("return : %d\n", printf("\t\tresult : |%*s|\n\t\t", 7, "abcde") - 16);
+
+	printf("printf(\"%%*s\", 0, \"abcde\")\n");
+	printf("return : %d\n", printf("\t\tresult : |%*s|\n\t\t", 0, "abcde") - 16);
 
 	printf("printf(\"%%*s\", -7, \"abcde\")\n");
 	printf("return : %d\n", printf("\t\tresult : |%*s|\n\t\t", -7, "abcde") - 16);
