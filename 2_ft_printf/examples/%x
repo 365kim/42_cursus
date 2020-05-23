@@ -7,12 +7,12 @@
 printf("%x", 768955)
 		result : |bbbbb|
 		return : 5
+printf("%x", 4294967295u)
+		result : |ffffffff|
+		return : 8
 printf("%x", -768955)
 		result : |fff44445|
 		return : 8
-printf("%x", 4294967295u)
-		result : |1|
-		return : 1
 printf("%X", 768955)
 		result : |BBBBB|
 		return : 5

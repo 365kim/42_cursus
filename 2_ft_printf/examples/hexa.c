@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:46:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 22:04:11 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/23 22:06:49 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int		main(void)
 	printf("printf(\"%%x\", 768955)\n");
 	printf("return : %d\n", printf("\t\tresult : |%x|\n\t\t", 768955) - 16);
 
+	printf("printf(\"%%x\", 4294967295u)\n");
+	printf("return : %d\n", printf("\t\tresult : |%x|\n\t\t", 4294967295u) - 16);
+
 	printf("printf(\"%%x\", -768955)\n");
 	printf("return : %d\n", printf("\t\tresult : |%x|\n\t\t", -768955) - 16);
-	
-	printf("printf(\"%%x\", 4294967295u)\n");
-	printf("return : %d\n", printf("\t\tresult : |%x|\n\t\t", -4294967295u) - 16);
 	
 	printf("printf(\"%%X\", 768955)\n");
 	printf("return : %d\n", printf("\t\tresult : |%X|\n\t\t", 768955) - 16);
