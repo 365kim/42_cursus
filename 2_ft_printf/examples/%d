@@ -149,8 +149,10 @@ printf("%+09d", -12345)
 		result : |-00012345|
 		return : 9
 printf("%-+09d", 12345)
-		warning : flag '0' is ignored when flag '-' is presentprintf("%+ 09d", 12345)
-		warning : flag ' ' is ignored when flag '+' is presentprintf("%+9.7d", 12345)
+		warning : flag '0' is ignored when flag '-' is present
+printf("%+ 09d", 12345)
+		warning : flag ' ' is ignored when flag '+' is present
+printf("%+9.7d", 12345)
 		result : | +0012345|
 		return : 9
 printf("%+09.7d", 12345)
