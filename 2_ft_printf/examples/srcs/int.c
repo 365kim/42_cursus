@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:46:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 18:49:09 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 18:52:39 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		main(void)
 	printf("printf(\"%%-7.3d\", 12345)\n");
 	printf("return : %d\n", printf("\t\tresult : |%-7.3d|\n\t\t", 12345) - 16);
 
+	printf("printf(\"%%.3d\", -12345)\n");
 	printf("return : %d\n", printf("\t\tresult : |%.3d|\n\t\t", -12345) - 16);
 
 	printf("printf(\"%%.7d\", -12345)\n");
@@ -116,7 +117,7 @@ int		main(void)
 	printf("return : %d\n", printf("\t\tresult : |%09.7d|\n\t\t", 12345) - 16);
 
 	printf("printf(\"%%07.9d\", 12345)\n");
-	printf("return : %d\n", printf("\t\tresult : |%09.7d|\n\t\t", 12345) - 16);
+	printf("return : %d\n", printf("\t\tresult : |%07.9d|\n\t\t", 12345) - 16);
 
 	printf("printf(\"%%.d\", 0)\n");
 	printf("return : %d\n", printf("\t\tresult : |%.d|\n\t\t", 0) - 16);

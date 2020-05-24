@@ -58,6 +58,7 @@ printf("%-3.7d", 12345)
 printf("%-7.3d", 12345)
 		result : |12345  |
 		return : 7
+printf("%.3d", -12345)
 		result : |-12345|
 		return : 6
 printf("%.7d", -12345)
@@ -100,7 +101,7 @@ printf("%09.7d", 12345)
 		result : |  0012345|
 		return : 9
 printf("%07.9d", 12345)
-		result : |  0012345|
+		result : |000012345|
 		return : 9
 printf("%.d", 0)
 		result : ||
