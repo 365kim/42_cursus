@@ -1,0 +1,130 @@
+* **************************************************** *
+*                                                      *
+*    printf's behavior with conversion specifier %d    *
+*                                                      *
+* **************************************************** *
+
+printf("%d", 12345)
+		result : |12345|
+		return : 5
+printf("%d", -12345)
+		result : |-12345|
+		return : 6
+printf("%3d", 12345)
+		result : |12345|
+		return : 5
+printf("%7d", 12345)
+		result : |  12345|
+		return : 7
+printf("%-7d", 12345)
+		result : |12345  |
+		return : 7
+printf("%-d", 12345)
+		result : |12345|
+		return : 5
+printf("%*d", 7, 12345)
+		result : |  12345|
+		return : 7
+printf("%*d", -7, 12345)
+		result : |12345  |
+		return : 7
+printf("%.d", 12345)
+		result : |12345|
+		return : 5
+printf("%.0d", 12345)
+		result : |12345|
+		return : 5
+printf("%.3d", 12345)
+		result : |12345|
+		return : 5
+printf("%.7d", 12345)
+		result : |0012345|
+		return : 7
+printf("%-.7d", 12345)
+		result : |0012345|
+		return : 7
+printf("%-9.7d", 12345)
+		result : |0012345  |
+		return : 9
+printf("%9.7d", 12345)
+		result : |  0012345|
+		return : 9
+printf("%-7.9d", 12345)
+		result : |000012345|
+		return : 9
+printf("%-3.7d", 12345)
+		result : |0012345|
+		return : 7
+printf("%-7.3d", 12345)
+		result : |12345  |
+		return : 7
+printf("%0d", 12345)
+		result : |12345|
+		return : 5
+printf("%07d", 12345)
+		result : |0012345|
+		return : 7
+printf("%d", 0)
+		result : |0|
+		return : 1
+printf("%3d", 0)
+		result : |  0|
+		return : 3
+printf("%3.d", 0)
+		result : |   |
+		return : 3
+printf("%03d", 0)
+		result : |000|
+		return : 3
+printf("%.d", 0)
+		result : ||
+		return : 0
+printf("%.3d", 0)
+		result : |000|
+		return : 3
+printf("% d", 12345)
+		result : | 12345|
+		return : 6
+printf("% d", -12345)
+		result : |-12345|
+		return : 6
+printf("% -d", 12345)
+		result : | 12345|
+		return : 6
+printf("% 3d", 12345)
+		result : | 12345|
+		return : 6
+printf("% 7d", 12345)
+		result : |  12345|
+		return : 7
+printf("%+d", 12345)
+		result : |+12345|
+		return : 6
+printf("%+d", -12345)
+		result : |-12345|
+		return : 6
+printf("%+-d", 12345)
+		result : |+12345|
+		return : 6
+printf("%+-9d", 12345)
+		result : |+12345   |
+		return : 9
+printf("%+9d", 12345)
+		result : |   +12345|
+		return : 9
+printf("%+09d", 12345)
+		result : |+00012345|
+		return : 9
+printf("%+09d", -12345)
+		result : |-00012345|
+		return : 9
+printf("%+9.7d", 12345)
+		result : | +0012345|
+		return : 9
+printf("%+09.7d", 12345)
+		result : | +0012345|
+		return : 9
+printf("%#d", 0)
+		undefined behavior warning: flag '#' with 'd'
+
+
