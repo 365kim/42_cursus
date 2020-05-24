@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:17:14 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 18:44:07 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ static void	prepare_new_tag(t_tag *tag)
 	tag->width = DISABLED;
 	tag->prcs = DISABLED;
 	tag->zero_fill = DISABLED;
+	tag->plus = DISABLED;
+	tag->space = DISABLED;
+	tag->hexa = DISABLED;
+	tag->sign = '\0';
 	tag->padding = ' ';
 }
 

@@ -7,6 +7,7 @@ SRCS	= ./ft_putchar.c \
 		  ./ft_putnbr_base.c \
 		  ./ft_atoi.c \
 		  ./ft_atouni.c \
+		  ./ft_itoa.c \
 		  ./ft_itoa_base.c \
 		  ./ft_itoa_base_ll.c \
 		  ./get_atouni_width.c \

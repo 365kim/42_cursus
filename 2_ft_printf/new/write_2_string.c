@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:11:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:36:35 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,8 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	if (tag->left_aligned == ENABLED)
 		ft_strncpy(box, s, s_len);
 	else
-	{
-		box += tag->width - s_len;
-		ft_strncpy(box, s, s_len);
-		box -= tag->width - s_len;
-	}
+		ft_strncpy(&box[tag->width - s_len], s, s_len);
 	return (box);
-}
-
-static void	put_result(t_tag *tag, char *res)
-{
-	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 }
 
 int			write_string(va_list ap, t_tag *tag)
@@ -64,7 +55,7 @@ int			write_string(va_list ap, t_tag *tag)
 		free_box(box);
 		return (ERROR);
 	}
-	put_result(tag, res);
+	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 	free_box(box);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:12:26 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 18:43:28 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ typedef struct s_tag
 	int		width;
 	int		prcs;
 	int		zero_fill;
+	int		plus;
+	int		space;
+	int		hexa;
 	char	padding;
+	char	sign;
 }				t_tag;
 
 typedef struct	s_box

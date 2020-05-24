@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:17:59 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:19:27 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ static char	*process_width(t_tag *tag, char *box, char c)
 	return (box);
 }
 
-static void	put_result(t_tag *tag, char *res, char c)
-{
-	if (c != '\0')
-		tag->nbyte += ft_putstr(res);
-	else
-		tag->nbyte += ft_putstr(res) + 1;
-}
-
 int			write_char(va_list ap, t_tag *tag)
 {
 	char c;
@@ -49,7 +41,10 @@ int			write_char(va_list ap, t_tag *tag)
 		free_box(box);
 		return (ERROR);
 	}
-	put_result(tag, res, c);
+	if (c != '\0')
+		tag->nbyte += ft_putstr(res);
+	else
+		tag->nbyte += ft_putstr(res) + 1;
 	free_box(box);
 	return (0);
 }

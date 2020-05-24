@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:15:17 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:18:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ static char	*process_width(t_tag *tag, char *box, char c)
 	return (box);
 }
 
-static void	put_result(t_tag *tag, char *res)
-{
-	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
-}
-
 int			write_percent(t_tag *tag)
 {
 	char	c;
@@ -46,7 +41,7 @@ int			write_percent(t_tag *tag)
 		free_box(box);
 		return (ERROR);
 	}
-	put_result(tag, res);
+	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 	free_box(box);
 	return (0);
 }

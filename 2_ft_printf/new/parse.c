@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 01:18:26 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 18:44:36 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void parse_flags(char **form, t_tag *tag)
 	{
 		**form == '-' ? tag->left_aligned = ENABLED : SKIP;
 		**form == '0' ? tag->zero_fill = ENABLED : SKIP;
-		//**form == '+' ? tag->plus = ENABLED : SKIP;
-		//**form == ' ' ? tag->space = ENABLED : SKIP;
-		//**form == '#' ? tag->hexa = 2 : SKIP;
+		**form == '+' ? tag->plus = ENABLED : SKIP;
+		**form == ' ' ? tag->space = ENABLED : SKIP;
+		**form == '#' ? tag->hexa = ENABLED : SKIP;
 		(*form)++;
 	}
 }

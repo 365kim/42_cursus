@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:21:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 23:41:30 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:45:45 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 int		ft_atoi(char *str);
 int		get_itoa_width(long n);
 int		get_itoa_base_width(long n, long size);
+char	*ft_itoa(int n);
 char	*ft_itoa_base(unsigned int n, const char *base);
 char	*ft_itoa_base_ll(long long n, const char *base);
 int		get_atouni_width(wint_t i);

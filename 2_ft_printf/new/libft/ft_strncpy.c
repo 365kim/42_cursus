@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 23:15:59 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 23:16:12 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:51:45 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
-	char			*new_str;
+	char			*res;
 
 	i = 0;
 	while (i < n)
@@ -34,6 +34,6 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 			}
 		}
 	}
-	new_str = dest;
-	return (new_str);
+	res = dest;
+	return (res);
 }

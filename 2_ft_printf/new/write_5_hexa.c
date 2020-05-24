@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 23:52:50 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 21:35:06 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,25 @@
 
 static char	*process_precision(t_tag *tag, char *box, char *s)
 {
+	int s_len;
+
+	s_len = ft_strlen(s);
 	if (s[0] == '0' && s[1] == '\0' && tag->prcs == 0)
 		s = "";
-	if (tag->prcs <= ft_strlen(s))
+	if (tag->prcs <= s_len)
 		return (s);
-	box = malloc(sizeof(char) * (tag->prcs + 1));
+	if (tag->hexa == ENABLED)
+		tag->prcs += 2;
+	box = fill_box(tag->prcs, '0');
 	if (box == NULL)
 		return (NULL);
-	ft_strcpy(box, "0x");
-	box += 2;
-	ft_strcpy(box, s);
+	if (tag->hexa == ENABLED)
+	{
+		ft_strcpy(box, "0x");
+		ft_strcpy(&box[tag->prcs - s_len], s);
+	}
+	else
+		ft_strcpy(&box[tag->prcs - s_len], s);
 	return (box);
 }
 
@@ -34,23 +43,20 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	s_len = ft_strlen(s);
 	if (tag->width <= s_len)
 		return (s);
+	if (tag->zero_fill == ENABLED && tag->prcs == DISABLED)
+		tag->padding = '0';
 	box = fill_box(tag->width, tag->padding);
 	if (box == NULL)
 		return (NULL);
 	if (tag->left_aligned == ENABLED)
-		ft_strncpy(box, s, s_len - 1);
+		ft_strncpy(box, s, s_len);
 	else
 	{
 		box += tag->width - s_len;
-		ft_strncpy(box, s, s_len - 1);
+		ft_strncpy(box, s, s_len);
 		box -= tag->width - s_len;
 	}
 	return (box);
-}
-
-static void	put_result(t_tag *tag, char *res)
-{
-	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 }
 
 int			write_hexa(va_list ap, t_tag *tag, char conversion)
@@ -68,7 +74,7 @@ int			write_hexa(va_list ap, t_tag *tag, char conversion)
 		free_box(box);
 		return (ERROR);
 	}
-	put_result(tag, res);
+	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 	free_box(box);
 	return (0);
 }
