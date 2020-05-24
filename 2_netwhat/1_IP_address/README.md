@@ -40,7 +40,7 @@
 
 #### Q. What is the default IP address class available?
     - A AND B
-    - FIRST
+    - A
     - C
     - B
 
@@ -52,10 +52,10 @@
     - D
     - E
     - F
-    - FIRST
+    - A
 
 
-    Answer : FIRST
+    Answer : A
 
 #### Q. Which of this is not a class of IP address?
     - Class D
