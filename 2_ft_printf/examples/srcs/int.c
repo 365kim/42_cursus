@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:46:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 18:52:39 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/24 19:30:21 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,9 @@ int		main(void)
 	printf("printf(\"%%03d\", 0)\n");
 	printf("return : %d\n", printf("\t\tresult : |%03d|\n\t\t", 0) - 16);
 
+	printf("printf(\"%%09.0d\", 12345)\n");
+	printf("return : %d\n", printf("\t\tresult : |%09.0d|\n\t\t", 12345) - 16);
+
 	printf("printf(\"%%09.7d\", 12345)\n");
 	printf("return : %d\n", printf("\t\tresult : |%09.7d|\n\t\t", 12345) - 16);
 
@@ -161,6 +164,12 @@ int		main(void)
 
 	printf("printf(\"%%+09d\", -12345)\n");
 	printf("return : %d\n", printf("\t\tresult : |%+09d|\n\t\t", -12345) - 16);
+
+	printf("printf(\"%%-+09d\", 12345)\n");
+	printf("\t\twarning : flag '0' is ignored when flag '-' is present");
+
+	printf("printf(\"%%+ 09d\", 12345)\n");
+	printf("\t\twarning : flag ' ' is ignored when flag '+' is present");
 
 	printf("printf(\"%%+9.7d\", 12345)\n");
 	printf("return : %d\n", printf("\t\tresult : |%+9.7d|\n\t\t", 12345) - 16);
