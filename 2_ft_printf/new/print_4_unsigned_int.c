@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_3_int.c                                      :+:      :+:    :+:   */
+/*   print_4_unsigned_int.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 22:06:25 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:29:44 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-#include "ft_printf.h"
-
-static char *prepare_sign(t_tag *tag, char *s)
-{
-	if (s[0] == '-')
-	{
-		tag->sign = '-';
-		s++;
-	}
-	else if (tag->plus == ENABLED)
-		tag->sign = '+';
-	else if (tag->space == ENABLED)
-		tag->sign = ' ';
-	return (s);
-}
 
 static char	*process_precision(t_tag *tag, char *box, char *s)
 {
@@ -41,18 +25,6 @@ static char	*process_precision(t_tag *tag, char *box, char *s)
 	if (box == NULL)
 		return (NULL);
 	ft_strcpy(&box[tag->prcs - s_len], s);
-	return (box);
-}
-
-static char	*process_sign(t_tag *tag, char *box, int s_len)
-{
-	if (tag->sign == '\0')
-		return (box);
-	if ((tag->zero_fill == ENABLED && tag->prcs == DISABLED)
-			|| tag->left_aligned == ENABLED)
-		box[0] = tag->sign;
-	else
-		box[tag->width - s_len - 1] = tag->sign;
 	return (box);
 }
 
@@ -82,13 +54,11 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	return (process_sign(tag, box, s_len));
 }
 
-int	write_int(va_list ap, t_tag *tag)
+int		print_unsigned_int(t_tag *tag, char *res)
 {
-	char *res;
 	t_box *box;
 
-	res = ft_itoa((int)va_arg(ap, int));
-	if (res == NULL)
+	if (tag == NULL || res == NULL)
 		return (ERROR);
 	box = prepare_box();
 	res = prepare_sign(tag, res);

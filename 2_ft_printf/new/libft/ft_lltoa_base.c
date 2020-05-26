@@ -6,13 +6,13 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 20:04:15 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 20:04:18 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 16:14:09 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base_ll(long long n, const char *base)
+char	*ft_lltoa_base(long long n, const char *base)
 {
 	long long		div;
 	int				len;

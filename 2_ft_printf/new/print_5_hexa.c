@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_5_hexa.c                                     :+:      :+:    :+:   */
+/*   print_5_hexa.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 21:35:06 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:32:04 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,10 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	return (box);
 }
 
-int			write_hexa(va_list ap, t_tag *tag, char conversion)
+int			print_hexa(t_tag *tag, char *res)
 {
-	char	*res;
 	t_box	*box;
 
-	res = (conversion == 'X') ? 
-		(char *)ft_itoa_base(va_arg(ap, int), HEX_UP) : 
-		(char *)ft_itoa_base(va_arg(ap, int), HEX_LOW);
 	box = prepare_box();
 	if ((res = process_precision(tag, box->prcs, res)) == NULL
 		|| (res = process_width(tag, box->width, res)) == NULL)

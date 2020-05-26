@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_4_unsigned_int.c                             :+:      :+:    :+:   */
+/*   ft_itoa_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 00:32:45 by mihykim          ###   ########.fr       */
+/*   Created: 2020/05/26 14:58:52 by mihykim           #+#    #+#             */
+/*   Updated: 2020/05/26 14:59:09 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	write_unsigned_int(va_list ap, t_tag *tag)
+char	*ft_uitoa(unsigned int n)
 {
-	char *res;
-	t_box *box;
+	unsigned int	div;
+	unsigned int    len;
+	char	        *res;
 
-	res = ft_itoa_base((unsigned int)va_arg(ap, int), DIGIT);
-	if (res == NULL)
-		return (ERROR);
-	box = prepare_box();
-	if (tag->prcs > ft_strlen(res) && res[0] == '-')
-		// && (res = process_precision(tag, box->prcs, res)) == NULL)
+	div = n;
+	len = (n == 0) ? 1 : 0;
+	while (div != 0)
 	{
-		free_box(box);
-		return (ERROR);
+		div = div / 10;
+		len++;
 	}
-	free_box(box);
-	return (0);
+	if (!(res = malloc(sizeof(char) * (len + 1))))
+		return (0);
+	res[len] = '\0';
+	res[0] = '0';
+	while (n != 0)
+	{
+		len--;
+		res[len] = (n % 10) + '0';
+		n = n / 10;
+	}
+	return (res);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_2_string.c                                   :+:      :+:    :+:   */
+/*   print_2_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 21:36:35 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:13:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	return (box);
 }
 
-int			write_string(va_list ap, t_tag *tag)
+int			print_string(t_tag *tag, char *res)
 {
-	char	*res;
 	t_box	*box;
 
-	res = (char *)va_arg(ap, char *);
 	if (res == NULL)
 		res = ft_strndup("(null)", 6);
 	box = prepare_box();

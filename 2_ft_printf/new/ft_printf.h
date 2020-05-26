@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 18:43:28 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:55:51 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,12 @@
 # include "libft/libft.h"
 
 # define FLAG "-+ 0#"
-# define DIGIT "0123456789"
-
+# define LEN_MODIFIER "hl"
 # define CONVERSION "cspdiuxXn%"
 
+# define DIGIT "0123456789"
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
-
-# define LEN_MODIFIER "hl"
-# define HH 44
-# define LL 22
-# define H 4
-# define L 2
 
 # define ENABLED 1
 # define DISABLED -1
@@ -51,6 +45,7 @@ typedef struct s_tag
 	int		plus;
 	int		space;
 	int		hexa;
+	int		len_mod;
 	char	padding;
 	char	sign;
 }				t_tag;
@@ -61,19 +56,14 @@ typedef struct	s_box
 	char *width;
 }				t_box;
 
-/*
-typedef struct	s_tag
+typedef struct s_ptr
 {
-	int			plus;
-	int			space;
-	int			zero;
-	int			hexa;
-	int			len_mod;
-	int			negative;
-	char		filler;
-	char		sign;
-}				t_tag;
-*/
+	long long *llptr;
+	long *lptr;
+	signed char *cptr;
+	short int *sptr;
+	int			*iptr;
+}				t_ptr;
 
 /*
 *****************************   MAIN FUNCTION   *******************************
@@ -86,13 +76,20 @@ int		parse_symbols(char **form, va_list ap, t_tag *tag);
 *****************************   WRITE ON CONDITION   ***********************
 */
 
-int	write_char(va_list ap, t_tag *tag);
-int	write_string(va_list ap, t_tag *tag);
-int	write_int(va_list ap, t_tag *tag);
-int	write_unsigned_int(va_list ap, t_tag *tag);
-int	write_hexa(va_list ap, t_tag *tag, char conv);
-int	write_pointer(va_list ap, t_tag *tag);
-int	write_percent(t_tag *tag);
+int	pre_process_char(va_list ap, t_tag *tag);
+int pre_process_string(va_list ap, t_tag *tag);
+int pre_process_int(va_list ap, t_tag *tag);
+int pre_process_unsigned_int(va_list ap, t_tag *tag);
+int pre_process_hexa(va_list ap, t_tag *tag, char *base);
+
+int	print_char(t_tag *tag, char c);
+int	print_string(t_tag *tag, char *res);
+int	print_int(t_tag *tag, char *res);
+int	print_unsigned_int(t_tag *tag, char *res);
+int	print_hexa(t_tag *tag, char *res);
+int	print_pointer(va_list ap, t_tag *tag);
+int	print_percent(t_tag *tag);
+int	store_nbyte(va_list ap, t_tag *tag);
 
 /*
 *****************************   MANAGE BOX   ***********************************
@@ -101,5 +98,12 @@ int	write_percent(t_tag *tag);
 t_box	*prepare_box(void);
 char	*fill_box(int size, char tag_padding);
 void	free_box(t_box *box);
-	
+
+/*
+*****************************   MANAGE SIGN   ***********************************
+*/
+char 	*prepare_sign(t_tag *tag, char *s);
+char	*process_sign(t_tag *tag, char *box, int s_len);
+
+
 #endif

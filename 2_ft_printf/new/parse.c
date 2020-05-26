@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 18:44:36 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:37:13 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,18 @@ static void parse_precision(char **form, va_list ap, t_tag *tag)
 		tag->prcs = DISABLED;
 }
 
+static void parse_len_modifier(char **form, t_tag *tag)
+{
+	if (!is_set(**form, LEN_MODIFIER))
+		return ;
+	tag->len_mod += ENABLED;
+	while (is_set(**form, LEN_MODIFIER))
+	{
+		tag->len_mod += **form;
+		(*form)++;
+	}
+}
+
 int			parse_symbols(char **form, va_list ap, t_tag *tag)
 {
 	if (**form == '\0')
@@ -84,6 +96,7 @@ int			parse_symbols(char **form, va_list ap, t_tag *tag)
 	parse_flags(form, tag);
 	parse_width(form, ap, tag);
 	parse_precision(form, ap, tag);
+	parse_len_modifier(form, tag);
 	if (is_set(**form, CONVERSION) == FALSE)
 		return (ERROR);
 	return (0);

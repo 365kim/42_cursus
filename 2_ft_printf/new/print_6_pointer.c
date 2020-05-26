@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_6_pointer.c                                  :+:      :+:    :+:   */
+/*   print_6_pointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 21:38:49 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:13:35 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	return (box);
 }
 
-int			write_pointer(va_list ap, t_tag *tag)
+int			print_pointer(va_list ap, t_tag *tag)
 {
 	char	*res;
 	t_box	*box;
 
-	res = ft_itoa_base_ll(va_arg(ap, long long), HEX_LOW);
+	res = ft_lltoa_base(va_arg(ap, long long), HEX_LOW);
 	box = prepare_box();
 	if ((res = process_precision(tag, box->prcs, res)) == NULL
 			|| (res = process_width(tag, box->width, res)) == NULL)

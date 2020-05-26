@@ -6,14 +6,17 @@ LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c \
 			  ./parse.c \
+			  ./pre_process.c \
+			  ./print_1_char.c \
+			  ./print_2_string.c \
+			  ./print_3_int.c \
+			  ./print_4_unsigned_int.c \
+			  ./print_5_hexa.c \
+			  ./print_6_pointer.c \
+			  ./print_7_percent.c \
+			  ./store_8_nbyte.c \
 			  ./manage_box.c \
-			  ./write_1_char.c \
-			  ./write_2_string.c \
-			  ./write_3_int.c \
-			  ./write_4_unsigned_int.c \
-			  ./write_5_hexa.c \
-			  ./write_6_pointer.c \
-			  ./write_7_percent.c \
+			  ./manage_int_sign.c
 
 OBJS		= $(SRCS:.c=.o)
 INCS		= .

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/24 18:44:07 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:45:36 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@
 static int	write_on_condition(char *form, va_list ap, t_tag *tag)
 {
 	if (*form == 'c')
-		return (write_char(ap, tag));
+		return (pre_process_char(ap, tag));
 	else if (*form == 's')
-		return (write_string(ap, tag));
+		return (pre_process_string(ap, tag));
 	else if (*form == 'd' || *form == 'i')
-		return (write_int(ap, tag));
+		return (pre_process_int(ap, tag));
 	else if (*form == 'u')
-		return (write_unsigned_int(ap, tag));
-	else if (*form == 'x' || *form == 'X')
-		return (write_hexa(ap, tag, *form));
+		return (pre_process_unsigned_int(ap, tag));
+	else if (*form == 'x')
+		return (pre_process_hexa(ap, tag, HEX_LOW));
+	else if (*form == 'X')
+		return (pre_process_hexa(ap, tag, HEX_UP));
 	else if (*form == 'p')
-		return (write_pointer(ap, tag));
+		return (print_pointer(ap, tag));
 	else if (*form == '%')
-		return (write_percent(tag));
-	//else if (*form == 'n')
-	//	return (write_nbyte(tag));
+		return (print_percent(tag));
+	else if (*form == 'n')
+		return (store_nbyte(ap, tag));
 	else
 		return (ERROR);
 }
@@ -49,6 +51,7 @@ static void	prepare_new_tag(t_tag *tag)
 	tag->plus = DISABLED;
 	tag->space = DISABLED;
 	tag->hexa = DISABLED;
+	tag->len_mod = DISABLED;
 	tag->sign = '\0';
 	tag->padding = ' ';
 }
