@@ -1,0 +1,122 @@
+* **************************************************** *
+*                                                      *
+*    printf's behavior with conversion specifier %u    *
+*                                                      *
+* **************************************************** *
+
+printf("%u", 12345)
+		result : |12345|
+		return : 5
+printf("%u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%3u", 12345)
+		result : |12345|
+		return : 5
+printf("%7u", 12345)
+		result : |  12345|
+		return : 7
+printf("%-7u", 12345)
+		result : |12345  |
+		return : 7
+printf("%-u", 12345)
+		result : |12345|
+		return : 5
+printf("%*u", 7, 12345)
+		result : |  12345|
+		return : 7
+printf("%*u", -7, 12345)
+		result : |12345  |
+		return : 7
+printf("%.u", 12345)
+		result : |12345|
+		return : 5
+printf("%.0u", 12345)
+		result : |12345|
+		return : 5
+printf("%.3u", 12345)
+		result : |12345|
+		return : 5
+printf("%.7u", 12345)
+		result : |0012345|
+		return : 7
+printf("%-.7u", 12345)
+		result : |0012345|
+		return : 7
+printf("%-9.7u", 12345)
+		result : |0012345  |
+		return : 9
+printf("%9.7u", 12345)
+		result : |  0012345|
+		return : 9
+printf("%-7.9u", 12345)
+		result : |000012345|
+		return : 9
+printf("%-3.7u", 12345)
+		result : |0012345|
+		return : 7
+printf("%-7.3u", 12345)
+		result : |12345  |
+		return : 7
+printf("%.3u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%.7u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%-.7u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%-9.7u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%-7.9u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%-3.7u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%-7.3u", -12345)
+		result : |4294954951|
+		return : 10
+printf("%0u", 12345)
+		result : |12345|
+		return : 5
+printf("%07u", 12345)
+		result : |0012345|
+		return : 7
+printf("%u", 0)
+		result : |0|
+		return : 1
+printf("%3u", 0)
+		result : |  0|
+		return : 3
+printf("%3.u", 0)
+		result : |   |
+		return : 3
+printf("%03u", 0)
+		result : |000|
+		return : 3
+printf("%09.0u", 12345)
+		result : |    12345|
+		return : 9
+printf("%09.7u", 12345)
+		result : |  0012345|
+		return : 9
+printf("%07.9u", 12345)
+		result : |000012345|
+		return : 9
+printf("%.u", 0)
+		result : ||
+		return : 0
+printf("%.3u", 0)
+		result : |000|
+		return : 3
+printf("% u", 12345)
+		undefined behaviour warning : flag ' ' with 'u'
+printf("%+u", 12345)
+		undefined behaviour warning : flag '+' with 'u'
+printf("%#u", 0)
+		undefined behavior warning: flag '#' with 'u'
+
+
