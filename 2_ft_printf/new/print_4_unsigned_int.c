@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 17:29:44 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 22:08:31 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int		print_unsigned_int(t_tag *tag, char *res)
 {
 	t_box *box;
 
-	if (tag == NULL || res == NULL)
-		return (ERROR);
 	box = prepare_box();
 	res = prepare_sign(tag, res);
 	if ((res = process_precision(tag, box->prcs, res)) == NULL

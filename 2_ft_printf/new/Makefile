@@ -5,7 +5,7 @@ LIBFT		= libft
 LIBFT_LIB	= libft.a
 
 SRCS		= ./ft_printf.c \
-			  ./parse.c \
+			  ./parse_all.c \
 			  ./pre_process.c \
 			  ./print_1_char.c \
 			  ./print_2_string.c \

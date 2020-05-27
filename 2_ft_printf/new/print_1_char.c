@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 20:41:34 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 22:06:50 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int			print_char(t_tag *tag, char c)
 	char *res;
 	t_box *box;
 
-	if (tag  == NULL)
-		return (ERROR);
 	if (tag->prcs > 0)
 		return (UNDEFINED_BEHAVIOR);
 	box = prepare_box();
