@@ -6,12 +6,11 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 17:45:36 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 19:59:47 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 /*
 ** - Parse symbols in the argument 'form' into 'tag'.

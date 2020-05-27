@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:06:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 17:50:12 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 20:02:00 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	pre_process_char(va_list ap, t_tag *tag)
 	return (ERROR);
 }
 
-int pre_process_str(va_list ap, t_tag *tag)
+int pre_process_string(va_list ap, t_tag *tag)
 {
 	wchar_t	*ws;
 	char	*res;
@@ -89,7 +89,7 @@ int pre_process_unsigned_int(va_list ap, t_tag *tag)
 		return (ERROR);
 	return (print_unsigned_int(tag, res));
 }
-int pre_process_hex(va_list ap, t_tag *tag, char *base)
+int pre_process_hexa(va_list ap, t_tag *tag, char *base)
 {
 	char	*res;
 
