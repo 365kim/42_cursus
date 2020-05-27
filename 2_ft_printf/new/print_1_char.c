@@ -6,23 +6,20 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 17:50:31 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 20:41:34 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*process_width(t_tag *tag, char *box, char c)
+static char	*process_width(t_tag *tag, char *box)
 {
-	if (tag->width < 2)
-		tag->width = 1;
+	tag->width--;
+	if (tag->width < 1)
+		return ("");
 	box = fill_box(tag->width, tag->padding);
 	if (box == NULL)
 		return (NULL);
-	if (tag->left_aligned == ENABLED && c != '\0')
-		box[0] = c;
-	else
-		box[tag->width - 1] = c;
 	return (box);
 }
 
@@ -36,15 +33,21 @@ int			print_char(t_tag *tag, char c)
 	if (tag->prcs > 0)
 		return (UNDEFINED_BEHAVIOR);
 	box = prepare_box();
-	if ((res = process_width(tag, box->width, c)) == NULL)
+	if ((res = process_width(tag, box->width)) == NULL)
 	{
 		free_box(box);
 		return (ERROR);
 	}
-	if (c != '\0')
+	if (tag->left_aligned == ENABLED)
+	{
+		ft_putchar(c);
 		tag->nbyte += ft_putstr(res);
+	}
 	else
-		tag->nbyte += ft_putstr(res) + 1;
+	{
+		tag->nbyte += ft_putstr(res);
+		ft_putchar(c);
+	}
 	free_box(box);
 	return (0);
 }
