@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:06:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 22:10:39 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 00:54:04 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,23 @@ int	pre_process_char(va_list ap, t_tag *tag)
 
 int pre_process_string(va_list ap, t_tag *tag)
 {
-	wchar_t	*ws;
+	//wchar_t	*ws;
 	char	*res;
 
 	if (tag->len_mod == DISABLED)
 	{
 		res = (char *)va_arg(ap, char *);
-		if (res == NULL)
-			return (ERROR);
 		return (print_string(tag, res));
 	}
+	/*
 	else if (tag->len_mod == 'l')
 	{
 		ws = va_arg(ap, wchar_t *);
-		//while (ws[i] != L'\0')
+		while (ws[i] != L'\0')
 		res = ft_atouni(ws[0]);
 		return (print_string(tag, res));
 	}
+	*/
 	return (ERROR);
 }
 
@@ -64,10 +64,10 @@ int pre_process_int(va_list ap, t_tag *tag)
 		res = ft_itoa((char)va_arg(ap, int));
 	else if (tag->len_mod == 'h')
 		res = ft_itoa((short)va_arg(ap, int));
-	else if (tag->len_mod == 'l' + 'l')
-		res = ft_itoa((long)va_arg(ap, long));
 	else if (tag->len_mod == 'l')
-		res = ft_itoa((long long)va_arg(ap, long long));
+		res = ft_lltoa((long)va_arg(ap, long));
+	else if (tag->len_mod == 'l' + 'l')
+		res = ft_lltoa((long long)va_arg(ap, long long));
 	else
 		return (ERROR);
 	if (res == NULL)
@@ -77,41 +77,42 @@ int pre_process_int(va_list ap, t_tag *tag)
 
 int pre_process_unsigned_int(va_list ap, t_tag *tag)
 {
-	char		*res;
+	char	*res;
 
 	if (tag->len_mod == DISABLED)
-		res = ft_uitoa((int)va_arg(ap, int));
+		res = ft_uitoa((unsigned int)va_arg(ap, int));
 	else if (tag->len_mod == 'h' + 'h')
-		res = ft_uitoa((char)va_arg(ap, int));
+		res = ft_uitoa((unsigned char)va_arg(ap, int));
 	else if (tag->len_mod == 'h')
-		res = ft_uitoa((short)va_arg(ap, int));
-	else if (tag->len_mod == 'l' + 'l')
-		res = ft_uitoa((long)va_arg(ap, long));
+		res = ft_uitoa((unsigned short)va_arg(ap, int));
 	else if (tag->len_mod == 'l')
-		res = ft_uitoa((long long)va_arg(ap, long long));
+		res = ft_ulltoa((unsigned long)va_arg(ap, long));
+	else if (tag->len_mod == 'l' + 'l')
+		res = ft_ulltoa((unsigned long long)va_arg(ap, long long));
 	else
 		return (ERROR);
 	if (res == NULL)
 		return (ERROR);
 	return (print_unsigned_int(tag, res));
 }
-int pre_process_hexa(va_list ap, t_tag *tag, char *base)
+
+int pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv)
 {
 	char	*res;
 
 	if (tag->len_mod == DISABLED)
-		res = ft_itoa_base(va_arg(ap, int), base);
+		res = ft_itoa_base((int)va_arg(ap, int), base);
 	else if (tag->len_mod == 'h' + 'h')
-		res = ft_itoa_base((char)va_arg(ap, int), base);
+		res = ft_itoa_base((unsigned char)va_arg(ap, int), base);
 	else if (tag->len_mod == 'h')
-		res = ft_itoa_base((short)va_arg(ap, int), base);
-	else if (tag->len_mod == 'l' + 'l')
-		res = ft_itoa_base((long)va_arg(ap, long), base);
+		res = ft_itoa_base((unsigned short)va_arg(ap, int), base);
 	else if (tag->len_mod == 'l')
-		res = ft_itoa_base((long long)va_arg(ap, long long), base);
+		res = ft_lltoa_base((long)va_arg(ap, long), base);
+	else if (tag->len_mod == 'l' + 'l')
+		res = ft_lltoa_base((long long)va_arg(ap, long long), base);
 	else
 		return (ERROR);
 	if (res == NULL)
 		return (ERROR);
-	return (print_hexa(tag, res));
+	return (print_hexa(tag, res, conv));
 }

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_ulltoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 14:58:52 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 14:59:09 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 22:23:00 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_uitoa(unsigned int n)
+char	*ft_ulltoa(unsigned long long n)
 {
-	unsigned int	div;
-	unsigned int    len;
-	char	        *res;
+	unsigned long long	div;
+	int					len;
+	char				*res;
 
 	div = n;
 	len = (n == 0) ? 1 : 0;
