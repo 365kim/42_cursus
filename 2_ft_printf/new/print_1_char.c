@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 22:06:50 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 01:04:02 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,9 @@ int			print_char(t_tag *tag, char c)
 		return (ERROR);
 	}
 	if (tag->left_aligned == ENABLED)
-	{
-		ft_putchar(c);
-		tag->nbyte += ft_putstr(res);
-	}
+		tag->nbyte += ft_putchar(c) + ft_putstr(res);
 	else
-	{
-		tag->nbyte += ft_putstr(res);
-		ft_putchar(c);
-	}
+		tag->nbyte += ft_putstr(res) + ft_putchar(c);
 	free_box(box);
 	return (0);
 }
