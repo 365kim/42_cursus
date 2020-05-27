@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 21:49:05 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 23:32:28 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void parse_flags(char **form, t_tag *tag)
 		**form == '0' ? tag->zero_fill = ENABLED : SKIP;
 		**form == '+' ? tag->plus = ENABLED : SKIP;
 		**form == ' ' ? tag->space = ENABLED : SKIP;
-		**form == '#' ? tag->hexa = ENABLED : SKIP;
+		**form == '#' ? tag->hexa = H_ENABLED : SKIP;
 		(*form)++;
 	}
 }

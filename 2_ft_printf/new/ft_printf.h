@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 17:55:51 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 01:00:40 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define HEX_LOW "0123456789abcdef"
 # define HEX_UP "0123456789ABCDEF"
 
+# define H_ENABLED 2
+# define H_DISABLED 0
 # define ENABLED 1
 # define DISABLED -1
 # define ERROR -1
@@ -80,13 +82,13 @@ int	pre_process_char(va_list ap, t_tag *tag);
 int pre_process_string(va_list ap, t_tag *tag);
 int pre_process_int(va_list ap, t_tag *tag);
 int pre_process_unsigned_int(va_list ap, t_tag *tag);
-int pre_process_hexa(va_list ap, t_tag *tag, char *base);
+int pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv);
 
 int	print_char(t_tag *tag, char c);
 int	print_string(t_tag *tag, char *res);
 int	print_int(t_tag *tag, char *res);
 int	print_unsigned_int(t_tag *tag, char *res);
-int	print_hexa(t_tag *tag, char *res);
+int	print_hexa(t_tag *tag, char *res, char conv);
 int	print_pointer(va_list ap, t_tag *tag);
 int	print_percent(t_tag *tag);
 int	store_nbyte(va_list ap, t_tag *tag);

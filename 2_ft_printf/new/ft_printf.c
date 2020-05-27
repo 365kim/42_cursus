@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:22:45 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 19:59:47 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 00:54:30 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	write_on_condition(char *form, va_list ap, t_tag *tag)
 	else if (*form == 'u')
 		return (pre_process_unsigned_int(ap, tag));
 	else if (*form == 'x')
-		return (pre_process_hexa(ap, tag, HEX_LOW));
+		return (pre_process_hexa(ap, tag, HEX_LOW, 'x'));
 	else if (*form == 'X')
-		return (pre_process_hexa(ap, tag, HEX_UP));
+		return (pre_process_hexa(ap, tag, HEX_UP, 'X'));
 	else if (*form == 'p')
 		return (print_pointer(ap, tag));
 	else if (*form == '%')
@@ -49,7 +49,7 @@ static void	prepare_new_tag(t_tag *tag)
 	tag->zero_fill = DISABLED;
 	tag->plus = DISABLED;
 	tag->space = DISABLED;
-	tag->hexa = DISABLED;
+	tag->hexa = H_DISABLED;
 	tag->len_mod = DISABLED;
 	tag->sign = '\0';
 	tag->padding = ' ';
