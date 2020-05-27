@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 22:06:33 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/27 23:56:19 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,14 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 int			print_string(t_tag *tag, char *res)
 {
 	t_box	*box;
+	int		flag;
 
+	flag = DISABLED;
 	if (res == NULL)
+	{
 		res = ft_strndup("(null)", 6);
+		flag = ENABLED;
+	}
 	box = prepare_box();
 	if ((res = process_precision(tag, box->prcs, res)) == NULL
 		|| (res = process_width(tag, box->width, res)) == NULL)
@@ -55,5 +60,7 @@ int			print_string(t_tag *tag, char *res)
 	}
 	tag->nbyte += ft_putstr_n(res, ft_strlen(res));
 	free_box(box);
+	if (flag == ENABLED)
+		free(res);
 	return (0);
 }
