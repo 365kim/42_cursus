@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 22:08:31 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:44:20 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	*process_width(t_tag *tag, char *box, char *s)
 	return (process_sign(tag, box, s_len));
 }
 
-int		print_unsigned_int(t_tag *tag, char *res)
+int			print_unsigned_int(t_tag *tag, char *res)
 {
 	t_box *box;
 

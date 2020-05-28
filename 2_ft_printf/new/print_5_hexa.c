@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 01:08:18 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:44:59 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*process_precision(t_tag *tag, char *box, char *s)
 	return (box);
 }
 
-static void process_pound(t_tag *tag, char *box, char conv, int s_len)
+static void	process_pound(t_tag *tag, char *box, char conv, int s_len)
 {
 	char hexa[3];
 

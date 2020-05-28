@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 10:02:41 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:43:31 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*process_precision(t_tag *tag, char *box, char *s)
 {
-	if (tag->prcs == DISABLED || 
+	if (tag->prcs == DISABLED ||
 			(tag->prcs != 0 && tag->prcs >= ft_strlen(s)))
 		return (s);
 	box = malloc(sizeof(char) * (tag->prcs + 1));

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/21 15:54:50 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 01:04:02 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:43:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static char	*process_width(t_tag *tag, char *box)
 
 int			print_char(t_tag *tag, char c)
 {
-	char *res;
-	t_box *box;
+	char	*res;
+	t_box	*box;
 
 	if (tag->prcs > 0)
 		return (UNDEFINED_BEHAVIOR);

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:06:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 17:18:05 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:42:21 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	pre_process_char(va_list ap, t_tag *tag)
 	return (ERROR);
 }
 
-int pre_process_string(va_list ap, t_tag *tag)
+int	pre_process_string(va_list ap, t_tag *tag)
 {
 	wchar_t	*ws;
 	char	*res;
@@ -60,7 +60,7 @@ int pre_process_string(va_list ap, t_tag *tag)
 	return (ERROR);
 }
 
-int pre_process_int(va_list ap, t_tag *tag)
+int	pre_process_int(va_list ap, t_tag *tag)
 {
 	char		*res;
 
@@ -81,7 +81,7 @@ int pre_process_int(va_list ap, t_tag *tag)
 	return (print_int(tag, res));
 }
 
-int pre_process_unsigned_int(va_list ap, t_tag *tag)
+int	pre_process_unsigned_int(va_list ap, t_tag *tag)
 {
 	char	*res;
 
@@ -102,7 +102,7 @@ int pre_process_unsigned_int(va_list ap, t_tag *tag)
 	return (print_unsigned_int(tag, res));
 }
 
-int pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv)
+int	pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv)
 {
 	char	*res;
 

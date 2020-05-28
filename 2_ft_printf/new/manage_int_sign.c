@@ -6,13 +6,13 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:00:55 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/26 16:01:48 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:40:47 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *prepare_sign(t_tag *tag, char *s)
+char	*prepare_sign(t_tag *tag, char *s)
 {
 	if (s[0] == '-')
 	{

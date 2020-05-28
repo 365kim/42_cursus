@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 18:19:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 01:00:40 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:53:11 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define EQUAL 0
 # define SKIP 0
 
-typedef struct s_tag
+typedef struct	s_tag
 {
 	int		nbyte;
 	int		left_aligned;
@@ -58,54 +58,45 @@ typedef struct	s_box
 	char *width;
 }				t_box;
 
-typedef struct s_ptr
-{
-	long long *llptr;
-	long *lptr;
-	signed char *cptr;
-	short int *sptr;
-	int			*iptr;
-}				t_ptr;
-
 /*
 *****************************   MAIN FUNCTION   *******************************
 */
 
-int		ft_printf(const char *format, ...);
-int		parse_symbols(char **form, va_list ap, t_tag *tag);
+int				ft_printf(const char *format, ...);
+int				parse_symbols(char **form, va_list ap, t_tag *tag);
 
 /*
 *****************************   WRITE ON CONDITION   ***********************
 */
 
-int	pre_process_char(va_list ap, t_tag *tag);
-int pre_process_string(va_list ap, t_tag *tag);
-int pre_process_int(va_list ap, t_tag *tag);
-int pre_process_unsigned_int(va_list ap, t_tag *tag);
-int pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv);
+int				pre_process_char(va_list ap, t_tag *tag);
+int				pre_process_string(va_list ap, t_tag *tag);
+int				pre_process_int(va_list ap, t_tag *tag);
+int				pre_process_unsigned_int(va_list ap, t_tag *tag);
+int				pre_process_hexa(va_list ap, t_tag *tag, char *base, char conv);
 
-int	print_char(t_tag *tag, char c);
-int	print_string(t_tag *tag, char *res);
-int	print_int(t_tag *tag, char *res);
-int	print_unsigned_int(t_tag *tag, char *res);
-int	print_hexa(t_tag *tag, char *res, char conv);
-int	print_pointer(va_list ap, t_tag *tag);
-int	print_percent(t_tag *tag);
-int	store_nbyte(va_list ap, t_tag *tag);
+int				print_char(t_tag *tag, char c);
+int				print_string(t_tag *tag, char *res);
+int				print_int(t_tag *tag, char *res);
+int				print_unsigned_int(t_tag *tag, char *res);
+int				print_hexa(t_tag *tag, char *res, char conv);
+int				print_pointer(va_list ap, t_tag *tag);
+int				print_percent(t_tag *tag);
+int				store_nbyte(va_list ap, t_tag *tag);
 
 /*
 *****************************   MANAGE BOX   ***********************************
 */
 
-t_box	*prepare_box(void);
-char	*fill_box(int size, char tag_padding);
-void	free_box(t_box *box);
+t_box			*prepare_box(void);
+char			*fill_box(int size, char tag_padding);
+void			free_box(t_box *box);
 
 /*
-*****************************   MANAGE SIGN   ***********************************
+*****************************   MANAGE SIGN   **********************************
 */
-char 	*prepare_sign(t_tag *tag, char *s);
-char	*process_sign(t_tag *tag, char *box, int s_len);
 
+char			*prepare_sign(t_tag *tag, char *s);
+char			*process_sign(t_tag *tag, char *box, int s_len);
 
 #endif

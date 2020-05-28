@@ -6,13 +6,13 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 21:06:16 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/27 23:32:28 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:41:37 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void parse_flags(char **form, t_tag *tag)
+static void	parse_flags(char **form, t_tag *tag)
 {
 	while (is_set(**form, FLAG))
 	{
@@ -25,7 +25,7 @@ static void parse_flags(char **form, t_tag *tag)
 	}
 }
 
-static void parse_width(char **form, va_list ap, t_tag *tag)
+static void	parse_width(char **form, va_list ap, t_tag *tag)
 {
 	char *dup;
 
@@ -51,7 +51,7 @@ static void parse_width(char **form, va_list ap, t_tag *tag)
 	}
 }
 
-static void parse_precision(char **form, va_list ap, t_tag *tag)
+static void	parse_precision(char **form, va_list ap, t_tag *tag)
 {
 	char *dup;
 
@@ -77,7 +77,7 @@ static void parse_precision(char **form, va_list ap, t_tag *tag)
 		tag->prcs = DISABLED;
 }
 
-static void parse_len_modifier(char **form, t_tag *tag)
+static void	parse_len_modifier(char **form, t_tag *tag)
 {
 	if (!is_set(**form, LEN_MODIFIER))
 		return ;

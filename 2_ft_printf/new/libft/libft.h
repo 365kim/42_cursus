@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:21:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 17:18:45 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:54:13 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_putstr_n(char *s, int n);
 void	ft_putnbr_base(long n, char *base);
 
 /*
-*****************************   HELP OPERATING   ********************************
+*****************************   HELP OPERATING   ******************************
 */
 
 int		max(int a, int b);
