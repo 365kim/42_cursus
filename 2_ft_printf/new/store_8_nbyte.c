@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:06:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 17:53:41 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:57:17 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	store_nbyte_ll(va_list ap, t_tag *tag)
 	long long *ptr;
 
 	ptr = (long long *)va_arg(ap, long long *);
-	ptr = tag->nbyte;
+	*ptr = tag->nbyte;
 }
 
 int			store_nbyte(va_list ap, t_tag *tag)
