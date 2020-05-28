@@ -23,7 +23,9 @@ SRCS	= ./ft_putchar.c \
 		  ./ft_strchr.c \
 		  ./ft_strstrhr.c \
 		  ./ft_strndup.c \
+		  ./ft_strjoin.c \
 		  ./ft_memset.c \
+		  ./ft_memcpy.c \
 		  ./max.c \
 		  ./min.c
 

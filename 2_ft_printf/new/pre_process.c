@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 16:06:08 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 00:54:04 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:18:05 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,29 @@ int	pre_process_char(va_list ap, t_tag *tag)
 
 int pre_process_string(va_list ap, t_tag *tag)
 {
-	//wchar_t	*ws;
+	wchar_t	*ws;
 	char	*res;
+	char	*join;
+	int		i;
 
 	if (tag->len_mod == DISABLED)
 	{
-		res = (char *)va_arg(ap, char *);
+		res = va_arg(ap, char *);
 		return (print_string(tag, res));
 	}
-	/*
 	else if (tag->len_mod == 'l')
 	{
 		ws = va_arg(ap, wchar_t *);
-		while (ws[i] != L'\0')
 		res = ft_atouni(ws[0]);
+		i = 1;
+		while (ws[i] != L'\0')
+		{
+			join = ft_strjoin(res, ft_atouni(ws[i++]));
+			res = join;
+			free(join);
+		}
 		return (print_string(tag, res));
 	}
-	*/
 	return (ERROR);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 00:21:33 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/28 00:38:27 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/05/28 17:18:45 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ int		ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strstrhr(const char *s, char *set);
 char	*ft_strndup(const char *s1, int size);
+char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_memset(void *arr, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 /*
 *****************************   HELP WRITING   ********************************
