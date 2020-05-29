@@ -27,4 +27,4 @@
 8. [Transport Layer](./8_Transport_layer)
 9. [Network Layer](./9_Network_layer)
 
-- Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
+- Source : [adblanc/netwhat42-train](http://github.com/adblanc/netwhat42-train)
