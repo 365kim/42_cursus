@@ -7,8 +7,8 @@
     - `10/12 correct functions` & `bonus seg-fault`
 3. 20/04/17
     - `11/12 correct functions` & `bonus seg-fault`
-4. 20/05/00
-    - **00 score** (mandatory 00 + bonus 00)
+4. 20/05/29
+    - **110 score** _(mandatory 100 + bonus 10)_
 ***
 
 ### :bulb: Objective
@@ -19,21 +19,19 @@
 
 ### :bulb: Codes
 0. Preview to understand printf's behavior
-    - [%c](./examples/%c), [%s](./examples/%s), [%p](./examples/%p), [%d](./examples/%d), [%u](./examples/%u), [%x](./examples/%x), [%%](./examples/%%)
+    - [***%c***](./examples/%c), [***%s***](./examples/%s), [***%p***](./examples/%p), [***%d***](./examples/%d), [***%u***](./examples/%u), [***%x***](./examples/%x), [***%%***](./examples/%%)
 1. Mandatory Part
     - ***conversion***: c, s, p, d, i u, x, X, %
     - ***flag***: -, 0, ., *
-    - [***Makefile***](./Makefile), [***ft_printf.c***](./ft_printf.c), [***ft_printf.h***](./ft_printf.h)
-    - [***parse_all***](./parse_all.c), [***manage_box.c***](./manage_box.c), [***manage_int_sign.c***](./manage_int_sign.c)
-    - [***1_print_%c***](./print_1_char.c), [***2_print_%s***](./print_2_string.c), [***3_print_%di***](./print_3_int.c), [***4_print_%u***](./print_4_unsigned_int.c), [***5_print_%xX***](./print_5_hexa.c), [***6_print_%p***](./print_6_pointer.c), [***7_print_%%***](./print_7_percent.c)
+    - [***Makefile***](./new/Makefile), [***ft_printf.c***](./new/ft_printf.c), [***ft_printf.h***](./new/ft_printf.h)
+    - [***parse_all***](./new/parse_all.c), [***manage_box.c***](./new/manage_box.c), [***manage_int_sign.c***](./new/manage_int_sign.c)
+    - [***print%c***](./new/print_1_char.c), [***print%s***](./new/print_2_string.c), [***print%d%i***](./new/print_3_int.c), [***print%u***](./new/print_4_unsigned_int.c), [***print%x%X***](./new/print_5_hexa.c), [***print%p***](./new/print_6_pointer.c), [***print%%***](./new/print_7_percent.c)
 
 2. Bonus Part: 
     - ***conversion***(one or more): n, ~f~, ~g~, ~e~
     - ***length modifier***(one or more): l, ll, h, hh
     - ***flag***(all): #, ' ',+
-    - [***store_nbyte***](./store_8_nbyte.c)
-    - [***UTF-8***](./ft_atouni.c)
-    - [***pre_process***](./pre_process.c)
+    - [***store_nbyte***](./new/store_8_nbyte.c), [***convert_to_UTF-8***](./new/libft/ft_atouni.c), [***pre_process***](./new/pre_process.c)
 ---
 
 ### :bulb: Useful Links
