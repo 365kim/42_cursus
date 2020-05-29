@@ -19,7 +19,7 @@
 
 ### :bulb: Codes
 0. Preview to understand printf's behavior
-    - [***%c***](./examples/%c), [***%s***](./examples/%s), [***%p***](./examples/%p), [***%d***](./examples/%d), [***%u***](./examples/%u), [***%x***](./examples/%x), [***%%***](./examples/%%)
+    - [***%c***](./examples/%25c), [***%s***](./examples/%25s), [***%p***](./examples/%25p), [***%d***](./examples/%25d), [***%u***](./examples/%25u), [***%x***](./examples/%25x), [***%%***](./examples/%25%25)
 1. Mandatory Part
     - ***conversion***: c, s, p, d, i u, x, X, %
     - ***flag***: -, 0, ., *
