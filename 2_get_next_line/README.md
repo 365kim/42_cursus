@@ -34,3 +34,7 @@
     ```
     git clone https://github.com/Alexandre94H/gnl-war-machine-v2019.git
     ```
+- 42TESTERS-GNL by [_Mazoise_](https://github.com/Mazoise/42TESTERS-GNL)
+    ```
+    git clone https://github.com/Mazoise/42TESTERS-GNL.git
+    ```
