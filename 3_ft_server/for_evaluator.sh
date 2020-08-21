@@ -6,10 +6,12 @@ name_of_image="tmp"
 name_of_container="cont"
 
 
+
 ### 1. Build an image from a 'Dockerfile' using the current directory as context
 #      -t, --tag list                Name and optionally a tag in the 'name:tag' format
 
 docker build -t ${name_of_image} .
+
 
 
 ### 2. Run a command in a new container
