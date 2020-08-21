@@ -67,7 +67,7 @@
     Answer : Class F
 <br>
 
-### :speech_balloon: 연습문제 : 아이피주소 크기
+### :speech_balloon: 연습문제 : 루프백 주소
 #### Q. To the test IP stack on your local host, which IP address would you ping?
     - 127.0.0.0
     - 1.0.0.127
