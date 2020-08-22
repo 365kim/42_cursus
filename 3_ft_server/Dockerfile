@@ -1,26 +1,26 @@
-FROM	debian:buster
+FROM    debian:buster
 
-LABEL	maintainer="mihykim@student.42seoul.kr"
+LABEL   maintainer="mihykim@student.42seoul.kr"
 
-RUN		apt-get update && apt-get install -y \
-		nginx \
-		mariadb-server \
-		php-fpm \
-		php-mysql \
-		php-cli \
-		php-mbstring \
-		openssl
+RUN    	apt-get update && apt-get install -y \
+    	nginx \
+    	mariadb-server \
+    	php-fpm \
+    	php-mysql \
+    	php-cli \
+    	php-mbstring \
+    	openssl
 
-COPY	srcs/init.sh ./
-COPY	srcs/nginx.conf /etc/nginx/sites-available/localhost
-COPY	srcs/config.inc.php /var
-COPY	srcs/wp-config.php /var
-COPY	srcs/phpMyAdmin-4.9.0.1-all-languages.tar.gz ./
-COPY	srcs/wordpress-5.4.1.tar.gz ./
+COPY    srcs/init.sh ./
+COPY    srcs/nginx.conf /etc/nginx/sites-available/localhost
+COPY    srcs/config.inc.php /var
+COPY    srcs/wp-config.php /var
+COPY    srcs/phpMyAdmin-4.9.0.1-all-languages.tar.gz ./
+COPY    srcs/wordpress-5.4.1.tar.gz ./
 
-EXPOSE	80 443
+EXPOSE  80 443
 
-CMD		bash init.sh
+CMD    	bash init.sh
 
 
 
