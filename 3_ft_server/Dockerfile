@@ -23,8 +23,7 @@ EXPOSE  80 443
 CMD    	bash init.sh
 
 
-
-### Description
+#### Description
 #
 # 0. Dockerfile
 #    - Docker will run instructions above in order
