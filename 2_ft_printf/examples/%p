@@ -5,37 +5,40 @@
 * **************************************************** *
 
 printf("%p", ptr)
-		result : |0x1103f31d2|
+		result : |0x110656036|
 		return : 11
 printf("%p", void_ptr)
-		result : |0x7ffee025e9c0|
+		result : |0x7ffee556db08|
 		return : 14
 printf("%p", NULL)
 		result : |0x0|
 		return : 3
 printf("%5p", ptr)
-		result : |0x1103f31d2|
+		result : |0x110656036|
+		return : 11
+printf("%10p", ptr)
+		result : |0x110656036|
 		return : 11
 printf("%15p", ptr)
-		result : |    0x1103f31d2|
+		result : |    0x110656036|
 		return : 15
 printf("%-15p", ptr)
-		result : |0x1103f31d2    |
+		result : |0x110656036    |
 		return : 15
 printf("%-p", ptr)
-		result : |0x1103f31d2|
+		result : |0x110656036|
 		return : 11
 printf("%*p", 15, ptr)
-		result : |    0x1103f31d2|
+		result : |    0x110656036|
 		return : 15
 printf("%*p", -15, ptr)
-		result : |0x1103f31d2    |
+		result : |0x110656036    |
 		return : 15
 printf("%.p", ptr)
-		result : |0x1103f31d2|
+		result : |0x110656036|
 		return : 11
 printf("%.p", void_ptr)
-		result : |0x7ffee025e9c0|
+		result : |0x7ffee556db08|
 		return : 14
 printf("%.p", NULL)
 		result : |0x|

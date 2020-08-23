@@ -6,7 +6,7 @@
 /*   By: mihykim <mihykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:46:35 by mihykim           #+#    #+#             */
-/*   Updated: 2020/05/23 19:16:19 by mihykim          ###   ########.fr       */
+/*   Updated: 2020/08/23 19:42:52 by mihykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int		main(void)
 
 	printf("printf(\"%%5p\", ptr)\n");
 	printf("return : %d\n", printf("\t\tresult : |%5p|\n\t\t", ptr) - 16);
+
+	printf("printf(\"%%10p\", ptr)\n");
+	printf("return : %d\n", printf("\t\tresult : |%10p|\n\t\t", ptr) - 16);
 
 	printf("printf(\"%%15p\", ptr)\n");
 	printf("return : %d\n", printf("\t\tresult : |%15p|\n\t\t", ptr) - 16);
