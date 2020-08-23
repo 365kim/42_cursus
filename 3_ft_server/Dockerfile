@@ -9,14 +9,16 @@ RUN    	apt-get update && apt-get install -y \
     	php-mysql \
     	php-cli \
     	php-mbstring \
-    	openssl
+    	openssl \
+    	vim
 
-COPY    srcs/init.sh ./
 COPY    srcs/nginx.conf /etc/nginx/sites-available/localhost
 COPY    srcs/config.inc.php /var
 COPY    srcs/wp-config.php /var
-COPY    srcs/phpMyAdmin-4.9.0.1-all-languages.tar.gz ./
+COPY    srcs/phpMyAdmin-4.9.0.1.tar.gz ./
 COPY    srcs/wordpress-5.4.1.tar.gz ./
+COPY    srcs/init.sh ./
+COPY    srcs/theme.tar.gz ./
 
 EXPOSE  80 443
 

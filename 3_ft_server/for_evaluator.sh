@@ -2,8 +2,8 @@
 #      - Double check whether Docker Desktop is running.
 #      - Start evaluation from the ft_server directory.
 
-name_of_image="tmp"
-name_of_container="cont"
+name_of_image="coffee"
+name_of_container="sleep"
 
 
 
