@@ -23,15 +23,15 @@
 1. Mandatory Part
     - ***conversion***: c, s, p, d, i u, x, X, %
     - ***flag***: -, 0, ., *
-    - [***Makefile***](./new/Makefile), [***ft_printf.c***](./new/ft_printf.c), [***ft_printf.h***](./new/ft_printf.h)
-    - [***parse_all***](./new/parse_all.c), [***manage_box.c***](./new/manage_box.c), [***manage_int_sign.c***](./new/manage_int_sign.c)
-    - [***print%c***](./new/print_1_char.c), [***print%s***](./new/print_2_string.c), [***print%d%i***](./new/print_3_int.c), [***print%u***](./new/print_4_unsigned_int.c), [***print%x%X***](./new/print_5_hexa.c), [***print%p***](./new/print_6_pointer.c), [***print%%***](./new/print_7_percent.c)
+    - [***Makefile***](./ft_printf/Makefile), [***ft_printf.c***](./ft_printf/ft_printf.c), [***ft_printf.h***](./ft_printf/ft_printf.h)
+    - [***parse_all***](./ft_printf/parse_all.c), [***manage_box.c***](./ft_printf/manage_box.c), [***manage_int_sign.c***](./ft_printf/manage_int_sign.c)
+    - [***print%c***](./ft_printf/print_1_char.c), [***print%s***](./ft_printf/print_2_string.c), [***print%d%i***](./ft_printf/print_3_int.c), [***print%u***](./ft_printf/print_4_unsigned_int.c), [***print%x%X***](./ft_printf/print_5_hexa.c), [***print%p***](./ft_printf/print_6_pointer.c), [***print%%***](./ft_printf/print_7_percent.c)
 
 2. Bonus Part: 
     - ***conversion***(one or more): n, ~f~, ~g~, ~e~
     - ***length modifier***(one or more): l, ll, h, hh
     - ***flag***(all): #, ' ',+
-    - [***store_nbyte***](./new/store_8_nbyte.c), [***convert_to_UTF-8***](./new/libft/ft_atouni.c), [***pre_process***](./new/pre_process.c)
+    - [***store_nbyte***](./ft_printf/store_8_nbyte.c), [***convert_to_UTF-8***](./ft_printf/libft/ft_atouni.c), [***pre_process***](./ft_printf/pre_process.c)
 ---
 
 ### :bulb: Useful Links
