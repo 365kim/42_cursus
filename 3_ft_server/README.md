@@ -23,8 +23,22 @@
         - [__theme.tar.gz__](./srcs/theme.tar.gz) _(not necessary)_
 
 2. Bonus Part: N/A
----
 
+---
+### :bulb: Check if...
+- all the necessary configuration files of the server are in the folder __srcs__.
+- the __Dockerfile__ is at the root of the repository.
+- you can run the `docker build .` command.
+- the you have only one container, which is built with __Debian Buster__.
+- you can run the container with `docker run xxx` without problems.
+- __Nginx__ uses the __SSL protocol__.
+- the server __redirects__ to the correct website, according to the url.
+- the server runs multiple services __(WordPress and phpMyAdmin)__.
+- the server is running with an __autoindex__ which can be deactivated when the container is launched (via an environment variable for example).
+- the WordPress website runs entirely with the MySQL database. You can __go to the site, log in, and watch the database__.
+- the SQL database works with phpMyAdmin. You should see the WordPress __tables and data__.
+
+---
 ### :bulb: Useful Links
 - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) _(official)_
 - [Docker run reference](https://docs.docker.com/engine/reference/run/#expose-incoming-ports) _(official)_
