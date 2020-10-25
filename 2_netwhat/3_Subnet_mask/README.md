@@ -5,7 +5,7 @@
     - 255.000.000.000 == 11111111 00000000 00000000 00000000 == /**8**
     - 255.254.000.000 == 11111111 11111110 00000000 00000000 == /**15**
     - 255.255.255.255 == 11111111 11111111 11111111 11111111 == /**32**
-- 참고 : [서브넷마스크](https://namu.wiki/w/%EC%84%9C%EB%B8%8C%EB%84%B7%20%EB%A7%88%EC%8A%A4%ED%81%AC), [CIDR(클래스 없는 도메인간 라우팅 기법)](https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%EB%8D%94_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9))
+- 참고 : [서브넷마스크](https://namu.wiki/w/%EC%84%9C%EB%B8%8C%EB%84%B7%20%EB%A7%88%EC%8A%A4%ED%81%AC), [CIDR(클래스 없는 도메인간 라우팅 기법)](https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%EB%8D%94_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9)), [Class A,B,C의 디폴트 서브넷마스크](http://www.tcpipguide.com/free/t_IPDefaultSubnetMasksForAddressClassesABandC.htm)
 <br>
 
 ### :speech_balloon: 연습문제 : CIDR표기
@@ -38,4 +38,11 @@
 
     Answer : 255.255.255.0
 
-- Source : [adblanc/netwhat42-train](github.com/adblanc/netwhat42)
+#### Q. What is the default subnet mask for a class C network?
+    - 127.0.0.1
+    - 255.0.0.0
+    - 255.255.0.0
+    - 255.255.255.0
+
+    Answer : 255.255.255.0
+
