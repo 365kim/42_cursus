@@ -21,6 +21,14 @@
    - Test the original game [here](http://users.atw.hu/wolf3d/)
      ![image](https://user-images.githubusercontent.com/60066472/95551029-ea4e8380-0a44-11eb-9931-68307f7128aa.png)
 
+- What is miniLibX?
+  - A small homemade library, which will allow you to open windows on the screen and make pretty drawings inside.
+  - `man mlx` : how it works
+  - `man mlx_new_window` : how to manage windows
+  - `man mlx_pixel_put` : how to draw inside the window
+  - `man mlx_new_image` : how to manipulate the images
+  - `man mlx_loop`
+
 1. Mandatory Part
 
    -
@@ -70,7 +78,7 @@
 
   - the program opens a window at the launch of the program when the **--save** argument is not supplied with the resolution as set in the configuration file.
   - the image representing the maze is displayed inside the window.
-  - the program does not open a window When the **--save** arguemnt is supplied, and output **.bmp** file with the resolution as defined in the configuration file (R key).
+  - the program does not open a window when the **--save** arguemnt is supplied, and output **.bmp** file with the resolution as defined in the configuration file (R key).
   - the content of the window remains consistent while hiding a part of the window, minimizing the windows and maximizing it back.
   - the program resizes the window to fit the screen resolution, if the resolution in the config file greater is than the actual screen resolution.
 
@@ -104,4 +112,8 @@
 
 ### :bulb: Useful Links
 
--
+- [Complete list of AppleScript key codes](https://eastmanreference.com/complete-list-of-applescript-key-codes)
+- [Virtual Keycodes for the Mac QWERTY Layout](http://www.meandmark.com/keycodes.html)
+- [mlx Tutorial](https://github.com/taelee42/mlx_example)
+- [Clipart Library](http://clipart-library.com/)
+- [Convertio - PNG to XPM](https://convertio.co/kr/pricing/?utm_source=hit_dm)
