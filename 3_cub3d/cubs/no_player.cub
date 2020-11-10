@@ -1,0 +1,13 @@
+R 1920 1080
+NO ./statics/textures/christmas_blue_256.xpm
+SO ./statics/textures/christmas_red_256.xpm
+WE ./statics/textures/christmas_brown_256.xpm
+EA ./statics/textures/christmas_green_256.xpm
+
+S ./statics/textures/snowman_256.xpm
+F 200,200,200
+C 250,250,250
+
+1111
+1001
+1111
