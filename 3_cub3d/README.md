@@ -1,9 +1,9 @@
-# ft_server
+# cub3D
 
 ### :bulb: Evaluation Log
 
-1. 20/10/00 :
-   - Not yet
+1. 20/11/10
+ - **108 score** _(mandatory 100 + bonus 8)_
 
 ---
 
@@ -31,7 +31,20 @@
 
 1. Mandatory Part
 
-   -
+    - [***Makefile***](./Makefile)
+    - [***cub3d.h***](./srcs/cub3d.h)
+    - [***cub3d.c***](./srcs/cub3d.c)
+    - [***f01_read_info.c***](./srcs/f01_read_info.c)
+    - [***f02_read_map.c***](./srcs/f02_read_map.c)
+    - [***f03_validate_info_map.c***](./srcs/f03_validate_info_map.c)
+    - [***f04_rearrange_all.c***](./srcs/f04_rearrange_all.c)
+    - [***f05_set_sprite.c***](./srcs/f05_set_sprite.c)
+    - [***f06_run_program.c***](./srcs/f06_run_program.c)
+    - [***f07_execute_raycasting_loop.c***](./srcs/f07_execute_raycasting_loop.c)
+    - [***f08_set_background.c***](./srcs/f08_set_background.c)
+    - [***f08_set_background.c***](./srcs/f08_set_background.c)
+    - [***f10_raycast_sprite.c***](./srcs/f10_raycast_sprite.c)
+    - [***f11_take_screenshot.c***](./srcs/f11_take_screenshot.c)
 
 2. Bonus
 
@@ -117,3 +130,5 @@
 - [mlx Tutorial](https://github.com/taelee42/mlx_example)
 - [Clipart Library](http://clipart-library.com/)
 - [Convertio - PNG to XPM](https://convertio.co/kr/pricing/?utm_source=hit_dm)
+- [Raycasting Tutorial(Korean) - Background](https://github.com/365kim/raycasting_tutorial)
+- [Raycasting Tutorial(Korean) - Sprite](https://github.com/l-yohai/cub3d)
