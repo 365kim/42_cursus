@@ -1,0 +1,3 @@
+- https://cs.lmu.edu/~ray/notes/nasmtutorial/
+- https://www.bencode.net/blob/nasmcheatsheet.pdf
+- http://shell-storm.org/shellcode/files/syscalls.html

@@ -1,4 +1,4 @@
-## STRLEN(3) BSD Library Functions Manual STRLEN(3)
+## BSD Library Functions Manual:　 STRLEN(3)
 
 ### NAME
 strlen, strnlen -- find length of string
@@ -32,4 +32,5 @@ Standard C Library (libc, -lc)
 - The strlen() function conforms to ISO/IEC 9899:1990 (`ISO C90''). 
 - The strnlen() function conforms to IEEE Std 1003.1-2008 (`POSIX.1'').
 
-### BSD February 28, 2009 BSD
+<br/>
+BSD February 28, 2009 BSD
