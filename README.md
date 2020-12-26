@@ -10,9 +10,9 @@
 |        | [**ft_printf**](./2_ft_printf)         |    C     | `variadic arguments` `UTF-8` `bitwise operation` |   2020. 05. 29.    |
 |   3    | [**ft_server**](./3_ft_server)         |    Go    | `docker` `immutable infrastructure` `server`     |   2020. 08. 23.    |
 |        | [**cub3d**](./3_cub3d)                 |    C     | `raycasting` `graphic design` `algorithm`        |   2020. 11. 10.    |
-|   4    | libasm                                 |    ASM   |                                                  |       closed       |
-|        | minishell                              |          |                                                  |       closed       |
-|        | ft_services                            |          |                                                  |       closed       |
+|   4    | [**libasm**](./4_libasm)               |   ASM    | `assembly language` `computer architecture`      |   2020. 12. 22.    |
+|        | [**minishell**](./4_minishell)         |    C     |                                                  |       closed       |
+|        | [**ft_services**](./4_ft_services)     |          |                                                  |       closed       |
 |   5    | CPP Module 01-08                       |          |                                                  |       closed       |
 |        | Philosophers                           |          |                                                  |       closed       |
 |   6    | ft_irc                                 |          |                                                  |       closed       |
